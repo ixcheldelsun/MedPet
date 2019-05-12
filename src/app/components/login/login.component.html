@@ -1,3 +1,134 @@
-<p>
-  login works!
-</p>
+<!-- Inicio Fondo -->
+<div class="fondo">
+  <div class="container">
+      <div class="row mb-5"></div>
+
+      <div class="row  mt-5 mb-5"></div>
+
+      <div class="row">
+
+        <div class="col-3"></div>
+
+        <div class="col-6">
+          <!-- Inicio Cuadro -->
+          <div class="recuadroInicio">
+            
+            <!-- Inicio Fila -->
+            <div class="row mt-3 mb-3 justify-content-center">
+              <h2>LOGO</h2>
+            </div>
+            <!-- Fin Fila -->
+
+            <!-- Inicio Fila -->
+            <div class="row">
+              <!-- Inicio Pills -->
+              <div class="container">
+                <!-- Nav tabs -->
+                  <ul class="nav nav-tabs justify-content-center">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="tab" href="#home">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#menu1">Registrarme</a>
+                    </li>
+                  </ul>
+
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+
+                    <!-- Tab 1 -->
+                    <div class="tab-pane container active" id="home">
+                    
+                    <!-- Form Iniciar Sesion --> 
+                      <form>
+                        <div class="form-group mt-3">
+                          <label for="email">Correo electrónico</label>
+                          <input type="email" class="form-control" id="emailI" placeholder="Correo electrónico">
+                        </div>
+                        <div class="form-group">
+                          <label for="pwd">Contraseña</label>
+                          <input type="password" class="form-control" id="pwdI" placeholder="Contraseña">
+                        </div>
+                        <div class="form-group">
+                          <a>Recuperar contraseña</a>
+                        </div>
+                        <button type="button"  class="btn btn-secondary" >Iniciar Sesión</button>
+                      </form>
+
+                    <!-- Fin Form Iniciar Sesion --> 
+
+                    </div>
+                    <!-- Fin Tab 1 -->
+
+                    <!-- Tab 2 -->
+                    <div class="tab-pane container fade" id="menu1">
+                    
+                    <!-- Form Registro -->  
+                      <form>
+                        <div class="form-group mt-3">
+                              <div class="form-row">
+                                <div class="form-col-6">
+                                  <label>Nombre</label>
+                                  <input  type="text" class="form-control" id="nombreDueno" placeholder="Nombre" >
+                                </div>
+                                <div class="form-6">
+                                    <label>Apellido</label>
+                                    <input  type="text" class="form-control" id="apellidoDueno" placeholder="Apellido" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                          <!-- NgMode em el input -->
+                          <label>Correo electrónico</label>
+                          <input  type="email" class="form-control" id="emailR" placeholder="Correo electronico">
+                        </div>
+                        <div class="form-group">
+                          <label>Contraseña</label>
+                          <input  type="password" class="form-control" id="contrasenaR" placeholder="Contraseña" >
+                        </div>
+                        
+                    
+                        <button  type="button" class="btn btn-secondary">Registrarme</button>
+                        
+                      </form>
+
+                    <!-- Fin Form Registro --> 
+
+                    </div>
+                    <!-- Fin Tab 1 -->
+                    
+                  </div>
+
+              </div>  
+              <!--  Fin Pills -->
+            </div>
+            <!-- Fin Fila -->
+
+            <!-- Inicio Fila -->
+            <div class="row"></div>
+            <!-- Fin Fila -->
+
+          </div>
+          <!-- Fin Cuadro -->
+        </div>
+        <div class="col-3"></div>
+      </div>
+    
+  </div>
+
+<!--Inicio modal-->
+
+<ng-template #template>
+<div class="modal-header">
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+ Usted se ha registrado exitosamente
+</div>
+</ng-template>
+
+<!--Fin modal-->
+</div>
+<!-- Fin Inicio Fondo -->
