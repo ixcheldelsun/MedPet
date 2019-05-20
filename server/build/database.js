@@ -1,14 +1,21 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const promise_mysql_1 = __importDefault(require("promise-mysql"));
-const keys_1 = __importDefault(require("./keys"));
-const pool = promise_mysql_1.default.createPool(keys_1.default.database);
-pool.getConnection()
-    .then(connection => {
-    pool.releaseConnection(connection);
-    console.log('DB is connected');
+const Sequelize = require('sequelize');
+
+const sequelize = new Sequelize('b8mx1vmxorakgmsun3zz', 'uppqowimzzz6ufso', 'bBhEsJ9WSwhSptpoPMd3', {
+  host: 'b8mx1vmxorakgmsun3zz-mysql.services.clever-cloud.com',
+  dialect: 'mysql',
+  define: {
+    freezeTableName: true,
+    timeStamps: false
+  }
 });
-exports.default = pool;
+
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('SUCCESS')
+  })
+  .catch(err => {
+    console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`)
+  });
+
+module.exports = sequelize;
