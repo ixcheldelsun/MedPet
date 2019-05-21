@@ -1,15 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../config/database");
-const Mascota = require("../models/Mascota");
 
-router.get('/', (req, res) => 
-  Mascota.findAll()
-    .then(mascotas => {
-      console.log(mascotas);
-      res.sendStatus(200);
-    })
-    .catch(err => console.log(err)));
+const Mascota = require("../controllers/mascotaController");
+
+//Traer todos los usuarios
+router.get('/', Mascota.findAll);
+
+//Crear un usuario
+router.get('/agregar', Mascota.create);
+
+//Editar un usuario
+router.get('/editar', Mascota.update);
 
 
 module.exports = router;
+
+
+
+
+
+
+   

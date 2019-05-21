@@ -1,6 +1,12 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 
+const cors = require('cors');
+const corsOptions = {
+  origin: 'http://localhost:4200',
+  optionsSuccessStatus: 200
+}
+
 const usuarioRoutes = require('./routes/usuarioRoutes')
 const mascotaRoutes = require('./routes/mascotaRoutes')
 
@@ -13,10 +19,11 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+app.use(cors(corsOptions))
+
 app.get('/', function (req, res) {
   res.send('Hello World!');
 });
-
 
 //Rutas 
 app.use('/usuarios', usuarioRoutes);
