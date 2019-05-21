@@ -9,6 +9,8 @@ const sequelize = new Sequelize('b8mx1vmxorakgmsun3zz', 'uppqowimzzz6ufso', 'bBh
   }
 });
 
+
+
 sequelize
   .authenticate()
   .then(() => {

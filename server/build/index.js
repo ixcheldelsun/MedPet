@@ -1,6 +1,11 @@
-const sequelize = require("./database");
-const app = require("./app");
-app.set("port", process.env.PORT || 7777);
-const server = app.listen(app.get("port"), () => {
-  console.log(`Express running → PORT ${server.address().port}`);
+var express = require('express');
+var app = express();
+var config = require('../config');
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+app.listen(config.port, function () {
+  console.log('Example app listening on port 3000!');
 });
