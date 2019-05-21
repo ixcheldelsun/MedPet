@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('b8mx1vmxorakgmsun3zz', 'uppqowimzzz6ufso', 'bBhEsJ9WSwhSptpoPMd3', {
+const db = new Sequelize('b8mx1vmxorakgmsun3zz', 'uppqowimzzz6ufso', 'bBhEsJ9WSwhSptpoPMd3', {
   host: 'b8mx1vmxorakgmsun3zz-mysql.services.clever-cloud.com',
   dialect: 'mysql',
   define: {
@@ -9,10 +9,8 @@ const sequelize = new Sequelize('b8mx1vmxorakgmsun3zz', 'uppqowimzzz6ufso', 'bBh
   }
 });
 
-
-
-sequelize
-  .authenticate()
+//Prueba de la conexión con la BD
+db.authenticate()
   .then(() => {
     console.log('SUCCESS')
   })
@@ -20,4 +18,8 @@ sequelize
     console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`)
   });
 
-module.exports = sequelize;
+
+  module.exports = db;
+
+
+
