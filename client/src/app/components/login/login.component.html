@@ -40,19 +40,19 @@
                     <div class="tab-pane container active" id="home">
                     
                     <!-- Form Iniciar Sesion --> 
-                      <form>
+                      <form [formGroup]="formUsuario">
                         <div class="form-group mt-3">
                           <label for="email">Correo electrónico</label>
-                          <input type="email" class="form-control" id="emailI" placeholder="Correo electrónico">
+                          <input type="email" class="form-control" formControlName="correoI" placeholder="Correo electrónico">
                         </div>
                         <div class="form-group">
                           <label for="pwd">Contraseña</label>
-                          <input type="password" class="form-control" id="pwdI" placeholder="Contraseña">
+                          <input type="password" class="form-control" formControlName="contraseñaI" placeholder="Contraseña">
                         </div>
                         <div class="form-group">
                           <a>Recuperar contraseña</a>
                         </div>
-                        <button type="button"  class="btn btn-secondary" routerLink="/inicio" routerLinkActive="active">Iniciar Sesión</button>
+                        <button type="button"  class="btn btn-secondary" routerLink="/inicio" routerLinkActive="active" (click)="autenticar()">Iniciar Sesión</button>
                       </form>
 
                     <!-- Fin Form Iniciar Sesion --> 
@@ -64,7 +64,7 @@
                     <div class="tab-pane container fade" id="menu1">
                     
                     <!-- Form Registro -->  
-                      <form>
+                      <form >
                         <div class="form-group mt-3">
                               <div class="form-row">
                                 <div class="form-col-6">
@@ -88,7 +88,7 @@
                         </div>
                         
                     
-                        <button  type="button" class="btn btn-secondary" routerLink="/nueva-mascota" routerLinkActive="active">Registrarme</button>
+                        <button  type="button" class="btn btn-secondary" routerLink="/nueva-mascota" routerLinkActive="active"  >Registrarme</button>
                         
                       </form>
 

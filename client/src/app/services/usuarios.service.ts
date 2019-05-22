@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Usuario } from '../models/usuario'
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 
 @Injectable({
@@ -10,23 +14,22 @@ import { Usuario } from '../models/usuario'
 })
 export class UsuariosService {
 
-  API_URL = 'http://localhost:3000';
+  API_URL = 'http://localhost:3000/usuarios';
 
   constructor(private http: HttpClient) { }
 
   getUsuarios() {
-    return this.http.get(`${this.API_URL}/usuarios`);
+    return this.http.get(`${this.API_URL}`);
   }
   
-  getUsuario(id: string) {
-    return this.http.get(`${this.API_URL}/usuarios/${id}`);
+  getUsuario(usuario: Usuario) {
+    return this.http.post(`${this.API_URL}/buscar`, usuario, );
   }
 
-  saveUsuario(usuario: Usuario){
-    return this.http.post(`${this.API_URL}/usuarios`, usuario);
+  auth(correo: String, pass: String){
+    console.log('hola')
+    let usuario = {correo:`${correo}`, contraseña:`${pass}`}
+    return this.http.post(`${this.API_URL}/auth`, usuario);
   }
 
-  updateUsuario(id: string, updatedUsuario: Usuario): Observable<Usuario>{
-    return this.http.put(`${this.API_URL}/usuarios/${id}`, updatedUsuario);
-  }
 }

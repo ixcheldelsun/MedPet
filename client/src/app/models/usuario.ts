@@ -1,7 +1,7 @@
-export interface Usuario {
-    id_usuario?: number;
-    correo?: string;
-    nombre?: string;
-    apellido?: string;
-    contraseña?: string;
+export class Usuario {
+    id_usuario: Number;
+    nombre: String;
+    apellido: String;
+    correo: String;
+    contraseña: String;
 }

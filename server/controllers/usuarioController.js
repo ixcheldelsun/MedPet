@@ -19,18 +19,41 @@ exports.create = (req, res) => {
 
 //Conseguir usuario por correo
 exports.findByEmail = (req, res) => {
-    let correo = req.body.correo;
-    Usuario.findAll({
-        where: {
-            correo: correo
-        }
-    })
-    .then(usuario =>{
-        res.json(usuario);
-    })
-    .catch(err => console.log(err));
-  };  
+  let correo = req.body.correo;
+  Usuario.findAll({
+      where: {
+          correo: correo
+      }
+  })
+  .then(usuario =>{
+      res.json(usuario);
+  })
+  .catch(err => console.log(err));
+};  
 
+//Autenticar usuario sin servicio
+exports.auth = (req, res) => {
+  let correo = req.body.correoI;
+  let pass = req.body.contraseñaI;
+  Usuario.findAll({
+      where: {
+          correo: correo,
+          contraseña: pass
+      }
+  })
+  .then(usuario =>{
+    if(usuario.length === 0){
+      console.log("No encontrado");
+    }
+    else{
+      console.log("Encontrado");
+    }
+    res.json(usuario);   
+  })
+  .catch(err => {
+    console.log(err)
+  });
+};  
 
 // Editar un usuario
 exports.update = (req, res) => {
@@ -42,7 +65,6 @@ exports.update = (req, res) => {
                res.status(200).json({msg:"se actualizó el usuario con correo = " + usuario.correo});
              });  
   };
-
 
 //Traer las mascotas de un usuario
 exports.mascotas = (req, res) => {
