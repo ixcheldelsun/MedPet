@@ -3,7 +3,7 @@ const Mascota = require('../models/Mascota');
 
 //Traer todos las mascotas
 exports.findAll = (req, res) => {
-    Usuario.findAll().then(mascotas => {
+    Mascota.findAll().then(mascotas => {
         res.json(mascotas);
     });
 };
@@ -27,7 +27,7 @@ exports.update = (req, res) => {
                res.status(200).json({msg:"se actualizó la mascota = " + mascota.nombre});
              });  
   };
-  
+
 
 //Eliminr una mascota
 exports.delete = (req, res) => {

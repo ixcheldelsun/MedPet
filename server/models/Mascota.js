@@ -31,11 +31,22 @@ const Mascota = db.define('MASCOTA', {
     },
     fecha_nacimiento: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
+        underscored: true
     },
     foto: {
         type: Sequelize.STRING,
         allowNull: true
+    },
+    id_usuario: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        foreignKey: true,
+        underscored: true,
+        references: {
+          model: 'Usuario',
+          key: 'id_usuario'
+        }
     },
   },
   {

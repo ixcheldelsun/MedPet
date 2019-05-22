@@ -10,7 +10,7 @@ router.get('/', Usuario.findAll);
 router.post('/crear', Usuario.create);
 
 //Buscar un usuario por correo
-router.get('/:correo', Usuario.findByEmail);
+router.get('/buscar', Usuario.findByEmail);
 
 //Editar un usuario
 router.put('/editar/:id_usuario', Usuario.update);

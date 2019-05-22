@@ -19,7 +19,7 @@ exports.create = (req, res) => {
 
 //Conseguir usuario por correo
 exports.findByEmail = (req, res) => {
-    let correo = req.params.correo
+    let correo = req.body.correo;
     Usuario.findAll({
         where: {
             correo: correo
