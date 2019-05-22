@@ -7,15 +7,15 @@ const Usuario = require("../controllers/usuarioController");
 router.get('/', Usuario.findAll);
 
 //Crear un usuario
-router.get('/agregar', Usuario.create);
+router.post('/crear', Usuario.create);
 
 //Buscar un usuario por correo
 router.get('/:correo', Usuario.findByEmail);
 
 //Editar un usuario
-router.get('/editar', Usuario.update);
+router.put('/editar/:id_usuario', Usuario.update);
 
 //Buscar mascotas de un usuario
-router.get('/:id/mascotas', Usuario.mascotas);
+router.get('/:id_usuario/mascotas', Usuario.mascotas);
 
 module.exports = router;

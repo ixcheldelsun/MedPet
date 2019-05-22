@@ -11,19 +11,19 @@ const Usuario = db.define('USUARIO', {
     },
     nombre: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     apellido: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     correo: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     contraseña: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     }
   },
   {

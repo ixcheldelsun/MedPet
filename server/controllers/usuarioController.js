@@ -11,6 +11,7 @@ exports.findAll = (req, res) => {
 //Crear un Usuario
 exports.create = (req, res) => {  
     let usuario = req.body;
+    console.log(usuario);
     Usuario.create(usuario).then(usuario => {    
       res.json(usuario);
     });
@@ -34,18 +35,18 @@ exports.findByEmail = (req, res) => {
 // Editar un usuario
 exports.update = (req, res) => {
     let usuario = req.body;
-    let correo = req.body.correo;
+    let id = req.params.id_usuario;
     Usuario.update(usuario, 
-             { where: {correo: correo} }
+             { where: {id_usuario: id} }
              ).then(() => {
-               res.status(200).json({msg:"se actualizó el usuario con correo = " + correo});
+               res.status(200).json({msg:"se actualizó el usuario con correo = " + usuario.correo});
              });  
   };
 
 
 //Traer las mascotas de un usuario
 exports.mascotas = (req, res) => {
-    let id = req.params.id
+    let id = req.params.id_usuario
     Usuario.findOne({
         where: {
           id_usuario: id
