@@ -1,0 +1,58 @@
+.pie{
+    position: relative;
+  clear: both;
+  margin-top: 0px;
+  padding-top: 0px;
+  overflow: visible;
+}
+.foot {
+    background: #000000;
+    color: #fcfcfc;
+    padding: 5px 0px 5px 0px; 
+    
+}
+.foot a {
+    
+    padding: 5px 10px 5px 10px; 
+    font-size: 15px;
+}
+
+.fa{
+    font-size: 40px !important;
+    padding: 0px 20px 0px 20px !important;
+    color: #ffffff;
+}
+
+.fa2{
+    padding: 0px 20px 0px 20px !important;
+    color: #ffffff;
+}
+
+@media(max-width:750px){
+    .foot a {
+    
+        font-size: 10px;
+    }
+    .fa{
+        font-size: 30px !important;
+        padding: 0px 20px 0px 20px !important;
+        color: #ffffff;
+    }
+}
+
+
+.fa-instagram:hover{
+    color: #e1306c;
+    
+}
+.fa-facebook-square:hover{
+    color: #3c5a99;
+    
+}
+.fa-twitter:hover{
+    color: #1da1f2;
+    
+}
+.foot .acerca:hover{
+    color:#9fbc31;
+}

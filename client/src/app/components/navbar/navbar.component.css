@@ -1,0 +1,15 @@
+nav{
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+.bg-light{
+  background-color:#060504 !important;
+}
+
+.navbar-dark .navbar-brand{
+  color: #f8f9fa;
+
+}
+.navbar-dark .navbar-nav .nav-link{
+  color: #f8f9fa;
+}

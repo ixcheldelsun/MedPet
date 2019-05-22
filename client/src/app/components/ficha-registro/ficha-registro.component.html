@@ -38,42 +38,35 @@
                       <div class="tab-pane container active" id="home">
                       
                         <!-- Inicio form Registrar Mascota -->
-                          <form>
+                          <form [formGroup]="formMascota">
                               <div class="form-row mt-2">
                                   <div class="form-group col">
                                       <label for="inputNombreMascota">Nombre</label>
-                                      <input type="text" class="form-control" id="inputNombreMascota" placeholder="Nombre">
+                                      <input type="text" class="form-control" formControlName="nombreM" placeholder="Nombre">
                                   </div>
                                   <div class="form-group col">
                                       <label for="inputApodo">Apodo</label>
-                                      <input type="text" class="form-control" id="inputApodo" placeholder="Apodo">
+                                      <input type="text" class="form-control" formControlName="apodoM" placeholder="Apodo">
                                   </div>
                               </div>
                               <div class="form-row">
                                   <div class="form-group col">
                                       <label for="inputFechaNacMascota">Fecha de nacimiento</label>
-                                      <input type="date" class="form-control" id="inputFechaNacMascota" placeholder="Fecha de nacimiento">
+                                      <input type="date" class="form-control" formControlName="fechaM" placeholder="Fecha de nacimiento">
                                   </div>
                                   <div class="form-group col">
                                       <label for="inputEspecie">Especie</label>
-                                      <select  id="inputEspecie" class="form-control">
-                                        <option selected>Perro</option>
-                                        <option>Gato</option>
-                                      </select>
+                                      <input type="text" class="form-control" formControlName="especieM" placeholder="Especie">
                                   </div>
                                   <div class="form-group col">
                                       <label for="inputRaza">Raza</label>
-                                      <select  id="inputRaza" class="form-control">
-                                        <option selected>Raza 1</option>
-                                        <option>Raza 2</option>
-                                        <option>Raza 3</option>
-                                      </select>
+                                      <input type="text" class="form-control" formControlName="razaM" placeholder="Raza">
                                   </div>
                               </div>
                               <div class="form-row">
                                   <div class="form-group col">
-                                      <label for="inputGenero">Genero</label>
-                                      <select  id="inputGenero" class="form-control">
+                                      <label for="inputGenero">Sexo</label>
+                                      <select  formControlName="sexoM" class="form-control">
                                         <option selected>Macho</option>
                                         <option>Hembra</option>
                                       </select>
@@ -86,7 +79,7 @@
                                       <button type="button" class="btn btn-secondary" (click)="inputFile.click()">
                                           Subir foto de mi mascota
                                       </button> 
-                                      <button type="button" class="btn btn-secondary ml-3" routerLink="/inicio" routerLinkActive="active" >
+                                      <button type="button" class="btn btn-secondary ml-3"  routerLinkActive="active" (click)="registrar()">
                                           Registrar a mi mascota
                                       </button>  
                                   </div>

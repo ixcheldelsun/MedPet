@@ -14,6 +14,9 @@ exports.create = (req, res) => {
     console.log(usuario);
     Usuario.create(usuario).then(usuario => {    
       res.json(usuario);
+    })
+    .catch(err => {
+      console.log(err)
     });
   };
 
@@ -26,15 +29,15 @@ exports.findByEmail = (req, res) => {
       }
   })
   .then(usuario =>{
-      res.json(usuario);
+      res.json(usuario.id_usuario)[0];
   })
   .catch(err => console.log(err));
 };  
 
 //Autenticar usuario sin servicio
 exports.auth = (req, res) => {
-  let correo = req.body.correoI;
-  let pass = req.body.contraseñaI;
+  let correo = req.body.correo;
+  let pass = req.body.contraseña;
   Usuario.findAll({
       where: {
           correo: correo,
@@ -42,13 +45,14 @@ exports.auth = (req, res) => {
       }
   })
   .then(usuario =>{
-    if(usuario.length === 0){
-      console.log("No encontrado");
+    if(usuario.length > 0){
+      console.log("Encontrado");
+      res.json(usuario);
     }
     else{
-      console.log("Encontrado");
-    }
-    res.json(usuario);   
+      console.log("No encontrado");
+      res.status(404).json({ text: "No existe el usuario" });
+    } 
   })
   .catch(err => {
     console.log(err)

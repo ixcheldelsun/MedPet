@@ -1,4 +1,4 @@
-export class mascota {
+export class Mascota {
     id_mascota: Number;
     nombre: String;
     apodo?: String;

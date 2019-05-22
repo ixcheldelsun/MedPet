@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 import { Usuario } from '../models/usuario'
 
@@ -14,6 +14,9 @@ const httpOptions = {
 })
 export class UsuariosService {
 
+  private messageSource = new BehaviorSubject('default message');
+  currentMessage = this.messageSource.asObservable();
+
   API_URL = 'http://localhost:3000/usuarios';
 
   constructor(private http: HttpClient) { }
@@ -22,14 +25,24 @@ export class UsuariosService {
     return this.http.get(`${this.API_URL}`);
   }
   
-  getUsuario(usuario: Usuario) {
-    return this.http.post(`${this.API_URL}/buscar`, usuario, );
+  getUsuario(correo: String) {
+    let usuario = {correo:`${correo}`}
+    return this.http.post(`${this.API_URL}/buscar`, usuario);
   }
 
   auth(correo: String, pass: String){
-    console.log('hola')
     let usuario = {correo:`${correo}`, contraseña:`${pass}`}
     return this.http.post(`${this.API_URL}/auth`, usuario);
   }
+
+  saveUsuario(nombre: String, apellido: String, correo: String, pass: String){
+    let usuario = {nombre:`${nombre}`, apellido:`${apellido}`, correo:`${correo}`, contraseña:`${pass}`}
+    return this.http.post(`${this.API_URL}/crear`, usuario);
+  }
+
+  pasaMensaje(message: any) {
+    this.messageSource.next(message)
+  }
+
 
 }
