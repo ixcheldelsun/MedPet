@@ -1,0 +1,15 @@
+.carousel {
+    width: 100%;
+    height: auto;
+  
+background-color: rgb(255, 255, 255);
+margin: 0 auto;
+display: flex;
+}
+img {
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    min-width: 500px;
+}

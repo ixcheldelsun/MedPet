@@ -1,0 +1,181 @@
+.box-principal{
+    background-color:  #f500d4;
+}
+/*primera parte*/
+.box-black{
+    background-color: rgba(6, 5, 4, 0.7);
+    height:600px;
+    width: 100%;
+    display:flex;   
+    align-items:center;
+    justify-content: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 500px 800px;
+}
+.welcome{
+    height:600px;
+    background-repeat: no-repeat;    
+    width: 100%;
+    /*background-image: url("");*/
+    background-size: cover;
+    /* background-attachment: fixed; */
+    background-position: center center;    
+    text-align: center;
+}
+
+
+p.titulo{
+    font-size: 90px;
+    color: #f8f9fa;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-bottom: 0;
+    text-align: center;
+}
+p.subtitulo{
+    font-size: 60px;
+    color: #f8f9fa;
+    font-family: 'Nanum Brush Script', cursive;  
+    text-align: center; 
+}
+
+/*Segunda parte de la pagina*/
+.AboutUs{
+    
+    width: 100%;
+    background-color: #f8f9fa;
+    color: #2f00ff;
+    
+
+}
+.AboutUs img{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.box-left{
+    height: 600px;
+    display:flex;   
+    align-items: center; 
+    color: #060504;
+    text-align: center;
+    /*background-image: url("");*/
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 550px 550px;
+      
+}
+
+.container-fluid {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.box-right{
+    display:flex;   
+    align-items: center;
+}
+.col-sm-6.box-right{
+ height: 300;
+}
+img {
+    max-width: 100%;
+    max-height: auto;
+}
+.box-center{
+    margin: 0 auto;
+    width: 70%;
+}
+.boton{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    height: 100px;
+    padding-top: 25px;
+
+}
+.btn{
+    margin: 0 auto;
+    width: 140px;
+}
+
+.btn-outline-dark:hover {
+    color: #fff;
+    background-color: #060504;
+    border-color: #060504;
+}
+p.titulo2{
+    font-size: 60px;
+    margin: 0 auto;
+    text-align: center;
+}
+p.parrafo{
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: justify;
+}
+
+
+
+
+/* Tercera parte */
+
+
+  
+  .Preparalo{
+   /* background-image: url(""); */
+    background-repeat:no-repeat;
+    background-position:top;
+    background-size: cover;
+    width: 100%;
+    color: #f8f9fa;
+  }.box-black2{
+    background-color: rgba(6, 5, 4, 0.7);
+    display:flex;   
+    align-items:center;
+    justify-content: center;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+/*Cuarta parte*/
+.recordatorio{
+    width: 100%;
+    display:flex;   
+    align-items:center;
+    justify-content: center;
+    background-color: rgba(6, 5, 4, 0.7);
+    
+}
+.recordatorio .titulo2{
+    color: #f8f9fa;
+    padding-bottom: 20px;
+    margin-top: 50px;
+}
+.card-title{
+    text-align: center;
+}
+.card-text{
+    text-align: justify;
+}
+.card-deck{
+    margin-bottom: 60px;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(6, 5, 4, 0.8);
+    display:flex;   
+    align-items:center;
+    justify-content: center;
+  }
+
+  .card:hover .overlay{
+      opacity:1;
+  }
