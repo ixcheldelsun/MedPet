@@ -30,14 +30,12 @@ export class UsuariosService {
     return this.http.post(`${this.API_URL}/buscar`, usuario);
   }
 
-  auth(correo: String, pass: String){
-    let usuario = {correo:`${correo}`, contraseña:`${pass}`}
-    return this.http.post(`${this.API_URL}/auth`, usuario);
+  auth(revisa: Usuario){
+    return this.http.post(`${this.API_URL}/auth`, revisa);
   }
 
-  saveUsuario(nombre: String, apellido: String, correo: String, pass: String){
-    let usuario = {nombre:`${nombre}`, apellido:`${apellido}`, correo:`${correo}`, contraseña:`${pass}`}
-    return this.http.post(`${this.API_URL}/crear`, usuario);
+  saveUsuario(nuevo: Usuario){
+    return this.http.post(`${this.API_URL}/crear`, nuevo);
   }
 
   pasaMensaje(message: any) {

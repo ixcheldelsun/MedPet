@@ -22,10 +22,8 @@ export class MascotasService {
     return this.http.get(`${this.API_URL}`);
   }
 
-  saveMascota(nombre: String, apodo: String, especie: String, raza: String, sexo: String, fecha_nacimiento: String, id_usuario: Number){
-    let mascota = {nombre:`${nombre}`, apodo:`${apodo}`, especie:`${especie}`, raza:`${raza}`, sexo:`${sexo}`, fecha_nacimiento: `${fecha_nacimiento}`, id_usuario: `${id_usuario}`};
-    console.log(mascota);
-    return this.http.post(`${this.API_URL}/crear`, mascota);
+  saveMascota(nueva: Mascota){
+    return this.http.post(`${this.API_URL}/crear`, nueva);
   }
 
 }

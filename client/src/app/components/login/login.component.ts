@@ -5,6 +5,8 @@ import { UsuariosService } from '../../services/usuarios.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { Usuario } from '../../models/usuario';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,25 +20,27 @@ export class LoginComponent implements OnInit {
 
   formRegistro: FormGroup;
 
-  correoI = new FormControl('', Validators.required);
-  contraseñaI = new FormControl('', Validators.required);
+
+
+  correoI = new FormControl('', [Validators.required, Validators.email]);
+  passI = new FormControl('', Validators.required);
 
   nombreR = new FormControl('', Validators.required);
   apellidoR = new FormControl('', Validators.required);
-  correoR = new FormControl('', Validators.required);
-  contraseñaR = new FormControl('', Validators.required);
+  correoR = new FormControl('', [Validators.required, Validators.email]);
+  passR = new FormControl('', [Validators.required, Validators.minLength(5)]);
 
   constructor(private usuariosService: UsuariosService, fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) { 
     this.formLogin = fb.group({
       correoI: this.correoI,
-      contraseñaI: this.contraseñaI
+      passI: this.passI
     });
 
     this.formRegistro = fb.group({
       nombreR: this.nombreR,
       apellidoR: this.apellidoR,
       correoR: this.correoR,
-      contraseñaR: this.contraseñaR
+      passR: this.passR
     });
 
   }
@@ -46,17 +50,23 @@ export class LoginComponent implements OnInit {
   }
 
   autenticar(): void {
-    this.correoI = this.formLogin.value.correoI
-    this.contraseñaI = this.formLogin.value.contraseñaI
+
+    const revisaUsuario: Usuario = {
+      correo: this.formLogin.value.correoI.toString(),
+      contraseña: this.formLogin.value.passI.toString(),
+    };
+
+    // this.correoI = this.formLogin.value.correoI
+    // this.contraseñaI = this.formLogin.value.contraseñaI
 
     console.log(this.correoI);
-    console.log(this.contraseñaI);
+    console.log(this.passI);
 
-    this.usuariosService.auth(this.correoI.toString(), this.contraseñaI.toString())
+    this.usuariosService.auth(revisaUsuario)
     .subscribe(
       res => {
         this.usuarioActual = res[0].id_usuario;
-        this.usuariosService.pasaMensaje(this.usuarioActual)
+        this.usuariosService.pasaMensaje(this.usuarioActual);
         console.log(this.usuarioActual);
         this.router.navigate(['/inicio']);
       },
@@ -65,12 +75,15 @@ export class LoginComponent implements OnInit {
   }
 
   registrar():void {
-    this.nombreR = this.formRegistro.value.nombreR
-    this.apellidoR = this.formRegistro.value.apellidoR
-    this.correoR = this.formRegistro.value.correoR
-    this.contraseñaR = this.formRegistro.value.contraseñaR
 
-    this.usuariosService.saveUsuario(this.nombreR.toString(), this.apellidoR.toString(),this.correoR.toString(), this.contraseñaR.toString())
+    const nuevoUsuario: Usuario = {
+      nombre: this.formRegistro.value.nombreR.toString(),
+      apellido: this.formRegistro.value.apellidoR.toString(),
+      correo: this.formRegistro.value.correoR.toString(),
+      contraseña: this.formRegistro.value.passR.toString()
+    };
+
+    this.usuariosService.saveUsuario(nuevoUsuario)
     .subscribe(
       res => {
         this.usuarioActual = res;
@@ -84,6 +97,10 @@ export class LoginComponent implements OnInit {
 
   getUsuarioActual(){
     return this.usuarioActual;
+  }
+
+  reiniciarForm() {
+    this.formLogin.reset();
   }
 }
 
