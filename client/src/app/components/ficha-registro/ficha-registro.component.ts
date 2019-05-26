@@ -7,6 +7,8 @@ import { UsuariosService } from '../../services/usuarios.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { Mascota } from '../../models/mascota'
+
 @Component({
   selector: 'app-ficha-registro',
   templateUrl: './ficha-registro.component.html',
@@ -47,16 +49,18 @@ export class FichaRegistroComponent implements OnInit {
   }
 
   registrar():void {
-    this.nombreM = this.formMascota.value.nombreM
-    this.apodoM = this.formMascota.value.apodoM
-    this.especieM = this.formMascota.value.especieM
-    this.razaM = this.formMascota.value.razaM
-    this.sexoM = this.formMascota.value.sexoM
-    this.fechaM = this.formMascota.value.fechaM
 
-  
+    const nuevaMascota: Mascota = {
+      nombre: this.formMascota.value.nombreM.toString(),
+      apodo: this.formMascota.value.apodoM.toString(),
+      especie: this.formMascota.value.especieM.toString(),
+      raza: this.formMascota.value.razaM.toString(),
+      sexo: this.formMascota.value.sexoM.toString(),
+      fecha_nacimiento: this.formMascota.value.fechaM,
+      id_usuario: this.usuarioActual
+  }
 
-    this.mascotasService.saveMascota(this.nombreM.toString(), this.apodoM.toString(),this.especieM.toString(), this.razaM.toString(), this.sexoM.toString(), this.fechaM.toString(), this.usuarioActual)
+    this.mascotasService.saveMascota(nuevaMascota)
     .subscribe(
       res => {
         this.router.navigate(['/inicio']);

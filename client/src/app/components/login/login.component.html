@@ -43,16 +43,26 @@
                       <form [formGroup]="formLogin">
                         <div class="form-group mt-3">
                           <label for="email">Correo electrónico</label>
-                          <input type="email" class="form-control" formControlName="correoI" placeholder="Correo electrónico">
+                          <input type="email" class="form-control" formControlName="correoI" placeholder="Correo electrónico" required>
+                          <div *ngIf="correoI.invalid && (correoI.dirty || correoI.touched)" class="alert alert-danger">
+                            <div *ngIf="correoI.errors.email">
+                              Debes ingresar un correo válido
+                            </div>
+                          </div>
                         </div>
                         <div class="form-group">
                           <label for="pwd">Contraseña</label>
-                          <input type="password" class="form-control" formControlName="contraseñaI" placeholder="Contraseña">
+                          <input type="password" class="form-control" formControlName="passI" placeholder="Contraseña" required>
+                          <div *ngIf="passI.invalid && (passI.dirty || passI.touched)" class="alert alert-danger">
+                            <div *ngIf="passI.errors.required">
+                              Debes ingresar una contraseña
+                            </div>
+                          </div>
                         </div>
                         <div class="form-group">
                           <a>Recuperar contraseña</a>
                         </div>
-                        <button type="button"  class="btn btn-secondary" routerLinkActive="active" (click)="autenticar()">Iniciar Sesión</button>
+                        <button type="button"  class="btn btn-secondary" routerLinkActive="active" (click)="autenticar()" [disabled]="!formLogin.valid" >Iniciar Sesión</button>
                       </form>
 
                     <!-- Fin Form Iniciar Sesion --> 
@@ -69,26 +79,49 @@
                               <div class="form-row">
                                 <div class="form-col-6">
                                   <label>Nombre</label>
-                                  <input  type="text" class="form-control" formControlName="nombreR" placeholder="Nombre" >
+                                  <input  type="text" class="form-control" formControlName="nombreR" placeholder="Nombre" required>
+                                  <div *ngIf="nombreR.invalid && (nombreR.dirty || nombreR.touched)" class="alert alert-danger">
+                                    <div *ngIf="nombreR.errors.required">
+                                      Debes ingresar un nombre
+                                    </div>
+                                  </div>
                                 </div>
                                 <div class="form-6">
                                     <label>Apellido</label>
-                                    <input  type="text" class="form-control" formControlName="apellidoR" placeholder="Apellido" >
+                                    <input  type="text" class="form-control" formControlName="apellidoR" placeholder="Apellido" required>
+                                    <div *ngIf="apellidoR.invalid && (apellidoR.dirty || apellidoR.touched)" class="alert alert-danger">
+                                      <div *ngIf="apellidoR.errors.required">
+                                        Debes ingresar un apellido
+                                      </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group mt-3">
                           <!-- NgMode em el input -->
                           <label>Correo electrónico</label>
-                          <input  type="email" class="form-control" formControlName="correoR" placeholder="Correo electronico">
+                          <input  type="email" class="form-control" formControlName="correoR" placeholder="Correo electronico" required>
+                          <div *ngIf="correoR.invalid && (correoR.dirty || correoR.touched)" class="alert alert-danger">
+                            <div *ngIf="correoR.errors.email">
+                              Debes ingresar un correo válido
+                            </div>
+                          </div>
                         </div>
                         <div class="form-group">
                           <label>Contraseña</label>
-                          <input  type="password" class="form-control" formControlName="contraseñaR" placeholder="Contraseña" >
+                          <input  type="password" class="form-control" formControlName="passR" placeholder="Contraseña" required>
+                          <div *ngIf="passR.invalid && (passR.dirty || passR.touched)" class="alert alert-danger">
+                            <div *ngIf="passR.errors.required">
+                              Debes ingresar una contraseña
+                            </div>
+                            <div *ngIf="passR.errors.minlength">
+                              Debes ingresar una contraseña de mínimo 5 caracteres
+                            </div>
+                          </div>      
                         </div>
                         
                     
-                        <button  type="button" class="btn btn-secondary" routerLinkActive="active" (click)="registrar()" >Registrarme</button>
+                        <button  type="button" class="btn btn-secondary" routerLinkActive="active" (click)="registrar()" [disabled]="!formRegistro.valid">Registrarme</button>
                         
                       </form>
 
