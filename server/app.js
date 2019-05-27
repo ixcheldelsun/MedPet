@@ -9,6 +9,8 @@ const corsOptions = {
 
 const usuarioRoutes = require('./routes/usuarioRoutes')
 const mascotaRoutes = require('./routes/mascotaRoutes')
+const vacunaRoutes = require('./routes/vacunaRoutes')
+const celoRoutes = require('./routes/celoRoutes')
 
 const app = express();
 
@@ -26,7 +28,8 @@ app.get('/', function (req, res) {
 //Rutas 
 app.use('/usuarios', usuarioRoutes);
 app.use('/mascotas', mascotaRoutes);
-
+app.use('/vacunas', vacunaRoutes);
+app.use('/celos', celoRoutes);
 
 //Configuración del puerto
 const port = process.env.PORT || 3000;
