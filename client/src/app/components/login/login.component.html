@@ -42,8 +42,8 @@
                     <!-- Form Iniciar Sesion --> 
                       <form [formGroup]="formLogin">
                         <div class="form-group mt-3">
-                          <label for="email">Correo electrónico</label>
-                          <input type="email" class="form-control" formControlName="correoI" placeholder="Correo electrónico" required>
+                          <label>Correo electrónico</label>
+                          <input type="email" class="form-control" formControlName="correoI" placeholder="Correo electrónico"  required>
                           <div *ngIf="correoI.invalid && (correoI.dirty || correoI.touched)" class="alert alert-danger">
                             <div *ngIf="correoI.errors.email">
                               Debes ingresar un correo válido
@@ -51,7 +51,7 @@
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="pwd">Contraseña</label>
+                          <label>Contraseña</label>
                           <input type="password" class="form-control" formControlName="passI" placeholder="Contraseña" required>
                           <div *ngIf="passI.invalid && (passI.dirty || passI.touched)" class="alert alert-danger">
                             <div *ngIf="passI.errors.required">
@@ -62,7 +62,7 @@
                         <div class="form-group">
                           <a>Recuperar contraseña</a>
                         </div>
-                        <button type="button"  class="btn btn-secondary" routerLinkActive="active" (click)="autenticar()" [disabled]="!formLogin.valid" >Iniciar Sesión</button>
+                        <button type="button"  class="btn btn-secondary" routerLinkActive="active" (click)="login()" [disabled]="!formLogin.valid" >Iniciar Sesión</button>
                       </form>
 
                     <!-- Fin Form Iniciar Sesion --> 
@@ -121,7 +121,7 @@
                         </div>
                         
                     
-                        <button  type="button" class="btn btn-secondary" routerLinkActive="active" (click)="registrar()" [disabled]="!formRegistro.valid">Registrarme</button>
+                        <button  type="button" class="btn btn-secondary" routerLinkActive="active" (click)="register()" [disabled]="!formRegistro.valid">Registrarme</button>
                         
                       </form>
 
@@ -165,3 +165,8 @@
 <!--Fin modal-->
 </div>
 <!-- Fin Inicio Fondo -->
+
+<ng-template #loading>
+  Loading User...
+</ng-template>
+

@@ -14,9 +14,7 @@ export class TablaCategoriasComponent implements OnInit {
   
   usuarioActual:any;
 
-  constructor(private router: Router, private usuarioService: UsuariosService) {
-    this.usuarioService.currentMessage.subscribe(message => this.usuarioActual = message);
-   }
+  constructor(private router: Router, private usuarioService: UsuariosService) { }
 
 
   filters = {}

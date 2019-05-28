@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { UsuariosService } from '../../services/usuarios.service';
+import { MascotasService } from '../../services/mascotas.service';
+import { AuthService } from '../../services/auth.service';
+
+
+import { Usuario, TokenPayload, UserDetails } from '../../models/usuario';
+
 
 @Component({
   selector: 'app-inicio',
@@ -9,12 +16,24 @@ import { UsuariosService } from '../../services/usuarios.service';
 })
 export class InicioComponent implements OnInit {
 
-  usuarioActual: any;
+  usuarioActual: Number;
+  details: UserDetails;
 
-  constructor(private usuarioService: UsuariosService) { }
+  constructor(private usuarioService: UsuariosService, private auth: AuthService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.usuarioService.currentMessage.subscribe(message => this.usuarioActual = message);
+
+    this.auth.profile().subscribe(
+      user => {
+        this.details = user
+        this.usuarioActual = this.details.id_usuario;
+      },
+      err => {
+        console.log(err)
+      }
+    )
+     
+
   }
 
 }
