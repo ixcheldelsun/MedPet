@@ -11,13 +11,15 @@ const Celo = db.define('CELO', {
     },
     fecha_i: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
+        underscored: true
     },
     fecha_f: {
         type: Sequelize.DATE,
-        allowNull: true
+        allowNull: true,
+        underscored: true
     },
-        observaciones: {
+    observaciones: {
         type: Sequelize.STRING,
         allowNull: true
     },

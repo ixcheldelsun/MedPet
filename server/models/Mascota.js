@@ -60,6 +60,16 @@ const Mascota = db.define('MASCOTA', {
   Mascota.associate = (models) => {
     Mascota.belongsTo(models.Usuario, {foreignKey: "id_usuario"});
   };
+
+// Asociación mascota tiene vacuna y celo
+
+  Mascota.associate = (models) => {
+    Mascota.hasMany(models.Vacuna, {foreignKey: "id_mascota"});
+  };
+
+  Mascota.associate = (models) => {
+    Mascota.hasMany(models.Celo, {foreignKey: "id_mascota"});
+  };
  
 
 

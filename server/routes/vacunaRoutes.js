@@ -3,16 +3,16 @@ const router = express.Router();
 
 const Vacuna = require("../controllers/vacunaController");
 
-//Traer todas las mascotas
+//Traer todas las vacunas
 router.get('/', Vacuna.findAll);
 
-//Crear una mascota
+//Crear una vacuna
 router.post('/crear', Vacuna.create);
 
-//Editar una mascota
+//Editar una vacuna
 router.put('/editar', Vacuna.update);
 
-//Eliminar una mascota
+//Eliminar una vacuna
 router.delete('/eliminar/:vacuna_id', Vacuna.delete);
 
 

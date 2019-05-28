@@ -1,14 +1,14 @@
 const Celo = require('../models/Celo');
 const Mascota = require('../models/Mascota');
 
-//Traer todos las mascotas
+//Traer todos los celos
 exports.findAll = (req, res) => {
   Celo.findAll().then(celos => {
     res.json(celos);
   });
 };
 
-//Crear una Mascota
+//Crear un celo
 exports.create = (req, res) => {
   let celo = req.body;
   Celo.create(celo).then(celo => {
@@ -17,10 +17,10 @@ exports.create = (req, res) => {
 };
 
 
-//Editar una mascota
+//Editar un celo
 exports.update = (req, res) => {
   let celo = req.body;
-  let id = req.body.id;
+  let id = req.body.id_celo;
   Celo.update(celo, {
     where: {
       id_celo: id
@@ -33,7 +33,7 @@ exports.update = (req, res) => {
 };
 
 
-//Eliminr una mascota
+//Eliminar un celo
 exports.delete = (req, res) => {
   const id = req.params.id_celo;
   Celo.destroy({

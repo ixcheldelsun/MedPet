@@ -3,7 +3,7 @@ const db = require('../config/database');
 const Mascota = require('../models/Mascota');
 
 const Vacuna = db.define('VACUNA', {
-    vacuna_id: {
+    id_vacuna: {
       type: Sequelize.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -11,11 +11,13 @@ const Vacuna = db.define('VACUNA', {
     },
     fecha_i: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
+        underscored: true
     },
     fecha_f: {
         type: Sequelize.DATE,
-        allowNull: true
+        allowNull: true,
+        underscored: true
     },
     dosis: {
         type: Sequelize.INTEGER,

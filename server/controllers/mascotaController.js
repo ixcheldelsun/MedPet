@@ -1,5 +1,7 @@
 const Usuario = require('../models/Usuario');
 const Mascota = require('../models/Mascota');
+const Vacuna = require('../models/Vacuna');
+const Celo = require('../models/Celo');
 
 //Traer todos las mascotas
 exports.findAll = (req, res) => {
@@ -45,4 +47,40 @@ exports.delete = (req, res) => {
       msg: 'Se eliminó la mascota con el id = ' + mascota.id_mascota
     });
   });
+};
+
+exports.vacunas = (req, res) => {
+  let id = req.params.id_mascota
+  Mascota.findOne({
+      where: {
+        id_mascota: id
+      }
+    })
+    .then(mascota => Vacuna.findAll({
+      where: {
+        id_mascota: mascota.id_mascota
+      }
+    }))
+    .then(vacunas => {
+        res.json(vacunas);
+    })
+    .catch(error => console.log(error));
+};
+
+exports.celos = (req, res) => {
+  let id = req.params.id_mascota
+  Mascota.findOne({
+      where: {
+        id_mascota: id
+      }
+    })
+    .then(mascota => Celo.findAll({
+      where: {
+        id_mascota: mascota.id_mascota
+      }
+    }))
+    .then(celos => {
+        res.json(celos);
+    })
+    .catch(error => console.log(error));
 };

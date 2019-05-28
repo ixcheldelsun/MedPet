@@ -1,14 +1,14 @@
 const Vacuna = require('../models/Vacuna');
 const Mascota = require('../models/Mascota');
 
-//Traer todos las mascotas
+//Traer todos las vacunas
 exports.findAll = (req, res) => {
   Vacuna.findAll().then(vacunas => {
     res.json(vacunas);
   });
 };
 
-//Crear una Mascota
+//Crear una vacuna
 exports.create = (req, res) => {
   let vacuna = req.body;
   Vacuna.create(vacuna).then(vacuna => {
@@ -17,32 +17,32 @@ exports.create = (req, res) => {
 };
 
 
-//Editar una mascota
+//Editar una vacuna
 exports.update = (req, res) => {
   let vacuna = req.body;
-  let id = req.body.id;
+  let id = req.body.id_vacuna;
   Vacuna.update(vacuna, {
     where: {
-      vacuna_id: id
+      id_vacuna: id
     }
   }).then(() => {
     res.status(200).json({
-      msg: "se actualizó la vacuna = " + vacuna.vacuna_id
+      msg: "se actualizó la vacuna = " + vacuna.id_vacuna
     });
   });
 };
 
 
-//Eliminr una mascota
+//Eliminar una vacuna
 exports.delete = (req, res) => {
-  const id = req.params.vacuna_id;
+  const id = req.params.id_vacuna;
   Vacuna.destroy({
     where: {
-      vacuna_id: id
+      id_vacuna: id
     }
   }).then(() => {
     res.status(200).json({
-      msg: 'Se eliminó la vacuna con el id = ' + vacuna.vacuna_id
+      msg: 'Se eliminó la vacuna con el id = ' + vacuna.id_vacuna
     });
   });
 };
