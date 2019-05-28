@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MascotasService } from '../../services/mascotas.service';
-
 import { UsuariosService } from '../../services/usuarios.service';
+import { AuthService } from '../../services/auth.service'
 
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Mascota } from '../../models/mascota'
+import { UserDetails } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-ficha-registro',
@@ -16,7 +17,9 @@ import { Mascota } from '../../models/mascota'
 })
 export class FichaRegistroComponent implements OnInit {
 
-  usuarioActual: any;
+  usuarioActual: Number;
+
+  details: UserDetails;
 
   formMascota: FormGroup;
 
@@ -31,7 +34,7 @@ export class FichaRegistroComponent implements OnInit {
   fechaM = new FormControl('', Validators.required);
 
 
-  constructor(private usuarioService: UsuariosService, private mascotasService: MascotasService, fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private auth: AuthService, private usuarioService: UsuariosService, private mascotasService: MascotasService, fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {
 
     this.formMascota = fb.group({
       nombreM: this.nombreM,
@@ -44,8 +47,16 @@ export class FichaRegistroComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.usuarioService.currentMessage.subscribe(message => this.usuarioActual = message);
-    console.log(this.usuarioActual);
+    this.auth.profile().subscribe(
+      user => {
+        this.details = user
+        this.usuarioActual = this.details.id_usuario
+      },
+      err => {
+        console.log(err)
+      }
+    )
+
   }
 
   registrar():void {

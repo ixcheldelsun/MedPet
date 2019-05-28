@@ -1,11 +1,12 @@
 import { Component, OnInit} from '@angular/core';
 
 import { UsuariosService } from '../../services/usuarios.service';
+import { AuthService } from '../../services/auth.service';
 
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Usuario } from '../../models/usuario';
+import { Usuario, TokenPayload } from '../../models/usuario';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   formRegistro: FormGroup;
 
-
+  credenciales: TokenPayload;
 
   correoI = new FormControl('', [Validators.required, Validators.email]);
   passI = new FormControl('', Validators.required);
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
   correoR = new FormControl('', [Validators.required, Validators.email]);
   passR = new FormControl('', [Validators.required, Validators.minLength(5)]);
 
-  constructor(private usuariosService: UsuariosService, fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) { 
+  constructor(private auth: AuthService, private usuariosService: UsuariosService, fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) { 
     this.formLogin = fb.group({
       correoI: this.correoI,
       passI: this.passI
@@ -47,17 +48,62 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.usuariosService.currentMessage.subscribe(message => this.usuarioActual = message);
+
   }
 
-  autenticar(): void {
+ 
+ 
+ login(): void {
+  this.credenciales = {
+    correo: this.formLogin.value.correoI,
+    contraseña: this.formLogin.value.passI
+  };
 
-    const revisaUsuario: Usuario = {
+
+    this.auth.login(this.credenciales).subscribe(
+      () => {
+        this.router.navigateByUrl('/inicio')
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
+
+  register(): void {
+
+    this.credenciales = {
+      nombre: this.formRegistro.value.nombreR.toString(),
+      apellido: this.formRegistro.value.apellidoR.toString(),
+      correo: this.formRegistro.value.correoR.toString(),
+      contraseña: this.formRegistro.value.passR.toString()
+    };
+
+    this.auth.register(this.credenciales).subscribe(
+      () => {
+        this.router.navigateByUrl('/nueva-mascota')
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
+
+  
+
+  getUsuarioActual(){
+    return this.usuarioActual;
+  }
+
+ /*  autenticar(): void {
+
+   const revisaUsuario: Usuario = {
       correo: this.formLogin.value.correoI.toString(),
       contraseña: this.formLogin.value.passI.toString(),
     };
 
     // this.correoI = this.formLogin.value.correoI
-    // this.contraseñaI = this.formLogin.value.contraseñaI
+    // this.passI = this.formLogin.value.passI
 
     console.log(this.correoI);
     console.log(this.passI);
@@ -72,9 +118,9 @@ export class LoginComponent implements OnInit {
       },
       err => console.error(err)
     );   
-  }
+  } */
 
-  registrar():void {
+  /* registrar():void {
 
     const nuevoUsuario: Usuario = {
       nombre: this.formRegistro.value.nombreR.toString(),
@@ -94,13 +140,7 @@ export class LoginComponent implements OnInit {
     );   
 
   }
-
-  getUsuarioActual(){
-    return this.usuarioActual;
-  }
-
-  reiniciarForm() {
-    this.formLogin.reset();
-  }
+ */
+  
 }
 

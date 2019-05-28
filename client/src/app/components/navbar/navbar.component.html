@@ -34,8 +34,7 @@
                   <a class="dropdown-item" routerLink="/nueva-mascota" routerLinkActive="active">Agregar mascota</a>
                   <a class="dropdown-item">Cambiar mascota</a>
                   <hr class="m-1">
-                 
-                  <a class="dropdown-item" routerLink="/login" routerLinkActive="active">Cerrar Sesión</a>
+                  <a class="dropdown-item" (click)="auth.logout()" routerLinkActive="active">Cerrar Sesión</a>
               </div>
           </li>
       </ul>

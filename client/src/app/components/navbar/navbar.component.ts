@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UsuariosService } from '../../services/usuarios.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,14 +12,11 @@ export class NavbarComponent implements OnInit {
 
   usuarioActual: any;
 
-  constructor(private usuarioService: UsuariosService) { 
+  constructor(private usuarioService: UsuariosService, public auth: AuthService) { 
     
   }
 
-  ngOnInit() {
-    this.usuarioService.currentMessage.subscribe(message => this.usuarioActual = message);
-    
-  }
+  ngOnInit() { }
   
   menuresponsive() {
     var x = document.getElementById("BarraNave");

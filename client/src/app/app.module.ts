@@ -18,6 +18,8 @@ import { BannerComponent } from './components/banner/banner.component';
 
 import { UsuariosService } from './services/usuarios.service'
 import { MascotasService } from './services/mascotas.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { MascotasService } from './services/mascotas.service';
   ],
   providers: [
     UsuariosService,
-    MascotasService
+    MascotasService,
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
