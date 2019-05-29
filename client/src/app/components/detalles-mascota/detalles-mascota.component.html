@@ -1,0 +1,73 @@
+<app-navbar> </app-navbar>
+
+
+<hr class="m-1 mt-3">
+<!-- Inicio row -->
+<div class="row mt-5"></div>
+<!-- Fin row -->
+
+<!-- Inicio row -->
+<div class="row mb-3 ">
+  <div class="col-2"></div>
+  <div class="col-3">
+    <button class="btn" style="height: 50px; width:90px; font-family: 'Montserrat', sans-serif; font-size: 25px"
+      routerLink="/inicio" routerLinkActive="active"><i class="fas fa-angle-double-left"></i></button>
+  </div>
+
+  <div class="col">
+    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px; text-align:center">Detalles de mi mascota</h2>
+  </div>
+
+</div>
+
+<hr class="m-1">
+
+<!-- Fin row -->
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="row m-3">
+        <img src="{{mascotaActual.foto}}" alt="foto" width="450rem" height="450rem" style="border-radius: 5px">
+      </div>
+    </div>
+    <div class="col">
+      <div class="row m-3">
+
+        <!-- Card Entrada -->
+
+        <div class="card  m-1" style="width: 30rem; border-radius: 20px">
+          &nbsp;
+          <h5 class="card-title" style="text-align: center; font-weight: bold; font-size: 30px">{{mascotaActual.nombre}}
+          </h5>
+          &nbsp;
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Apodo: {{mascotaActual.apodo}}</li>
+            <li class="list-group-item">Especie: {{mascotaActual.especie}}</li>
+            <li class="list-group-item">Raza: {{mascotaActual.raza}}</li>
+            <li class="list-group-item">Sexo: {{mascotaActual.sexo}}</li>
+            <li class="list-group-item">Fecha de nacimiento: {{mascotaActual.fecha_nacimiento}}</li>
+
+          </ul>
+          <div class="card-body">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarCelo">
+              Editar
+            </button>
+
+            <button type="button" class="btn btn-danger">
+              Eliminar
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Fin Card -->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

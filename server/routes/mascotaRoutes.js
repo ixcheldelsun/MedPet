@@ -15,6 +15,12 @@ router.put('/editar', Mascota.update);
 //Eliminar una mascota
 router.delete('/eliminar/:id_mascota', Mascota.delete);
 
+//Buscar las vacunas de una mascota
+router.get('/:id_mascota/vacunas', Mascota.vacunas);
+
+//Buscar los períodos de celo de una mascota
+router.get('/:id_mascota/celos', Mascota.celos);
+
 
 module.exports = router;
 

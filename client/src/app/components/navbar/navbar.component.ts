@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UsuariosService } from '../../services/usuarios.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { MascotasService } from 'src/app/services/mascotas.service';
+import { Mascota } from 'src/app/models/mascota';
 
 @Component({
   selector: 'app-navbar',
@@ -10,14 +12,14 @@ import { UsuariosService } from '../../services/usuarios.service';
 export class NavbarComponent implements OnInit {
 
   usuarioActual: any;
+  mascotaActual: Mascota;
 
-  constructor(private usuarioService: UsuariosService) { 
+  constructor(private mascotaService: MascotasService, public auth: AuthService) { 
     
   }
 
-  ngOnInit() {
-    this.usuarioService.currentMessage.subscribe(message => this.usuarioActual = message);
-    
+  ngOnInit() { 
+    this.mascotaActual = this.mascotaService.mascotaActual;
   }
   
   menuresponsive() {

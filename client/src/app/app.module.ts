@@ -12,12 +12,18 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TablaCategoriasComponent } from './components/tabla-categorias/tabla-categorias.component';
+import { VacunaComponent } from './components/vacuna/vacuna.component';
+import { EscogerMascotaComponent } from './components/escoger-mascota/escoger-mascota.component';
+import { CeloComponent } from './components/celo/celo.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BannerComponent } from './components/banner/banner.component';
 
 import { UsuariosService } from './services/usuarios.service'
 import { MascotasService } from './services/mascotas.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { DetallesMascotaComponent } from './components/detalles-mascota/detalles-mascota.component';
 
 
 @NgModule({
@@ -30,7 +36,11 @@ import { MascotasService } from './services/mascotas.service';
     NavbarComponent,
     FooterComponent,
     TablaCategoriasComponent,
-    BannerComponent
+    BannerComponent,
+    VacunaComponent,
+    EscogerMascotaComponent,
+    CeloComponent,
+    DetallesMascotaComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +53,9 @@ import { MascotasService } from './services/mascotas.service';
   ],
   providers: [
     UsuariosService,
-    MascotasService
+    MascotasService,
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

@@ -15,7 +15,7 @@
               
               <!-- Inicio Fila -->
               <div class="row mt-3 mb-3 justify-content-center">
-                <h2>LOGO</h2>
+                <h2>MEDPET</h2>
               </div>
               <!-- Fin Fila -->
   
@@ -72,6 +72,12 @@
                                       </select>
                                   </div>
                               </div>
+                              <div class="form-row">
+                                <div class="form-group col">
+                                    <label for="inputFoto">Foto</label>
+                                    <input type="text" class="form-control" formControlName="fotoM" placeholder="Link foto">
+                                </div>
+                            </div>
   
                               <div class="form-row">
                                   <div class="form-group col">
@@ -79,7 +85,7 @@
                                       <button type="button" class="btn btn-secondary" (click)="inputFile.click()">
                                           Subir foto de mi mascota
                                       </button> 
-                                      <button type="button" class="btn btn-secondary ml-3"  routerLinkActive="active" (click)="registrar()">
+                                      <button type="button" class="btn btn-secondary ml-3" routerLink="/escoger-mascota"  routerLinkActive="active" (click)="registrar()" [disabled]="!formMascota.valid">
                                           Registrar a mi mascota
                                       </button>  
                                   </div>

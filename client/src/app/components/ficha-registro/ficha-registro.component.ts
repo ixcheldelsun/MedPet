@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MascotasService } from '../../services/mascotas.service';
-
 import { UsuariosService } from '../../services/usuarios.service';
+import { AuthService } from '../../services/auth.service'
 
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { Mascota } from '../../models/mascota'
+import { UserDetails } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-ficha-registro',
@@ -14,7 +17,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class FichaRegistroComponent implements OnInit {
 
-  usuarioActual: any;
+  usuarioActual: number;
+
+  details: UserDetails;
 
   formMascota: FormGroup;
 
@@ -27,9 +32,10 @@ export class FichaRegistroComponent implements OnInit {
   razaM = new FormControl('', Validators.required);
   sexoM = new FormControl('', Validators.required);
   fechaM = new FormControl('', Validators.required);
+  fotoM = new FormControl('', Validators.required);
 
 
-  constructor(private usuarioService: UsuariosService, private mascotasService: MascotasService, fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private auth: AuthService, private usuarioService: UsuariosService, private mascotasService: MascotasService, fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {
 
     this.formMascota = fb.group({
       nombreM: this.nombreM,
@@ -37,26 +43,38 @@ export class FichaRegistroComponent implements OnInit {
       especieM: this.especieM,
       razaM: this.razaM,
       sexoM: this.sexoM,
-      fechaM: this.fechaM
+      fechaM: this.fechaM,
+      fotoM: this.fotoM
     });
    }
 
   ngOnInit() {
-    this.usuarioService.currentMessage.subscribe(message => this.usuarioActual = message);
-    console.log(this.usuarioActual);
+    this.auth.profile().subscribe(
+      user => {
+        this.details = user
+        this.usuarioActual = this.details.id_usuario
+      },
+      err => {
+        console.log(err)
+      }
+    )
+
   }
 
   registrar():void {
-    this.nombreM = this.formMascota.value.nombreM
-    this.apodoM = this.formMascota.value.apodoM
-    this.especieM = this.formMascota.value.especieM
-    this.razaM = this.formMascota.value.razaM
-    this.sexoM = this.formMascota.value.sexoM
-    this.fechaM = this.formMascota.value.fechaM
 
-  
+    const nuevaMascota: Mascota = {
+      nombre: this.formMascota.value.nombreM.toString(),
+      apodo: this.formMascota.value.apodoM.toString(),
+      especie: this.formMascota.value.especieM.toString(),
+      raza: this.formMascota.value.razaM.toString(),
+      sexo: this.formMascota.value.sexoM.toString(),
+      fecha_nacimiento: this.formMascota.value.fechaM,
+      foto: this.formMascota.value.fotoM.toString(),
+      id_usuario: this.usuarioActual
+  }
 
-    this.mascotasService.saveMascota(this.nombreM.toString(), this.apodoM.toString(),this.especieM.toString(), this.razaM.toString(), this.sexoM.toString(), this.fechaM.toString(), this.usuarioActual)
+    this.mascotasService.saveMascota(nuevaMascota)
     .subscribe(
       res => {
         this.router.navigate(['/inicio']);

@@ -21,23 +21,17 @@ export class UsuariosService {
 
   constructor(private http: HttpClient) { }
 
-  getUsuarios() {
-    return this.http.get(`${this.API_URL}`);
-  }
-  
-  getUsuario(correo: String) {
-    let usuario = {correo:`${correo}`}
-    return this.http.post(`${this.API_URL}/buscar`, usuario);
+
+  auth(revisa: Usuario) {
+    return this.http.post(`${this.API_URL}/auth`, revisa);
   }
 
-  auth(correo: String, pass: String){
-    let usuario = {correo:`${correo}`, contraseña:`${pass}`}
-    return this.http.post(`${this.API_URL}/auth`, usuario);
+  saveUsuario(nuevo: Usuario) {
+    return this.http.post(`${this.API_URL}/crear`, nuevo);
   }
 
-  saveUsuario(nombre: String, apellido: String, correo: String, pass: String){
-    let usuario = {nombre:`${nombre}`, apellido:`${apellido}`, correo:`${correo}`, contraseña:`${pass}`}
-    return this.http.post(`${this.API_URL}/crear`, usuario);
+  getMascotas(id: number) {
+    return this.http.get(`${this.API_URL}/${id}/mascotas`);
   }
 
   pasaMensaje(message: any) {
