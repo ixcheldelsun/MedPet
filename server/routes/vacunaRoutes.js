@@ -13,7 +13,7 @@ router.post('/crear', Vacuna.create);
 router.put('/editar', Vacuna.update);
 
 //Eliminar una vacuna
-router.delete('/eliminar/:vacuna_id', Vacuna.delete);
+router.delete('/eliminar/:id_vacuna', Vacuna.delete);
 
 
 module.exports = router;

@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
 
     this.auth.login(this.credenciales).subscribe(
       () => {
-        this.router.navigateByUrl('/inicio')
+        this.router.navigateByUrl('/escoger-mascota')
       },
       err => {
         console.log(err)

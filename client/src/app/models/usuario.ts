@@ -1,17 +1,17 @@
 export interface Usuario {
-    id_usuario?: Number;
-    nombre?: String;
-    apellido?: String;
-    correo?: String;
-    contraseña?: String;
+    id_usuario?: number;
+    nombre?: string;
+    apellido?: string;
+    correo?: string;
+    contraseña?: string;
 }
 
 export interface UserDetails {
-    id_usuario?: Number;
-    nombre?: String;
-    apellido?: String;
-    correo?: String;
-    contraseña?: String;
+    id_usuario?: number;
+    nombre?: string;
+    apellido?: string;
+    correo?: string;
+    contraseña?: string;
     exp?: number;
     iat?: number;
 }
@@ -22,9 +22,9 @@ export interface TokenResponse {
 
 
 export interface TokenPayload {
-    id_usuario?: Number;
-    nombre?: String;
-    apellido?: String;
-    correo?: String;
-    contraseña?: String;
+    id_usuario?: number;
+    nombre?: string;
+    apellido?: string;
+    correo?: string;
+    contraseña?: string;
 }

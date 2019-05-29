@@ -31,7 +31,7 @@
         <div class="col-1">
         </div>
         <div class="col-5 ml-3">
-            <div class="boton">
+            <div class="boton" routerLink="/vacuna" routerLinkActive="active">
             <button class="btn" style="background:rgb(156, 187, 207); height: 200px; width: 400px;"> <div class="icono"> <i class="fa fa-syringe"></i></div>Vacunas </button>
             </div>
         </div>
@@ -65,11 +65,11 @@
         <!-- Fin Fila 2 Botones -->
   
         <!-- Inicio Fila 3 Boton SOLO SI ES HEMBRA -->
-      <div class="row mt-5 mb-5">
+      <div class="row mt-5 mb-5" *ngIf="mascotaActual.sexo === 'Hembra'">
           <div class="col-1">
           </div>
           <div class="col-10 ml-3">
-              <div class="boton">
+              <div class="boton" routerLink="/celo" routerLinkActive="active">
               <button class="btn" style="background:rgb(156, 187, 207); height: 200px; width: 880px;"> <div class="icono"> <i class="fas fa-briefcase-medical"></i></div>Celo</button>
               </div>
           </div>

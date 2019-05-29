@@ -17,7 +17,7 @@ import { UserDetails } from 'src/app/models/usuario';
 })
 export class FichaRegistroComponent implements OnInit {
 
-  usuarioActual: Number;
+  usuarioActual: number;
 
   details: UserDetails;
 
@@ -32,6 +32,7 @@ export class FichaRegistroComponent implements OnInit {
   razaM = new FormControl('', Validators.required);
   sexoM = new FormControl('', Validators.required);
   fechaM = new FormControl('', Validators.required);
+  fotoM = new FormControl('', Validators.required);
 
 
   constructor(private auth: AuthService, private usuarioService: UsuariosService, private mascotasService: MascotasService, fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {
@@ -42,7 +43,8 @@ export class FichaRegistroComponent implements OnInit {
       especieM: this.especieM,
       razaM: this.razaM,
       sexoM: this.sexoM,
-      fechaM: this.fechaM
+      fechaM: this.fechaM,
+      fotoM: this.fotoM
     });
    }
 
@@ -68,6 +70,7 @@ export class FichaRegistroComponent implements OnInit {
       raza: this.formMascota.value.razaM.toString(),
       sexo: this.formMascota.value.sexoM.toString(),
       fecha_nacimiento: this.formMascota.value.fechaM,
+      foto: this.formMascota.value.fotoM.toString(),
       id_usuario: this.usuarioActual
   }
 

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+
 import { AuthService } from './services/auth.service';
+import { MascotasService } from './services/mascotas.service';
+import { Mascota } from './models/mascota';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +12,10 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   title = 'MedPet';
 
-  constructor(public auth: AuthService) { }
+  mascotaActual: Mascota;
+  
+
+  constructor(public auth: AuthService, private mascotaService: MascotasService) { 
+    this.mascotaActual = this.mascotaService.mascotaActual;
+  }
 }

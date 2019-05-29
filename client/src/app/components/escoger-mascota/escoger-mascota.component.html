@@ -1,0 +1,22 @@
+<!-- Inicio Fondo -->
+<div class="fondo">
+    <div class="container">
+      
+      <div class="row mb-5"></div>
+      <!-- Inicio Fila 1  -->
+      <div class="row ">
+        <!-- Card Principal -->
+            <div class="card  m-1" style="width: 20rem; border-radius: 5px" *ngFor="let mascota of mascotasUsuario">
+                <button class="btn"><img class="card-img-top" (click)="mascotaActual(mascota)"routerLink="/inicio" routerLinkActive="active"  alt="{{mascota.apodo}}" src="{{mascota.foto}}"></button>
+                <hr>
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align: center; font-weight: bold">{{mascota.nombre}}</h5>
+                </div>
+            </div>
+        <!-- Fin Card -->
+      </div>
+      <!-- Fin Fila 1  -->
+  
+    </div> 
+  <!-- Fin Inicio Fondo -->
+

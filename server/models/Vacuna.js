@@ -9,6 +9,10 @@ const Vacuna = db.define('VACUNA', {
       autoIncrement: true,
       underscored: true
     },
+    nombre: {
+      type: Sequelize.STRING,
+      allowNull: false,
+  },
     fecha_i: {
         type: Sequelize.DATE,
         allowNull: false,

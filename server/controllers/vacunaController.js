@@ -35,7 +35,7 @@ exports.update = (req, res) => {
 
 //Eliminar una vacuna
 exports.delete = (req, res) => {
-  const id = req.params.id_vacuna;
+  let id = req.params.id_vacuna;
   Vacuna.destroy({
     where: {
       id_vacuna: id

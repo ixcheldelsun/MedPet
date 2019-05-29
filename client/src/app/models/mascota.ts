@@ -1,11 +1,11 @@
 export class Mascota {
-    id_mascota?: Number;
-    nombre?: String;
-    apodo?: String;
-    especie?: String;
-    raza?: String;
-    sexo?: String;
+    id_mascota?: number;
+    nombre?: string;
+    apodo?: string;
+    especie?: string;
+    raza?: string;
+    sexo?: string;
     fecha_nacimiento?: Date;
-    foto?: String;
-    id_usuario?: Number;
+    foto?: string;
+    id_usuario?: number;
 }
