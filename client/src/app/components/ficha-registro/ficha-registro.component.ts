@@ -23,8 +23,6 @@ export class FichaRegistroComponent implements OnInit {
 
   formMascota: FormGroup;
 
-  busuarioActual: number;
-
 
   nombreM = new FormControl('', Validators.required);
   apodoM = new FormControl('', Validators.required);
@@ -77,10 +75,11 @@ export class FichaRegistroComponent implements OnInit {
     this.mascotasService.saveMascota(nuevaMascota)
     .subscribe(
       res => {
+        this.mascotasService.setMascotaActual(res);
         this.router.navigate(['/inicio']);
       },
       err => console.error(err)
-    );   
+    );
 
   }
 
