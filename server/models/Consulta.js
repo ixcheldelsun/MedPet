@@ -2,22 +2,34 @@ const Sequelize = require('sequelize');
 const db = require('../config/database');
 const Mascota = require('../models/Mascota');
 
-const Celo = db.define('CELO', {
-  id_celo: {
+const Consulta = db.define('CONSULTA', {
+  consulta_id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true,
     underscored: true
   },
-  fecha_i: {
+  fecha: {
     type: Sequelize.DATE,
     allowNull: false,
     underscored: true
   },
-  fecha_f: {
-    type: Sequelize.DATE,
-    allowNull: true,
+  veterinario: {
+    type: Sequelize.STRING,
+    allowNull: false,
     underscored: true
+  },
+  centro: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  recipe: {
+    type: Sequelize.STRING,
+    allowNull: true
+  },
+  diagnostico: {
+    type: Sequelize.STRING,
+    allowNull: true
   },
   observaciones: {
     type: Sequelize.STRING,
@@ -36,16 +48,16 @@ const Celo = db.define('CELO', {
 }, {
   timestamps: false,
   freezeTableName: true,
-  tableName: 'CELO',
+  tableName: 'Consulta',
 });
 
 // Asociación mascota pertenece a usuario 
-Celo.associate = (models) => {
-  Celo.belongsTo(models.Mascota, {
+Consulta.associate = (models) => {
+  Consulta.belongsTo(models.Mascota, {
     foreignKey: "id_mascota"
   });
 };
 
 
 
-module.exports = Celo;
+module.exports = Consulta;
