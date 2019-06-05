@@ -2,6 +2,9 @@ const Usuario = require('../models/Usuario');
 const Mascota = require('../models/Mascota');
 const Vacuna = require('../models/Vacuna');
 const Celo = require('../models/Celo');
+const Desparasitacion = require('../models/Desparasitacion.js');
+const Consulta = require('../models/Consulta');
+const Observacion = require('../models/Observacion');
 
 //Traer todos las mascotas
 exports.findAll = (req, res) => {
@@ -62,7 +65,7 @@ exports.vacunas = (req, res) => {
       }
     }))
     .then(vacunas => {
-        res.json(vacunas);
+      res.json(vacunas);
     })
     .catch(error => console.log(error));
 };
@@ -80,7 +83,61 @@ exports.celos = (req, res) => {
       }
     }))
     .then(celos => {
-        res.json(celos);
+      res.json(celos);
     })
     .catch(error => console.log(error));
 };
+
+exports.desparasitaciones = (req, res) => {
+  let id = req.params.id_mascota
+  Mascota.findOne({
+      where: {
+        id_mascota: id
+      }
+    })
+    .then(mascota => Desparasitacion.findAll({
+      where: {
+        id_mascota: mascota.id_mascota
+      }
+    }))
+    .then(desparacitaciones => {
+      res.json(desparacitaciones);
+    })
+    .catch(error => console.log(error));
+}
+
+exports.consultas = (req, res) => {
+  let id = req.params.id_mascota
+  Mascota.findOne({
+      where: {
+        id_mascota: id
+      }
+    })
+    .then(mascota => Consulta.findAll({
+      where: {
+        id_mascota: mascota.id_mascota
+      }
+    }))
+    .then(consultas => {
+      res.json(consultas);
+    })
+    .catch(error => console.log(error));
+}
+
+exports.observaciones = (req, res) => {
+  let id = req.params.id_mascota
+  Mascota.findOne({
+      where: {
+        id_mascota: id
+      }
+    })
+    .then(mascota => Observacion.findAll({
+      where: {
+        id_mascota: mascota.id_mascota
+      }
+    }))
+    .then(observaciones => {
+      res.json(observaciones);
+    })
+    .catch(error => console.log(error));
+}

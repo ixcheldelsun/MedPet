@@ -1,0 +1,206 @@
+<app-navbar> </app-navbar>
+
+
+
+<hr class="m-1 mt-3">
+<!-- Inicio row -->
+<div class="row mt-5"></div>
+<!-- Fin row -->
+
+<!-- Inicio row -->
+<div class="row mb-3 ">
+  <div class="col-2"></div>
+  <div class="col-3">
+    <button class="btn" style="height: 50px; width:90px; font-family: 'Montserrat', sans-serif; font-size: 25px"
+      routerLink="/inicio" routerLinkActive="active"><i class="fas fa-angle-double-left"></i></button>
+  </div>
+
+  <div class="col-3">
+    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px">Consultas</h2>
+  </div>
+
+  <div class="col-3">
+    <button data-toggle="modal" data-target="#agregarConsulta" class="btn"
+      style="height: 50px; width:300px; font-family: 'Montserrat', sans-serif; font-size: 25px">Añadir<i
+        class="fas fa-plus"></i></button>
+  </div>
+</div>
+
+<hr class="m-1">
+
+<!-- Fin row -->
+
+<!-- Inicio row -->
+
+<div class="row mt-2 mb-2">
+  <div class="col-2"></div>
+  <div class="col-3"></div>
+  <div class="col-3"></div>
+  <div class="col-3">
+    <select id="inputFiltro" class="form-control" style="width: 300px">
+      <option selected>Fecha</option>
+    </select>
+  </div>
+</div>
+
+<hr class="m-1">
+
+<!-- Fin row -->
+
+<!-- Inicio row -->
+<div class="row m-3" *ngIf="consultaMascota">
+
+  <!-- Card Entrada -->
+
+  <div class="card  m-1" style="width: 20rem; border-radius: 20px"
+    *ngFor="let consulta of consultaMascota; let i = index">
+    &nbsp;
+    <h5 class="card-title" style="text-align: center; font-weight: bold">Consulta del {{consulta.fecha}}</h5>
+    &nbsp;
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Veterinario: {{consulta.veterinario}}</li>
+      <li class="list-group-item">Centro: {{consulta.centro}}</li>
+      <li class="list-group-item">Recipe: {{consulta.recipe}}</li>
+      <li class="list-group-item">Diagnóstico recibido: {{consulta.diagnostico}}</li>
+      <li class="list-group-item">Descripción: {{consulta.observaciones}}</li>
+    </ul>
+
+    <div class="card-body">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarConsulta">
+        Editar
+      </button>
+
+      <button type="button" class="btn btn-danger">
+        Eliminar
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Fin Card -->
+
+</div>
+<!-- Fin row -->
+<app-footer></app-footer>
+
+<!-- Modal Editar-->
+<div class="modal fade" id="editarConsulta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Consulta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputFechaC">Fecha de Consulta</label>
+            <input type="date" class="form-control" id="inputFechaC">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputVeterinarioC">Nombre del Veterinario</label>
+            <input type="text" class="form-control" id="inputVeterinarioC">
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="form-group col">
+            <label for="inputCentroC">Centro Visitado</label>
+            <input type="text" class="form-control" id="inputCentroC" placeholder="Nombre del Centro">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputRecipeC">Recipe</label>
+            <input type="text" class="form-control" id="inputRecipeC">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputDiagnosticoC">Diagnostico recibido</label>
+            <input type="text" class="form-control" id="inputDiagnosticoC">
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="form-group col">
+            <label for="inputObservacionesC">Observaciones</label>
+            <input type="text" class="form-control" id="inputObservacionesC" placeholder="Nombre del Centro">
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+        <button type="button" class="btn btn-primary">Añadir</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin Modal Editar-->
+
+<!-- Modal Añadir-->
+<div class="modal fade" id="agregarConsulta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" [formGroup]="formAgregar">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Añadir Consulta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputFechaC">Fecha de Consulta</label>
+            <input type="date" class="form-control" id="inputFechaC" formControlName="fechaC">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputVeterinarioC">Nombre del Veterinario</label>
+            <input type="text" class="form-control" id="inputVeterinarioC" formControlName="veterinarioC">
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="form-group col">
+            <label for="inputCentroC">Centro Visitado</label>
+            <input type="text" class="form-control" id="inputCentroC" placeholder="Nombre del Centro"
+              formControlName="centroC">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputRecipeC">Recipe</label>
+            <input type="text" class="form-control" id="inputRecipeC" formControlName="recipeC">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputDiagnosticoC">Diagnostico recibido</label>
+            <input type="text" class="form-control" id="inputDiagnosticoC" formControlName="diagnosticoC">
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="form-group col">
+            <label for="inputObservacionesC">Observaciones</label>
+            <input type="text" class="form-control" id="inputObservacionesC" placeholder="Nombre del Centro"
+              formControlName="observacionesC">
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="crear()"
+          [disabled]="!formAgregar.valid">Añadir</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin Modal Añadir-->

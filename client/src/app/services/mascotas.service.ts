@@ -20,13 +20,13 @@ export class MascotasService {
 
   constructor(private http: HttpClient) { }
 
-  saveMascota(nueva: Mascota){
+  saveMascota(nueva: Mascota) {
     return this.http.post(`${this.API_URL}/crear`, nueva);
   }
 
   //Función para hacer set/actualizar mascota actual
   setMascotaActual(mascota: Mascota) {
-    this.mascotaActual =  mascota;
+    this.mascotaActual = mascota;
   }
 
   getVacunas(id: number) {
@@ -37,7 +37,15 @@ export class MascotasService {
     return this.http.get(`${this.API_URL}/${id}/celos`);
   }
 
+  getDesparasitaciones(id: number) {
+    return this.http.get(`${this.API_URL}/${id}/desparasitaciones`);
+  }
 
+  getConsultas(id: number) {
+    return this.http.get(`${this.API_URL}/${id}/consultas`);
+  }
 
-
+  getObservaciones(id: number) {
+    return this.http.get(`${this.API_URL}/${id}/observaciones`);
+  }
 }

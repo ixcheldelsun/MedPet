@@ -29,3 +29,8 @@
 button{
     font-family: 'Montserrat', sans-serif;
 }
+
+button:hover { 
+    filter: alpha(opacity=80);
+    opacity: .8; 
+  }

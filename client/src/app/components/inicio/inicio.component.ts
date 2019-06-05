@@ -9,6 +9,7 @@ import { Usuario, TokenPayload, UserDetails } from '../../models/usuario';
 import { Mascota } from 'src/app/models/mascota';
 
 
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -19,6 +20,8 @@ export class InicioComponent implements OnInit {
   usuarioActual: Number;
   details: UserDetails;
   mascotaActual: Mascota;
+
+
 
   constructor(private usuarioService: UsuariosService, private mascotaService: MascotasService, private auth: AuthService, private router: Router, private activatedRoute: ActivatedRoute) { }
 

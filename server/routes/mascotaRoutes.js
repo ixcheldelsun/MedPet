@@ -21,6 +21,14 @@ router.get('/:id_mascota/vacunas', Mascota.vacunas);
 //Buscar los períodos de celo de una mascota
 router.get('/:id_mascota/celos', Mascota.celos);
 
+//Buscar las desparasitaciones de una mascota
+router.get('/:id_mascota/desparasitaciones', Mascota.desparasitaciones);
+
+//Buscar las consultas de una mascota
+router.get('/:id_mascota/consultas', Mascota.consultas);
+
+//Buscar las observaciones de una mascota
+router.get('/:id_mascota/observaciones', Mascota.observaciones);
 
 module.exports = router;
 

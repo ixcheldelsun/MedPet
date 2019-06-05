@@ -1,0 +1,35 @@
+<app-navbar> </app-navbar>
+
+<hr class="m-1 mt-3">
+&nbsp;
+<div class="row mb-3 ">
+  <div class="col-2"></div>
+  <div class="col-3">
+    <button class="btn" style="height: 50px; width:90px; font-family: 'Montserrat', sans-serif; font-size: 25px"
+      routerLink="/inicio" routerLinkActive="active"><i class="fas fa-angle-double-left"></i></button>
+  </div>
+
+  <div class="col-6">
+    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px">Calendario</h2>
+  </div>
+
+</div>
+
+<hr class="m-1">
+
+<div class='app-calendar'>
+  <full-calendar
+    #calendar
+    defaultView="dayGridMonth"
+    [header]="{
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+    }"
+    [plugins]="calendarPlugins"
+    [weekends]="true"
+    [events]= "calendarEvents"
+  ></full-calendar>
+</div>
+
+<app-footer></app-footer>

@@ -25,7 +25,7 @@ export class CeloComponent implements OnInit {
   observC = new FormControl('', Validators.required);
 
 
-  constructor(private celoService: CelosService, private mascotaService: MascotasService, private fb: FormBuilder, private router: Router) { 
+  constructor(private celoService: CelosService, private mascotaService: MascotasService, private fb: FormBuilder, private router: Router) {
 
     this.formAgregar = fb.group({
       fechaIC: this.fechaIC,
@@ -38,15 +38,15 @@ export class CeloComponent implements OnInit {
   ngOnInit() {
     this.mascotaActual = this.mascotaService.mascotaActual;
 
-    if(!this.mascotaActual) {
+    if (!this.mascotaActual) {
       this.router.navigateByUrl('/escoger-mascota')
     }
-    
-    this.mascotaService.getCelos(this.mascotaActual.id_mascota).subscribe( 
+
+    this.mascotaService.getCelos(this.mascotaActual.id_mascota).subscribe(
       celos => {
         this.celoMascota = celos;
       },
-      err =>{
+      err => {
         console.log(err);
       }
     )
@@ -61,11 +61,11 @@ export class CeloComponent implements OnInit {
     };
 
     this.celoService.saveCelo(nuevoCelo).subscribe(
-      res => { 
+      res => {
         this.ngOnInit();
       },
       err => console.error(err)
-    ); 
+    );
 
   }
 
