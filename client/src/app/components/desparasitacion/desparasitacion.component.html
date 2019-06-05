@@ -1,0 +1,194 @@
+<app-navbar> </app-navbar>
+
+<app-banner></app-banner>
+
+<hr class="m-1 mt-3">
+<!-- Inicio row -->
+<div class="row mt-5"></div>
+<!-- Fin row -->
+
+<!-- Inicio row -->
+<div class="row mb-3 ">
+  <div class="col-2"></div>
+  <div class="col-3">
+    <button class="btn" style="height: 50px; width:90px; font-family: 'Montserrat', sans-serif; font-size: 25px"
+      routerLink="/inicio" routerLinkActive="active"><i class="fas fa-angle-double-left"></i></button>
+  </div>
+
+  <div class="col-3">
+    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px">Desparasitacion</h2>
+  </div>
+
+  <div class="col-3">
+    <button data-toggle="modal" data-target="#agregarDesparasitacion" class="btn"
+      style="height: 50px; width:300px; font-family: 'Montserrat', sans-serif; font-size: 25px">Añadir <i
+        class="fas fa-plus"></i></button>
+  </div>
+</div>
+
+<hr class="m-1">
+
+<!-- Fin row -->
+
+<!-- Inicio row -->
+
+<div class="row mt-2 mb-2">
+  <div class="col-2"></div>
+  <div class="col-3"></div>
+  <div class="col-3"></div>
+  <div class="col-3">
+    <select id="inputFiltro" class="form-control" style="width: 300px">
+      <option selected>Fecha</option>
+    </select>
+  </div>
+</div>
+
+<hr class="m-1">
+
+<!-- Fin row -->
+
+<!-- Inicio row -->
+<div class="row m-3" *ngIf="desparasitacionMascota">
+
+  <!-- Card Entrada -->
+
+  <div class="card  m-1" style="width: 20rem; border-radius: 20px"
+    *ngFor="let desparasitacion of desparasitacionMascota; let i = index">
+    &nbsp;
+    <h5 class="card-title" style="text-align: center; font-weight: bold">Desparasitacion nro. {{i+1}}</h5>
+    &nbsp;
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Fecha: {{desparasitacion.fecha}}</li>
+      <li class="list-group-item">Veterinario: {{desparasitacion.veterinario}}</li>
+      <li class="list-group-item">Centro: {{desparasitacion.centro}}</li>
+      <li class="list-group-item">Vencimiento: {{desparasitacion.vencimiento}}</li>
+      <li class="list-group-item">Observaciones: {{desparasitacion.observaciones}}</li>
+
+    </ul>
+    <div class="card-body">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarDesparasitacion">
+        Editar
+      </button>
+
+      <button type="button" class="btn btn-danger">
+        Eliminar
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Fin Card -->
+
+</div>
+<!-- Fin row -->
+<app-footer></app-footer>
+
+<!-- Modal Editar-->
+<div class="modal fade" id="editarDesparasitacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Desparasitacion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputFechaD">Fecha de la Desparasitacion</label>
+            <input type="date" class="form-control" id="inputFechaD">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputVeterinarioD">Nombre del Veterinario</label>
+            <input type="text" class="form-control" id="inputVeterinarioD">
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="form-group col">
+            <label for="inputCentroD">Centro de Desparasitacion</label>
+            <input type="text" class="form-control" id="inputCentroD" placeholder="Centro">
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="form-group col">
+            <label for="inputVencimientoD">Vencimiento de Desparasitacion</label>
+            <input type="date" class="form-control" id="inputVencimientoD" placeholder="Fecha de Vencimiento">
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="form-group col">
+            <label for="inputObservacionD">Observaciones</label>
+            <input type="text" class="form-control" id="inputObservacionD" placeholder="Observacion">
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+        <button type="button" class="btn btn-primary">Añadir</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin Modal Editar-->
+
+<!-- Modal Añadir-->
+<div class="modal fade" id="agregarDesparasitacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" [formGroup]="formAgregar">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Añadir Desparasitacion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputFechaD">Fecha de la Desparasitacion</label>
+            <input type="date" class="form-control" id="inputFechaD" formControlName="fechaD">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputVeterinarioD">Nombre del Veterinario</label>
+            <input type="text" class="form-control" id="inputVeterinarioD" formControlName="veterinarioD">
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="form-group col">
+            <label for="inputCentroD">Centro de Desparasitacion</label>
+            <input type="text" class="form-control" id="inputCentroD" placeholder="Centro" formControlName="centroD">
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="form-group col">
+            <label for="inputVencimientoD">Vencimiento de Desparasitacion</label>
+            <input type="date" class="form-control" id="inputVencimientoD" placeholder="Fecha de Vencimiento"
+              formControlName="vencimientoD">
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="form-group col">
+            <label for="inputObservacionD">Observaciones</label>
+            <input type="text" class="form-control" id="inputObservacionD" placeholder="Observacion"
+              formControlName="observacionesD">
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="crear()"
+          [disabled]="!formAgregar.valid">Añadir</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin Modal Añadir-->

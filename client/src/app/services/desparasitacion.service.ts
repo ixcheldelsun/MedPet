@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Celo } from '../models/celo'
+import { Desparasitacion } from '../models/desparasitacion'
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -10,24 +10,21 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+export class DesparasitacionService {
 
-export class CelosService {
-
-  API_URL = 'http://localhost:3000/celos';
+  API_URL = 'http://localhost:3000/desparasitaciones';
 
   constructor(private http: HttpClient) { }
 
-  saveCelo(nueva: Celo) {
+  saveDesparasitacion(nueva: Desparasitacion) {
     return this.http.post(`${this.API_URL}/crear`, nueva);
   }
 
-  editCelo(update: Celo) {
+  editDesparasitacion(update: Desparasitacion) {
     return this.http.put(`${this.API_URL}/editar`, update);
   }
 
-  deleteCelo(id: number) {
+  deleteDesparasitacion(id: number) {
     return this.http.delete(`${this.API_URL}/eliminar/${id}`);
   }
-
-
 }
