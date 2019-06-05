@@ -67,6 +67,7 @@ export class DesparasitacionComponent implements OnInit {
 
     this.desparasitacionService.saveDesparasitacion(nuevaDesparasitacion).subscribe(
       res => {
+        console.log(nuevaDesparasitacion);
         this.ngOnInit();
       },
       err => console.error(err)

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Celo } from '../models/celo'
+import { Consulta } from '../models/consulta'
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -10,24 +10,21 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+export class ConsultaService {
 
-export class CelosService {
-
-  API_URL = 'http://localhost:3000/celos';
+  API_URL = 'http://localhost:3000/consultas';
 
   constructor(private http: HttpClient) { }
 
-  saveCelo(nueva: Celo) {
+  saveConsulta(nueva: Consulta) {
     return this.http.post(`${this.API_URL}/crear`, nueva);
   }
 
-  editCelo(update: Celo) {
+  editConsulta(update: Consulta) {
     return this.http.put(`${this.API_URL}/editar`, update);
   }
 
-  deleteCelo(id: number) {
+  deleteConsulta(id: number) {
     return this.http.delete(`${this.API_URL}/eliminar/${id}`);
   }
-
-
 }
