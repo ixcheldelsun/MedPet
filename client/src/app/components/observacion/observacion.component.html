@@ -1,6 +1,6 @@
 <app-navbar> </app-navbar>
 
-<app-banner></app-banner>
+
 
 <hr class="m-1 mt-3">
 <!-- Inicio row -->
@@ -10,13 +10,13 @@
 <!-- Inicio row -->
 <div class="row mb-3 ">
   <div class="col-2"></div>
-  <div class="col-3">
+  <div class="col-2">
     <button class="btn" style="height: 50px; width:90px; font-family: 'Montserrat', sans-serif; font-size: 25px"
       routerLink="/inicio" routerLinkActive="active"><i class="fas fa-angle-double-left"></i></button>
   </div>
 
-  <div class="col-3">
-    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px">Observacion</h2>
+  <div class="col-4">
+    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px">Observaciones</h2>
   </div>
 
   <div class="col-3">
@@ -55,11 +55,10 @@
   <div class="card  m-1" style="width: 20rem; border-radius: 20px"
     *ngFor="let observacion of observacionMascota; let i = index">
     &nbsp;
-    <h5 class="card-title" style="text-align: center; font-weight: bold">Observacion nro. {{i+1}}</h5>
+    <h5 class="card-title" style="text-align: center; font-weight: bold">{{observacion.titulo}}</h5>
     &nbsp;
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Fecha de observacion: {{observacion.fecha}}</li>
-      <li class="list-group-item">Titulo de observacion: {{observacion.titulo}}</li>
+      <li class="list-group-item">Fecha de observación: {{observacion.fecha}}</li>
       <li class="list-group-item">Foto anexada: {{observacion.foto}}</li>
       <li class="list-group-item">Texto: {{observacion.texto}}</li>
     </ul>
@@ -88,7 +87,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Observacion</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Observación</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -96,13 +95,13 @@
       <div class="modal-body">
         <div class="form-row">
           <div class="form-group col">
-            <label for="inputFechaO">Fecha de Observacion</label>
+            <label for="inputFechaO">Fecha de Observación</label>
             <input type="date" class="form-control" id="inputFechaO">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col">
-            <label for="inputTituloO">Titulo de Observacion</label>
+            <label for="inputTituloO">Titulo de Observación</label>
             <input type="text" class="form-control" id="inputTituloO">
           </div>
         </div>

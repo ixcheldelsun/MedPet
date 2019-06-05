@@ -22,7 +22,7 @@ export class ObservacionComponent implements OnInit {
 
   fechaO = new FormControl('', Validators.required);
   tituloO = new FormControl('', Validators.required);
-  fotoO = new FormControl('', Validators.required);
+  fotoO = new FormControl('');
   textoO = new FormControl('', Validators.required);
 
   constructor(private observacionService: ObservacionService, private mascotaService: MascotasService, private fb: FormBuilder, private router: Router) {

@@ -1,6 +1,6 @@
 <app-navbar> </app-navbar>
 
-<app-banner></app-banner>
+
 
 <hr class="m-1 mt-3">
 <!-- Inicio row -->
@@ -16,7 +16,7 @@
   </div>
 
   <div class="col-3">
-    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px">Consulta</h2>
+    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px">Consultas</h2>
   </div>
 
   <div class="col-3">
@@ -55,14 +55,13 @@
   <div class="card  m-1" style="width: 20rem; border-radius: 20px"
     *ngFor="let consulta of consultaMascota; let i = index">
     &nbsp;
-    <h5 class="card-title" style="text-align: center; font-weight: bold">Consulta nro. {{i+1}}</h5>
+    <h5 class="card-title" style="text-align: center; font-weight: bold">Consulta del {{consulta.fecha}}</h5>
     &nbsp;
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Fecha de consulta: {{consulta.fecha}}</li>
       <li class="list-group-item">Veterinario: {{consulta.veterinario}}</li>
       <li class="list-group-item">Centro: {{consulta.centro}}</li>
       <li class="list-group-item">Recipe: {{consulta.recipe}}</li>
-      <li class="list-group-item">Diagnostico recibido: {{consulta.diagnostico}}</li>
+      <li class="list-group-item">Diagnóstico recibido: {{consulta.diagnostico}}</li>
       <li class="list-group-item">Descripción: {{consulta.observaciones}}</li>
     </ul>
 

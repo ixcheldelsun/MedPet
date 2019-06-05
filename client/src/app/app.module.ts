@@ -53,7 +53,7 @@ import { ObservacionComponent } from './components/observacion/observacion.compo
     CeloComponent,
     DetallesMascotaComponent,
     CalendarioComponent,
-    CalendarComponent
+    CalendarComponent,
     DesparasitacionComponent,
     ConsultaComponent,
     ObservacionComponent

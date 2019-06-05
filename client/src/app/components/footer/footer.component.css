@@ -1,9 +1,11 @@
 .pie{
     position: relative;
-  clear: both;
-  margin-top: 0px;
-  padding-top: 0px;
-  overflow: visible;
+    clear: both;
+    margin-top: 0px;
+    padding-top: 0px;
+    overflow: visible;
+    text-align: center;
+
 }
 .foot {
     background: #000000;

@@ -1,6 +1,6 @@
 <app-navbar> </app-navbar>
 
-<app-banner></app-banner>
+
 
 <hr class="m-1 mt-3">
 <!-- Inicio row -->
@@ -10,13 +10,13 @@
 <!-- Inicio row -->
 <div class="row mb-3 ">
   <div class="col-2"></div>
-  <div class="col-3">
+  <div class="col-2">
     <button class="btn" style="height: 50px; width:90px; font-family: 'Montserrat', sans-serif; font-size: 25px"
       routerLink="/inicio" routerLinkActive="active"><i class="fas fa-angle-double-left"></i></button>
   </div>
 
-  <div class="col-3">
-    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px">Desparasitacion</h2>
+  <div class="col-4">
+    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px">Desparasitación</h2>
   </div>
 
   <div class="col-3">
@@ -55,7 +55,7 @@
   <div class="card  m-1" style="width: 20rem; border-radius: 20px"
     *ngFor="let desparasitacion of desparasitacionMascota; let i = index">
     &nbsp;
-    <h5 class="card-title" style="text-align: center; font-weight: bold">Desparasitacion nro. {{i+1}}</h5>
+    <h5 class="card-title" style="text-align: center; font-weight: bold">Desparasitación nro. {{i+1}}</h5>
     &nbsp;
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Fecha: {{desparasitacion.fecha}}</li>
