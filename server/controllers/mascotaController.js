@@ -88,7 +88,7 @@ exports.celos = (req, res) => {
     .catch(error => console.log(error));
 };
 
-exports.desparacitaciones = (req, res) => {
+exports.desparasitaciones = (req, res) => {
   let id = req.params.id_mascota
   Mascota.findOne({
       where: {

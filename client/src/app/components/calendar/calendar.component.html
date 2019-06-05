@@ -1,0 +1,18 @@
+<app-navbar> </app-navbar>
+
+<div class='app-calendar'>
+  <full-calendar
+    #calendar
+    defaultView="dayGridMonth"
+    [header]="{
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+    }"
+    [plugins]="calendarPlugins"
+    [weekends]="true"
+    [events]= "calendarEvents"
+  ></full-calendar>
+</div>
+
+<app-footer></app-footer>

@@ -2,6 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { CalendarModule, DateAdapter } from 'angular-calendar'; 
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CommonModule } from '@angular/common';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +30,8 @@ import { MascotasService } from './services/mascotas.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { DetallesMascotaComponent } from './components/detalles-mascota/detalles-mascota.component';
+import { CalendarioComponent } from './components/calendario/calendario.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 
 @NgModule({
@@ -40,7 +48,9 @@ import { DetallesMascotaComponent } from './components/detalles-mascota/detalles
     VacunaComponent,
     EscogerMascotaComponent,
     CeloComponent,
-    DetallesMascotaComponent
+    DetallesMascotaComponent,
+    CalendarioComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +58,13 @@ import { DetallesMascotaComponent } from './components/detalles-mascota/detalles
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule, 
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CommonModule,
+    FormsModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    FullCalendarModule
 
   ],
   providers: [

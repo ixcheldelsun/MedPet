@@ -10,6 +10,7 @@ import { VacunaComponent } from './components/vacuna/vacuna.component';
 import { EscogerMascotaComponent } from './components/escoger-mascota/escoger-mascota.component';
 import { CeloComponent } from './components/celo/celo.component';
 import { DetallesMascotaComponent } from './components/detalles-mascota/detalles-mascota.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service'
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'escoger-mascota', component: EscogerMascotaComponent, canActivate: [AuthGuardService] },
   { path: 'celo', component: CeloComponent, canActivate: [AuthGuardService] },
   { path: 'detalle-mascota', component: DetallesMascotaComponent, canActivate: [AuthGuardService] },
+  { path: 'calendario', component: CalendarComponent, canActivate: [AuthGuardService]}
 ];
 
 @NgModule({
