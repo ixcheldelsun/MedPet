@@ -24,6 +24,7 @@ import { MascotasService } from './services/mascotas.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { DetallesMascotaComponent } from './components/detalles-mascota/detalles-mascota.component';
+import { DesparasitacionComponent } from './components/desparasitacion/desparasitacion.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { DetallesMascotaComponent } from './components/detalles-mascota/detalles
     VacunaComponent,
     EscogerMascotaComponent,
     CeloComponent,
-    DetallesMascotaComponent
+    DetallesMascotaComponent,
+    DesparasitacionComponent
   ],
   imports: [
     BrowserModule,

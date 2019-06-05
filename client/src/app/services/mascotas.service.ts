@@ -37,6 +37,9 @@ export class MascotasService {
     return this.http.get(`${this.API_URL}/${id}/celos`);
   }
 
+  getDesparasitaciones(id: number) {
+    return this.http.get(`${this.API_URL}/${id}/desparasitaciones`);
+  }
 
 
 
