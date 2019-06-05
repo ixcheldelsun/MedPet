@@ -40,7 +40,7 @@ const Observacion = db.define('OBSERVACION', {
 }, {
   timestamps: false,
   freezeTableName: true,
-  tableName: 'Observacion',
+  tableName: 'OBSERVACION',
 });
 
 // Asociación mascota pertenece a usuario 
