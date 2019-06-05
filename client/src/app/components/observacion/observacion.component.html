@@ -16,11 +16,11 @@
   </div>
 
   <div class="col-3">
-    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px">Celo</h2>
+    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px">Observacion</h2>
   </div>
 
   <div class="col-3">
-    <button data-toggle="modal" data-target="#agregarCelo" class="btn"
+    <button data-toggle="modal" data-target="#agregarObservacion" class="btn"
       style="height: 50px; width:300px; font-family: 'Montserrat', sans-serif; font-size: 25px">Añadir <i
         class="fas fa-plus"></i></button>
   </div>
@@ -48,23 +48,24 @@
 <!-- Fin row -->
 
 <!-- Inicio row -->
-<div class="row m-3" *ngIf="celoMascota">
+<div class="row m-3" *ngIf="observacionMascota">
 
   <!-- Card Entrada -->
 
-  <div class="card  m-1" style="width: 20rem; border-radius: 20px" *ngFor="let celo of celoMascota; let i = index">
+  <div class="card  m-1" style="width: 20rem; border-radius: 20px"
+    *ngFor="let observacion of observacionMascota; let i = index">
     &nbsp;
-    <h5 class="card-title" style="text-align: center; font-weight: bold">Celo nro. {{i+1}}</h5>
+    <h5 class="card-title" style="text-align: center; font-weight: bold">Observacion nro. {{i+1}}</h5>
     &nbsp;
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Fecha de inicio: {{celo.fecha_i}}</li>
-      <li class="list-group-item">Fecha de fin: {{celo.fecha_f}}</li>
-      <li class="list-group-item">Descripción: {{celo.observaciones}}</li>
-
+      <li class="list-group-item">Fecha de observacion: {{observacion.fecha}}</li>
+      <li class="list-group-item">Titulo de observacion: {{observacion.titulo}}</li>
+      <li class="list-group-item">Foto anexada: {{observacion.foto}}</li>
+      <li class="list-group-item">Texto: {{observacion.texto}}</li>
     </ul>
     <div class="card-body">
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarCelo">
+      <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarObservacion">
         Editar
       </button>
 
@@ -82,12 +83,12 @@
 <app-footer></app-footer>
 
 <!-- Modal Editar-->
-<div class="modal fade" id="editarCelo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="editarObservacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Celo</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Observacion</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -95,20 +96,26 @@
       <div class="modal-body">
         <div class="form-row">
           <div class="form-group col">
-            <label for="inputFechaI">Fecha de inicio</label>
-            <input type="date" class="form-control" id="inputFechaI">
+            <label for="inputFechaO">Fecha de Observacion</label>
+            <input type="date" class="form-control" id="inputFechaO">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col">
-            <label for="inputFechaF">Fecha de fin</label>
-            <input type="date" class="form-control" id="inputFechaF">
+            <label for="inputTituloO">Titulo de Observacion</label>
+            <input type="text" class="form-control" id="inputTituloO">
           </div>
         </div>
         <div class="form-row mt-2">
           <div class="form-group col">
-            <label for="inputDesVacuna">Descripción</label>
-            <input type="text" class="form-control" id="inputDesVacuna" placeholder="Descripción">
+            <label for="inputFotoO">Foto</label>
+            <input type="text" class="form-control" id="inputFotoO" placeholder="link">
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="form-group col">
+            <label for="inputTextoO">Texto</label>
+            <input type="text" class="form-control" id="inputTextoO" placeholder="descripcion">
           </div>
         </div>
 
@@ -123,12 +130,12 @@
 <!-- Fin Modal Editar-->
 
 <!-- Modal Añadir-->
-<div class="modal fade" id="agregarCelo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="agregarObservacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" [formGroup]="formAgregar">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Añadir Celo</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Añadir Observacion</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -136,21 +143,26 @@
       <div class="modal-body">
         <div class="form-row">
           <div class="form-group col">
-            <label for="inputFechaI">Fecha de inicio</label>
-            <input type="date" class="form-control" id="input" formControlName="fechaIC">
+            <label for="inputFechaO">Fecha de Observacion</label>
+            <input type="date" class="form-control" id="inputFechaO" formControlName="fechaO">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col">
-            <label for="inputFechaF">Fecha de fin</label>
-            <input type="date" class="form-control" id="inputFechaF" formControlName="fechaFC">
+            <label for="inputTituloO">Titulo de Observacion</label>
+            <input type="text" class="form-control" id="inputTituloO" formControlName="tituloO">
           </div>
         </div>
         <div class="form-row mt-2">
           <div class="form-group col">
-            <label for="inputDesVacuna">Descripción</label>
-            <input type="text" class="form-control" id="inputDesVacuna" placeholder="Descripción"
-              formControlName="observC">
+            <label for="inputFotoO">Foto</label>
+            <input type="text" class="form-control" id="inputFotoO" placeholder="link" formControlName="fotoO">
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="form-group col">
+            <label for="inputTextoO">Texto</label>
+            <input type="text" class="form-control" id="inputTextoO" placeholder="descripcion" formControlName="textoO">
           </div>
         </div>
 

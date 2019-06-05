@@ -32,6 +32,9 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { DetallesMascotaComponent } from './components/detalles-mascota/detalles-mascota.component';
 import { CalendarioComponent } from './components/calendario/calendario.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { DesparasitacionComponent } from './components/desparasitacion/desparasitacion.component';
+import { ConsultaComponent } from './components/consulta/consulta.component';
+import { ObservacionComponent } from './components/observacion/observacion.component';
 
 
 @NgModule({
@@ -51,6 +54,9 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     DetallesMascotaComponent,
     CalendarioComponent,
     CalendarComponent
+    DesparasitacionComponent,
+    ConsultaComponent,
+    ObservacionComponent
   ],
   imports: [
     BrowserModule,

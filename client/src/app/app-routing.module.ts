@@ -11,13 +11,16 @@ import { EscogerMascotaComponent } from './components/escoger-mascota/escoger-ma
 import { CeloComponent } from './components/celo/celo.component';
 import { DetallesMascotaComponent } from './components/detalles-mascota/detalles-mascota.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { DesparasitacionComponent } from './components/desparasitacion/desparasitacion.component';
+import { ConsultaComponent } from './components/consulta/consulta.component';
+import { ObservacionComponent } from './components/observacion/observacion.component';
 
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service'
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'footer', component: FooterComponent },
@@ -27,7 +30,10 @@ const routes: Routes = [
   { path: 'escoger-mascota', component: EscogerMascotaComponent, canActivate: [AuthGuardService] },
   { path: 'celo', component: CeloComponent, canActivate: [AuthGuardService] },
   { path: 'detalle-mascota', component: DetallesMascotaComponent, canActivate: [AuthGuardService] },
-  { path: 'calendario', component: CalendarComponent, canActivate: [AuthGuardService]}
+  { path: 'calendario', component: CalendarComponent, canActivate: [AuthGuardService]},
+  { path: 'desparasitacion', component: DesparasitacionComponent, canActivate: [AuthGuardService] },
+  { path: 'consulta', component: ConsultaComponent, canActivate: [AuthGuardService] },
+  { path: 'observacion', component: ObservacionComponent, canActivate: [AuthGuardService] },
 ];
 
 @NgModule({
