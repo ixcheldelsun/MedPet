@@ -48,7 +48,7 @@ const Consulta = db.define('CONSULTA', {
 }, {
   timestamps: false,
   freezeTableName: true,
-  tableName: 'Consulta',
+  tableName: 'CONSULTA',
 });
 
 // Asociación mascota pertenece a usuario 

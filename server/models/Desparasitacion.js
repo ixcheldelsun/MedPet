@@ -44,7 +44,7 @@ const Desparasitacion = db.define('DESPARASITACION', {
 }, {
   timestamps: false,
   freezeTableName: true,
-  tableName: 'Desparasitacion',
+  tableName: 'DESPARASITACION',
 });
 
 // Asociación mascota pertenece a usuario 
