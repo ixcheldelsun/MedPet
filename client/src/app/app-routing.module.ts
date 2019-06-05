@@ -12,7 +12,7 @@ import { CeloComponent } from './components/celo/celo.component';
 import { DetallesMascotaComponent } from './components/detalles-mascota/detalles-mascota.component';
 import { DesparasitacionComponent } from './components/desparasitacion/desparasitacion.component';
 import { ConsultaComponent } from './components/consulta/consulta.component';
-
+import { ObservacionComponent } from './components/observacion/observacion.component';
 
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service'
@@ -31,6 +31,7 @@ const routes: Routes = [
   { path: 'detalle-mascota', component: DetallesMascotaComponent, canActivate: [AuthGuardService] },
   { path: 'desparasitacion', component: DesparasitacionComponent, canActivate: [AuthGuardService] },
   { path: 'consulta', component: ConsultaComponent, canActivate: [AuthGuardService] },
+  { path: 'observacion', component: ObservacionComponent, canActivate: [AuthGuardService] },
 ];
 
 @NgModule({

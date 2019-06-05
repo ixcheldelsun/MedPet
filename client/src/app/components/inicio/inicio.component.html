@@ -39,57 +39,57 @@
       </div>
       <div class="col-5">
         <div class="boton" routerLink="/desparasitacion" routerLinkActive="active">
-        <button class="btn" style="background:rgb(156, 187, 207); height: 200px; width: 400px;">
-          <div class="icono"> <i class="fa fa-capsules"></i></div>Desparacitación
-        </button>
+          <button class="btn" style="background:rgb(156, 187, 207); height: 200px; width: 400px;">
+            <div class="icono"> <i class="fa fa-capsules"></i></div>Desparacitación
+          </button>
+        </div>
+      </div>
+      <div class="col-1">
       </div>
     </div>
-    <div class="col-1">
+    <!-- Fin Fila 1 Botones -->
+
+    <!-- Inicio Fila 2 Botones -->
+    <div class="row mt-5">
+      <div class="col-1">
+      </div>
+      <div class="col-5 ml-3">
+        <div class="boton" routerLink="/consulta" routerLinkActive="active">
+          <button class="btn" style="background: rgb(156, 187, 207); height: 200px; width: 400px;">
+            <div class="icono"> <i class="fas fa-notes-medical"></i></div>Citas
+          </button>
+        </div>
+      </div>
+      <div class="col-5">
+        <div class="boton" routerLink="/observacion" routerLinkActive="active">
+          <button class="btn" style="background:rgb(156, 187, 207); height: 200px; width: 400px;">
+            <div class="icono"> <i class="fas fa-paw"></i></div>Observaciones
+          </button>
+        </div>
+      </div>
+      <div class="col-1">
+      </div>
     </div>
+    <!-- Fin Fila 2 Botones -->
+
+    <!-- Inicio Fila 3 Boton SOLO SI ES HEMBRA -->
+    <div class="row mt-5 mb-5" *ngIf="mascotaActual.sexo === 'Hembra'">
+      <div class="col-1">
+      </div>
+      <div class="col-10 ml-3">
+        <div class="boton" routerLink="/celo" routerLinkActive="active">
+          <button class="btn" style="background:rgb(156, 187, 207); height: 200px; width: 880px;">
+            <div class="icono"> <i class="fas fa-briefcase-medical"></i></div>Celo
+          </button>
+        </div>
+      </div>
+      <div class="col-1">
+      </div>
+    </div>
+    <!-- Fin Fila 3 Boton SOLO SI ES HEMBRA -->
+
+
   </div>
-  <!-- Fin Fila 1 Botones -->
-
-  <!-- Inicio Fila 2 Botones -->
-  <div class="row mt-5">
-    <div class="col-1">
-    </div>
-    <div class="col-5 ml-3">
-      <div class="boton" routerLink="/consulta" routerLinkActive="active">
-        <button class="btn" style="background: rgb(156, 187, 207); height: 200px; width: 400px;">
-          <div class="icono"> <i class="fas fa-notes-medical"></i></div>Citas
-        </button>
-      </div>
-    </div>
-    <div class="col-5">
-      <div class="boton">
-        <button class="btn" style="background:rgb(156, 187, 207); height: 200px; width: 400px;">
-          <div class="icono"> <i class="fas fa-paw"></i></div>Observaciones
-        </button>
-      </div>
-    </div>
-    <div class="col-1">
-    </div>
-  </div>
-  <!-- Fin Fila 2 Botones -->
-
-  <!-- Inicio Fila 3 Boton SOLO SI ES HEMBRA -->
-  <div class="row mt-5 mb-5" *ngIf="mascotaActual.sexo === 'Hembra'">
-    <div class="col-1">
-    </div>
-    <div class="col-10 ml-3">
-      <div class="boton" routerLink="/celo" routerLinkActive="active">
-        <button class="btn" style="background:rgb(156, 187, 207); height: 200px; width: 880px;">
-          <div class="icono"> <i class="fas fa-briefcase-medical"></i></div>Celo
-        </button>
-      </div>
-    </div>
-    <div class="col-1">
-    </div>
-  </div>
-  <!-- Fin Fila 3 Boton SOLO SI ES HEMBRA -->
-
-
-</div>
 </div>
 <!-- Fin Inicio Fondo -->
 
