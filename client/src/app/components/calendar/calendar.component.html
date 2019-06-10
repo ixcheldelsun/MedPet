@@ -20,12 +20,21 @@
 <div class='app-calendar'>
   <full-calendar
     #calendar
+    [buttonText]="{
+      today:'hoy',
+      month:'mes',
+      week:'semana',
+      day: 'día',
+      list:'lista'
+    }"
+    locale="es"
     defaultView="dayGridMonth"
     [header]="{
-      left: 'prev,next today',
+      left: 'prev,next today prevYear,nextYear',
       center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
     }"
+    themeSystem= "bootstrap"
     [plugins]="calendarPlugins"
     [weekends]="true"
     [events]= "calendarEvents"

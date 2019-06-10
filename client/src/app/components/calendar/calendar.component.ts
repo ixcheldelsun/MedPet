@@ -5,6 +5,9 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import { EventInput } from '@fullcalendar/core';
 import timeGrigPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction'; // for dateClick
+import listPlugin from '@fullcalendar/list';
+import bootstrap from '@fullcalendar/bootstrap'
+import { es } from '@fullcalendar/core/locales/es';
 
 import { MascotasService } from '../../services/mascotas.service';
 import { Mascota } from 'src/app/models/mascota';
@@ -28,7 +31,8 @@ export class CalendarComponent implements OnInit {
     desparasitaciones: '#786fa6',
     observaciones: '#f8a5c2',
   };
-  calendarPlugins = [dayGridPlugin, timeGrigPlugin, interactionPlugin];
+  calendarPlugins = [dayGridPlugin, timeGrigPlugin, interactionPlugin, listPlugin, bootstrap];
+ 
 
   mascotaActual: Mascota;
 
@@ -102,7 +106,7 @@ export class CalendarComponent implements OnInit {
           for (let i = 0; i < size.length ; i++) {
             agregar = {
               title: "Consulta nro: "+ (i+1),
-              start: consultas[i].date,
+              start: consultas[i].fecha,
               color: this.colors.consultas
             };
             this.fechasConsultas.push(agregar);
