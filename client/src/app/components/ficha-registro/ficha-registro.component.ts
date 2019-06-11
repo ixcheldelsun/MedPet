@@ -23,9 +23,6 @@ export class FichaRegistroComponent implements OnInit {
 
   formMascota: FormGroup;
 
-  upload: any;
-
-  inputFile: any;
 
   nombreM = new FormControl('', Validators.required);
   apodoM = new FormControl('', Validators.required);
@@ -47,7 +44,7 @@ export class FichaRegistroComponent implements OnInit {
       fechaM: this.fechaM,
       fotoM: this.fotoM
     });
-  }
+   }
 
   ngOnInit() {
     this.auth.profile().subscribe(
@@ -62,7 +59,7 @@ export class FichaRegistroComponent implements OnInit {
 
   }
 
-  registrar(): void {
+  registrar():void {
 
     const nuevaMascota: Mascota = {
       nombre: this.formMascota.value.nombreM.toString(),
@@ -73,16 +70,16 @@ export class FichaRegistroComponent implements OnInit {
       fecha_nacimiento: this.formMascota.value.fechaM,
       foto: this.formMascota.value.fotoM.toString(),
       id_usuario: this.usuarioActual
-    }
+  }
 
     this.mascotasService.saveMascota(nuevaMascota)
-      .subscribe(
-        res => {
-          this.mascotasService.setMascotaActual(res);
-          this.router.navigate(['/inicio']);
-        },
-        err => console.error(err)
-      );
+    .subscribe(
+      res => {
+        this.mascotasService.setMascotaActual(res);
+        this.router.navigate(['/inicio']);
+      },
+      err => console.error(err)
+    );
 
   }
 

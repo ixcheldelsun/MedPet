@@ -35,8 +35,6 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { DesparasitacionComponent } from './components/desparasitacion/desparasitacion.component';
 import { ConsultaComponent } from './components/consulta/consulta.component';
 import { ObservacionComponent } from './components/observacion/observacion.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -72,8 +70,7 @@ import { environment } from '../environments/environment';
     CommonModule,
     FormsModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
-    FullCalendarModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    FullCalendarModule
 
   ],
   providers: [
