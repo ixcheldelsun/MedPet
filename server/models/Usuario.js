@@ -24,6 +24,16 @@ const Usuario = db.define('USUARIO', {
     contraseña: {
         type: Sequelize.STRING,
         allowNull: true
+    },
+    reinicia_contraseña: {
+      type: Sequelize.STRING,
+      underscored: true,
+      allowNull: true
+    },
+    reinicia_contraseña_expira: {
+      type: Sequelize.DATE,
+      underscored: true,
+      allowNull: true
     }
   },
   {

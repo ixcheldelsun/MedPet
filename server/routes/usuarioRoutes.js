@@ -10,14 +10,17 @@ router.post('/crear', Usuario.create);
 //Login de un usuario
 router.post('/auth', Usuario.auth);
 
-//Falta verificar uso
+//Recuperar contraseña
+router.post('/olvide_pass', Usuario.olvide_pass);
+
+//Reinicia contraseña
+router.post('/reinicia_pass', Usuario.reinicia_pass);
+
+//Traer perfil de usuario
 router.get('/profile', Usuario.profile);
 
 //Buscar un usuario por correo
 router.post('/buscar', Usuario.findByEmail);
-
-//Editar un usuario
-router.put('/editar/:id_usuario', Usuario.update);
 
 //Buscar mascotas de un usuario
 router.get('/:id_usuario/mascotas', Usuario.mascotas);
