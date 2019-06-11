@@ -1,8 +1,15 @@
 const Usuario = require('../models/Usuario');
 const Mascota = require('../models/Mascota');
 
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const crypto = require('crypto');
+
+process.env.MAILER_EMAIL_ID = 'medpet.help@gmail.com';
+process.env.MAILER_PASSWORD = 'Petmed123';
 
 process.env.SECRET_KEY = 'secret';
 
@@ -64,7 +71,71 @@ exports.auth = (req,res) => {
   })
 };
 
-//Profile
+//Olvidé mi contraseña
+exports.olvide_pass = (req,res) => {
+  Usuario.findOne({
+    where: {
+      correo:req.body.correo
+    }
+  })
+  .then( usr => {
+    if(usr){
+      let token = crypto.randomBytes(20).toString('hex');
+      Usuario.update(
+        { reinicia_contraseña: token, reinicia_contraseña_expira: Date.now() + 86400000 },
+        { where: { id_usuario: usr.id_usuario } }
+      )
+      .then( usuario_up => {
+        res.json(usuario_up)
+      })
+      .catch(err => {
+        res.send('error:' + err)
+      })
+    }
+    else {
+      res.json({ error: 'El usuario no existe' })
+    }
+  })
+  .catch(err => {
+    res.send('error:' + err)
+  })
+};
+
+exports.reinicia_pass = (req, res) => {
+  Usuario.findOne({
+    where: {
+      reinicia_contraseña: req.body.token,
+      reinicia_contraseña_expira: {
+        [Op.gt]: Date.now()
+      }
+    }  
+  }).then( user => {
+    if (user) {
+      if (req.body.nuevoPass === req.body.verificaPass) {
+        Usuario.update({ 
+          contraseña: bcrypt.hashSync(req.body.nuevoPass, 10), 
+          reinicia_contraseña: null, 
+          reinicia_contraseña_expira: null 
+        },{ where: { id_usuario: user.id_usuario } });
+      } 
+      else {
+        res.status(422).send({
+          message: 'Passwords do not match'
+        });
+      }
+      res.json({ error: 'El usuario cambió su contraseña' })
+    } 
+    else {
+      res.json({ error: 'El token no es válido o ya se venció' })
+    }
+
+  });
+};
+
+
+
+
+//Perfil usuario
 exports.profile = (req,res) => {
   var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY) //convierte el token del usuario en el objeto que contiene todos su datos
 
@@ -86,53 +157,6 @@ exports.profile = (req,res) => {
   })
 };
 
-
-/* 
-//Traer todos los usuarios
-exports.findAll = (req, res) => {
-    Usuario.findAll().then(usuarios => {
-        res.json(usuarios);
-    });
-};
-
-
-//Crear un Usuario sin encriptación
-exports.create = (req, res) => {  
-    let usuario = req.body;
-    console.log(usuario);
-    Usuario.create(usuario).then(usuario => {    
-      res.json(usuario);
-    })
-    .catch(err => {
-      console.log(err)
-    });
-  };
-
-//Autenticar usuario sin servicio
-exports.auth = (req, res) => {
-  let correo = req.body.correo;
-  let pass = req.body.contraseña;
-  Usuario.findAll({
-      where: {
-          correo: correo,
-          contraseña: pass
-      }
-  })
-  .then(usuario =>{
-    if(usuario.length > 0){
-      console.log("Encontrado");
-      res.json(usuario);
-    }
-    else{
-      console.log("No encontrado");
-      res.status(404).json({ text: "No existe el usuario" });
-    } 
-  })
-  .catch(err => {
-    console.log(err)
-  });
-};   
-*/
 
 //Editar un usuario
 exports.update = (req, res) => {
