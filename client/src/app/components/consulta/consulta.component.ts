@@ -8,6 +8,8 @@ import { MascotasService } from '../../services/mascotas.service';
 import { Consulta } from '../../models/consulta';
 import { Mascota } from 'src/app/models/mascota';
 
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-consulta',
   templateUrl: './consulta.component.html',
@@ -17,6 +19,7 @@ export class ConsultaComponent implements OnInit {
 
   mascotaActual: Mascota;
   consultaMascota: any;
+  
 
   formAgregar: FormGroup;
 
@@ -65,9 +68,18 @@ export class ConsultaComponent implements OnInit {
       observaciones: this.formAgregar.value.observacionesC.toString(),
       id_mascota: this.mascotaActual.id_mascota,
     };
-
+    let hoy =  new Date(Date.now());
+    let fechaConsulta = new Date(this.formAgregar.value.fechaC);
     this.consultaService.saveConsulta(nuevaConsulta).subscribe(
       res => {
+        if ( fechaConsulta.getTime() > hoy.getTime()){
+          Swal.fire({
+            type: 'info',
+            title: `Agregaste una consulta para dentro de ${Math.ceil((fechaConsulta.valueOf() - hoy.valueOf())/86400000)} días`,
+            text: 'Se añadirá también en la sección "Próximas" para que puedas revisar rápidamente solo las fechas por venir',
+            backdrop:'rgba(57, 207, 60, 0.48)'
+          })
+        }
         this.ngOnInit();
       },
       err => console.error(err)

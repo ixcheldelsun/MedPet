@@ -7,6 +7,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Usuario, TokenPayload } from '../../models/usuario';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-login',
@@ -62,10 +63,21 @@ export class LoginComponent implements OnInit {
 
     this.auth.login(this.credenciales).subscribe(
       () => {
+        Swal.fire({
+          type: 'success',
+          title: 'Iniciaste sesión exitosamente',
+          text: 'Para continuar, selecciona tu mascota',
+          backdrop:'rgba(57, 207, 60, 0.48)'
+        })
         this.router.navigateByUrl('/escoger-mascota')
       },
       err => {
-        console.log(err)
+        Swal.fire({
+          type: 'error',
+          title: 'Error al iniciar sesión',
+          text: 'Ingresaste incorrectamente tu correo y/o contraseña',
+          backdrop:'rgba(207, 57, 57, 0.48)'
+        })
       }
     )
   }

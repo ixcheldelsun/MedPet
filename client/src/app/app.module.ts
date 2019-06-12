@@ -35,6 +35,12 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { DesparasitacionComponent } from './components/desparasitacion/desparasitacion.component';
 import { ConsultaComponent } from './components/consulta/consulta.component';
 import { ObservacionComponent } from './components/observacion/observacion.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { OlvidePassComponent } from './components/olvide-pass/olvide-pass.component';
+import { ReiniciaPassComponent } from './components/reinicia-pass/reinicia-pass.component';
+import { ProximasComponent } from './components/proximas/proximas.component';
+
 
 
 @NgModule({
@@ -56,7 +62,10 @@ import { ObservacionComponent } from './components/observacion/observacion.compo
     CalendarComponent,
     DesparasitacionComponent,
     ConsultaComponent,
-    ObservacionComponent
+    ObservacionComponent,
+    OlvidePassComponent,
+    ReiniciaPassComponent,
+    ProximasComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +79,8 @@ import { ObservacionComponent } from './components/observacion/observacion.compo
     CommonModule,
     FormsModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
-    FullCalendarModule
+    FullCalendarModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
   ],
   providers: [

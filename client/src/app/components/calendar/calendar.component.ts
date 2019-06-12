@@ -51,7 +51,7 @@ export class CalendarComponent implements OnInit {
     this.mascotaActual = this.mascotaService.mascotaActual;
 
     if(!this.mascotaActual) {
-      this.router.navigateByUrl('/escoger-mascota')
+      this.router.navigate(['/escoger-mascota'])
     }
     else{
       //Agregar las fechas de celo al calendario

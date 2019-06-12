@@ -13,6 +13,8 @@ export class NavbarComponent implements OnInit {
 
   usuarioActual: any;
   mascotaActual: Mascota;
+  contProximas: number
+
 
   constructor(private mascotaService: MascotasService, public auth: AuthService) { 
     

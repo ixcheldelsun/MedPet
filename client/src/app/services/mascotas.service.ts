@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { Mascota } from '../models/mascota'
 import { Vacuna } from '../models/vacuna'
+import { Desparasitacion } from '../models/desparasitacion';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,7 +21,7 @@ export class MascotasService {
 
   API_URL = 'http://localhost:3000/mascotas';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   saveMascota(nueva: Mascota) {
     return this.http.post(`${this.API_URL}/crear`, nueva);
@@ -48,4 +51,5 @@ export class MascotasService {
   getObservaciones(id: number) {
     return this.http.get(`${this.API_URL}/${id}/observaciones`);
   }
+
 }
