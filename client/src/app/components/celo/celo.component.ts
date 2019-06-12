@@ -7,6 +7,7 @@ import { MascotasService } from '../../services/mascotas.service';
 
 import { Celo } from '../../models/celo';
 import { Mascota } from 'src/app/models/mascota';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-celo',
@@ -60,8 +61,19 @@ export class CeloComponent implements OnInit {
       id_mascota: this.mascotaActual.id_mascota,
     };
 
+    let hoy =  new Date(Date.now());
+    let fechaCelo = new Date(this.formAgregar.value.fechaIC);
+
     this.celoService.saveCelo(nuevoCelo).subscribe(
       res => {
+        if ( fechaCelo.getTime() > hoy.getTime()){
+          Swal.fire({
+            type: 'info',
+            title: `Agregaste una fecha de inicio de celo para dentro de ${Math.ceil((fechaCelo.valueOf() - hoy.valueOf())/86400000)} días`,
+            text: 'Se añadirá también en la sección "Próximas" para que puedas revisar rápidamente solo las fechas por venir',
+            backdrop:'rgba(57, 207, 60, 0.48)'
+          })
+        }
         this.ngOnInit();
       },
       err => console.error(err)

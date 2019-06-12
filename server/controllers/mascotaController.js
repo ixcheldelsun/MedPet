@@ -62,7 +62,10 @@ exports.vacunas = (req, res) => {
     .then(mascota => Vacuna.findAll({
       where: {
         id_mascota: mascota.id_mascota
-      }
+      },
+      order: [
+        ['fecha_i', 'ASC'],
+      ]
     }))
     .then(vacunas => {
       res.json(vacunas);
@@ -80,7 +83,10 @@ exports.celos = (req, res) => {
     .then(mascota => Celo.findAll({
       where: {
         id_mascota: mascota.id_mascota
-      }
+      },
+      order: [
+        ['fecha_i', 'ASC'],
+      ]
     }))
     .then(celos => {
       res.json(celos);
@@ -98,7 +104,10 @@ exports.desparasitaciones = (req, res) => {
     .then(mascota => Desparasitacion.findAll({
       where: {
         id_mascota: mascota.id_mascota
-      }
+      },
+      order: [
+        ['fecha', 'ASC'],
+      ]
     }))
     .then(desparacitaciones => {
       res.json(desparacitaciones);
@@ -116,7 +125,10 @@ exports.consultas = (req, res) => {
     .then(mascota => Consulta.findAll({
       where: {
         id_mascota: mascota.id_mascota
-      }
+      },
+      order: [
+        ['fecha', 'ASC'],
+      ]
     }))
     .then(consultas => {
       res.json(consultas);
@@ -134,7 +146,10 @@ exports.observaciones = (req, res) => {
     .then(mascota => Observacion.findAll({
       where: {
         id_mascota: mascota.id_mascota
-      }
+      },
+      order: [
+        ['fecha', 'ASC'],
+      ]
     }))
     .then(observaciones => {
       res.json(observaciones);

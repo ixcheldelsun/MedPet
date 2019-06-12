@@ -32,7 +32,6 @@ export class EscogerMascotaComponent implements OnInit {
         this.usuarioService.getMascotas(this.usuarioActual).subscribe ( 
           mascotas => {
             this.mascotasUsuario = mascotas;
-            console.log(mascotas);
           },
           err => {
             console.log(err);

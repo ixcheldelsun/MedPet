@@ -4,6 +4,8 @@ export interface Usuario {
     apellido?: string;
     correo?: string;
     contraseña?: string;
+    reinicia_contraseña?: string;
+    reinicia_contraseña_expira?: Date;
 }
 
 export interface UserDetails {
