@@ -14,9 +14,14 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { DesparasitacionComponent } from './components/desparasitacion/desparasitacion.component';
 import { ConsultaComponent } from './components/consulta/consulta.component';
 import { ObservacionComponent } from './components/observacion/observacion.component';
+import { OlvidePassComponent } from './components/olvide-pass/olvide-pass.component';
+import { ReiniciaPassComponent } from './components/reinicia-pass/reinicia-pass.component';
+import { ProximasComponent } from './components/proximas/proximas.component';
 
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service'
+
+
 
 
 const routes: Routes = [
@@ -34,6 +39,9 @@ const routes: Routes = [
   { path: 'desparasitacion', component: DesparasitacionComponent, canActivate: [AuthGuardService] },
   { path: 'consulta', component: ConsultaComponent, canActivate: [AuthGuardService] },
   { path: 'observacion', component: ObservacionComponent, canActivate: [AuthGuardService] },
+  { path: 'proximas', component: ProximasComponent, canActivate: [AuthGuardService] },
+  { path: 'olvide', component: OlvidePassComponent },
+  { path: 'reinicia', component: ReiniciaPassComponent },
 ];
 
 @NgModule({

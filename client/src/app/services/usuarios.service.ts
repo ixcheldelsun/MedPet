@@ -30,8 +30,24 @@ export class UsuariosService {
     return this.http.post(`${this.API_URL}/crear`, nuevo);
   }
 
+  buscaUsuarioCorreo(correo: Usuario): Observable<Usuario> {
+    return this.http.post(`${this.API_URL}/buscar`, correo);
+  }
+
   getMascotas(id: number) {
     return this.http.get(`${this.API_URL}/${id}/mascotas`);
+  }
+
+  olvidePass(olvido: Usuario){
+    return this.http.post(`${this.API_URL}/olvide_pass`, olvido);
+  }
+
+  reiniciaPass(reinicia: any){
+    return this.http.post(`${this.API_URL}/reinicia_pass`, reinicia);
+  }
+
+  enviaMensaje(form: any) {
+    return this.http.post(`${this.API_URL}/envia_correo`, form)
   }
 
   pasaMensaje(message: any) {

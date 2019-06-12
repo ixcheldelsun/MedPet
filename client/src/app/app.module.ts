@@ -37,6 +37,10 @@ import { ConsultaComponent } from './components/consulta/consulta.component';
 import { ObservacionComponent } from './components/observacion/observacion.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { OlvidePassComponent } from './components/olvide-pass/olvide-pass.component';
+import { ReiniciaPassComponent } from './components/reinicia-pass/reinicia-pass.component';
+import { ProximasComponent } from './components/proximas/proximas.component';
+
 
 
 @NgModule({
@@ -58,7 +62,10 @@ import { environment } from '../environments/environment';
     CalendarComponent,
     DesparasitacionComponent,
     ConsultaComponent,
-    ObservacionComponent
+    ObservacionComponent,
+    OlvidePassComponent,
+    ReiniciaPassComponent,
+    ProximasComponent
   ],
   imports: [
     BrowserModule,
