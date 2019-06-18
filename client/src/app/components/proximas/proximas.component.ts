@@ -10,6 +10,7 @@ import { Mascota } from 'src/app/models/mascota';
 
 
 
+
 @Component({
   selector: 'app-proximas',
   templateUrl: './proximas.component.html',
@@ -88,6 +89,7 @@ export class ProximasComponent implements OnInit {
       }
     )
   }
+
 
 
 }
