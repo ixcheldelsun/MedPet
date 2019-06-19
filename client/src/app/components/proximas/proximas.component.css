@@ -1,17 +1,24 @@
-.desp .card {
+#desp .card-header  {
     background-color: #786fa6; 
 }
 
-.cons .card {
+#cons .card-header  {
     background-color: #f5cd79; 
 }
 
-.celo .card {
+#celo .card-header {
     background-color: #f19066; 
 }
 
-.card .list-group {
-    background-color: white; 
+#vacuna .card-header {
+    background-color: #778beb; 
+}
+
+
+
+.card-header {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 
 

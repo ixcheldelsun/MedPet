@@ -1,135 +1,188 @@
 <!-- Inicio Fondo -->
 <div class="fondo">
-    <div class="container">
-        <div class="row mb-5"></div>
-  
-        <div class="row  mt-5 mb-5"></div>
-  
-        <div class="row">
-  
-          <div class="col-3"></div>
-  
-          <div class="col-6">
-            <!-- Inicio Cuadro -->
-            <div class="recuadroInicio">
-              
-              <!-- Inicio Fila -->
-              <div class="row mt-3 mb-3 justify-content-center">
-                <h2>MEDPET</h2>
-              </div>
-              <!-- Fin Fila -->
-  
-              <!-- Inicio Fila -->
-              <div class="row">
-                <!-- Inicio Pills -->
-                <div class="container">
-                  <!-- Nav tabs -->
-                    <ul class="nav nav-tabs justify-content-center">
-                      <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#home">Registar mascota</a>
-                      </li>
-                    </ul>
-  
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-  
-  
-                      <!-- Tab 1 -->
-                      <div class="tab-pane container active" id="home">
-                      
-                        <!-- Inicio form Registrar Mascota -->
-                          <form [formGroup]="formMascota">
-                              <div class="form-row mt-2">
-                                  <div class="form-group col">
-                                      <label for="inputNombreMascota">Nombre</label>
-                                      <input type="text" class="form-control" formControlName="nombreM" placeholder="Nombre">
-                                  </div>
-                                  <div class="form-group col">
-                                      <label for="inputApodo">Apodo</label>
-                                      <input type="text" class="form-control" formControlName="apodoM" placeholder="Apodo">
-                                  </div>
-                              </div>
-                              <div class="form-row">
-                                  <div class="form-group col">
-                                      <label for="inputFechaNacMascota">Fecha de nacimiento</label>
-                                      <input type="date" class="form-control" formControlName="fechaM" placeholder="Fecha de nacimiento">
-                                  </div>
-                                  <div class="form-group col">
-                                      <label for="inputEspecie">Especie</label>
-                                      <input type="text" class="form-control" formControlName="especieM" placeholder="Especie">
-                                  </div>
-                                  <div class="form-group col">
-                                      <label for="inputRaza">Raza</label>
-                                      <input type="text" class="form-control" formControlName="razaM" placeholder="Raza">
-                                  </div>
-                              </div>
-                              <div class="form-row">
-                                  <div class="form-group col">
-                                      <label for="inputGenero">Sexo</label>
-                                      <select  formControlName="sexoM" class="form-control">
-                                        <option selected>Macho</option>
-                                        <option>Hembra</option>
-                                      </select>
-                                  </div>
-                              </div>
-                              <div class="form-row">
-                                <div class="form-group col">
-                                    <label for="inputFoto">Foto</label>
-                                    <input type="text" class="form-control" formControlName="fotoM" placeholder="Link foto">
-                                </div>
-                            </div>
-  
-                              <div class="form-row">
-                                  <div class="form-group col">
-                                      <input  class="hidden" type="file" class="custom-file-input"(change)="upload($event)" accept=".png,.jpg" id="customFile">
-                                      <button type="button" class="btn btn-secondary" (click)="inputFile.click()">
-                                          Subir foto de mi mascota
-                                      </button> 
-                                      <button type="button" class="btn btn-secondary ml-3" (click)="registrar()" [disabled]="!formMascota.valid">
-                                          Registrar a mi mascota
-                                      </button>  
-                                  </div>
-                              </div>
-                  
-                          </form>
-                  
-                         <!-- Fin form Registrar Mascota -->
-    
-                        </div>
-                        <!-- Fin Tab 1 -->
-                      
-                    </div>
-  
-                </div>  
-                <!--  Fin Pills -->
-              </div>
-              <!-- Fin Fila -->
-  
-              <!-- Inicio Fila -->
-              <div class="row"></div>
-              <!-- Fin Fila -->
-  
-            </div>
-            <!-- Fin Cuadro -->
+  <div class="container">
+    <div class="row mb-5"></div>
+
+    <div class="row  mt-5 mb-5"></div>
+
+    <div class="row">
+
+      <div class="col-3"></div>
+
+      <div class="col-6">
+        <!-- Inicio Cuadro -->
+        <div class="recuadroInicio">
+
+          <!-- Inicio Fila -->
+          <div class="row mt-3 mb-3 justify-content-center">
+            <h2>MEDPET</h2>
           </div>
-          <div class="col-3"></div>
+          <!-- Fin Fila -->
+
+          <!-- Inicio Fila -->
+          <div class="row">
+            <!-- Inicio Pills -->
+            <div class="container">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#home">Registar mascota</a>
+                </li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+
+
+                <!-- Tab 1 -->
+                <div class="tab-pane container active" id="home">
+
+                  <!-- Inicio form Registrar Mascota -->
+                  <form [formGroup]="formMascota">
+                    <div class="form-row mt-2">
+                      <div class="form-group col">
+                        <label for="inputNombreMascota">Nombre</label>
+                        <input type="text" class="form-control" formControlName="nombreM" placeholder="Nombre">
+                      </div>
+                      <div class="form-group col">
+                        <label for="inputApodo">Apodo</label>
+                        <input type="text" class="form-control" formControlName="apodoM" placeholder="Apodo">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col">
+                        <label for="inputFechaNacMascota">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" formControlName="fechaM"
+                          placeholder="Fecha de nacimiento">
+                      </div>
+                      <div class="form-group col">
+                        <label for="inputEspecie">Especie</label>
+                        <input type="text" class="form-control" formControlName="especieM" placeholder="Especie">
+                      </div>
+                      <div class="form-group col">
+                        <label for="inputRaza">Raza</label>
+                        <input type="text" class="form-control" formControlName="razaM" placeholder="Raza">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col">
+                        <label for="inputGenero">Sexo</label>
+                        <select formControlName="sexoM" class="form-control">
+                          <option selected>Macho</option>
+                          <option>Hembra</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group col">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#subirImagen" [disabled]="!formMascota.valid">
+                          Subir foto de mi mascota
+                        </button>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <a routerLink="/escoger-mascota">Regresar</a>
+                    </div>
+
+                  </form>
+
+                  <!-- Fin form Registrar Mascota -->
+
+                </div>
+                <!-- Fin Tab 1 -->
+
+              </div>
+
+            </div>
+            <!--  Fin Pills -->
+          </div>
+          <!-- Fin Fila -->
+
+          <!-- Inicio Fila -->
+          <div class="row"></div>
+          <!-- Fin Fila -->
+
         </div>
-      
+        <!-- Fin Cuadro -->
+      </div>
+      <div class="col-3"></div>
     </div>
-  
-  <!--Inicio modal-->
-  
-  <ng-template #template>
-  <div class="modal-header">
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
+
   </div>
-  <div class="modal-body">
-   Usted ha registrado a su mascota exitosamente
+
+</div>
+<!-- Fin Inicio Fondo -->
+
+<!-- Modal Subir imagen-->
+<div class="modal fade" id="subirImagen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Subir imagen de mi mascota</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="!downloadURL" class="dropzone" 
+            dropZone
+            (hovered)="toggleHover($event)"
+            (dropped)="startUpload($event)"
+            [class.hovering]="isHovering">
+
+
+          <h3 >Arrastra y suelta una imagen</h3>
+
+          <div class="file">
+            <label for="subir" class="file-label">
+
+
+              <input class="file-input" type="file" id="subir" (change)="startUpload($event.target.files)">
+
+
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fa fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  o elige una…
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+        
+        <div *ngIf="percentage | async as pct">
+
+          <progress class="progress is-info" 
+                    [value]="pct" 
+                    max="100" style="width: 100%">        
+          </progress>
+        
+          {{ pct | number }}%
+        
+        </div>
+
+        <div *ngIf="snapshot | async as snap">
+          {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }} 
+        
+          <div *ngIf="downloadURL | async as url">
+            <h4>¡Foto subida! {{getImagenUrl(url)}}</h4>
+          </div> 
+        
+          <button (click)="task.pause()" class="btn btn-warning" [disabled]="!isActive(snap)">Pausar</button>
+          <button (click)="task.cancel()" class="btn btn-danger" [disabled]="!isActive(snap)">Cancelar</button>
+          <button (click)="task.resume()" class="btn btn-info"   [disabled]="!(snap?.state === 'paused')">Reanudar</button>
+        
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary ml-3" data-dismiss="modal" [disabled]="!downloadURL" (click)="registrar()">Registrar a mi mascota</button>
+      </div>
+    </div>
   </div>
-  </ng-template>
-  
-  <!--Fin modal-->
-  </div>
-  <!-- Fin Inicio Fondo -->
+</div>
+<!-- Fin Modal Subir imagen-->

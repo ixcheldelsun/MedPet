@@ -1,23 +1,35 @@
 <!-- Inicio Fondo -->
 <div class="fondo">
-    <div class="container">
-      
-      <div class="row mb-5"></div>
+  <div class="container">
+
+    <div class="row mb-5">
       <!-- Inicio Fila 1  -->
-      <div class="row ">
+      <div class="row m-5">
         <!-- Card Principal -->
-            <div class="card  m-1" style="width: 20rem; border-radius: 5px" *ngFor="let mascota of mascotasUsuario">
-                <button class="btn"><img class="card-img-top" (click)="mascotaActual(mascota)"routerLink="/inicio" routerLinkActive="active"  alt="{{mascota.apodo}}" src="{{mascota.foto}}"></button>
-                <hr>
-                <div class="card-body">
-                    <h5 class="card-title" style="text-align: center; font-weight: bold">{{mascota.nombre}}</h5>
-                </div>
-            </div>
+        <div class="card  m-1" style="width: 20rem; border-radius: 5px" *ngFor="let mascota of mascotasUsuario">
+          <button class="btn"><img class="card-img-top" (click)="mascotaActual(mascota)" routerLink="/inicio"
+              routerLinkActive="active" alt="{{mascota.apodo}}" src="{{mascota.foto}}"></button>
+          <hr>
+          <div class="card-body">
+            <h5 class="card-title" style="text-align: center; font-weight: bold">{{mascota.nombre}}</h5>
+          </div>
+        </div>
+        <div class="card  m-1" style="width: 20rem; border-radius: 5px">
+          <div class="card-body align-items-center d-flex justify-content-center">
+            <button class="btn">
+              <div routerLink="/nueva-mascota" routerLinkActive="active"><i class="fas fa-plus fa-7x"
+                  style="color:whitesmoke"></i></div>
+            </button>
+          </div>
+        </div>
+
         <!-- Fin Card -->
       </div>
       <!-- Fin Fila 1  -->
-  
-    </div> 
-  <!-- Fin Inicio Fondo -->
 
+    </div>
 
+  </div>
+
+</div>
+<!-- Fin Inicio Fondo -->

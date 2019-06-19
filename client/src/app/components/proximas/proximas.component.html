@@ -9,11 +9,13 @@
 <div class="row mb-3 ">
   <div class="col-2"></div>
   <div class="col-3">
-        <button class="btn"  style="height: 50px; width:90px; font-family: 'Montserrat', sans-serif; font-size: 25px"  routerLink="/inicio" routerLinkActive="active"><i class="fas fa-angle-double-left"></i></button> 
+    <button class="btn" style="height: 50px; width:90px; font-family: 'Montserrat', sans-serif; font-size: 25px"
+      routerLink="/inicio" routerLinkActive="active"><i class="fas fa-angle-double-left"></i></button>
   </div>
 
   <div class="col-6">
-      <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px">Próximas <span class="badge badge-dark text-white" style="font-size: 54px;">{{contProximas}}</span></h2>
+    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px">Próximas <span
+        class="badge badge-dark text-white" style="font-size: 54px;">{{contProximas}}</span></h2>
   </div>
 
 </div>
@@ -21,6 +23,7 @@
 <hr class="m-1">
 
 <!-- Fin row -->
+
 
 <!-- Inicio row -->
 
@@ -29,116 +32,149 @@
   <div class="col-3"></div>
   <div class="col-3"></div>
   <div class="col-3">
-      <select  id="inputFiltro" class="form-control" style="width: 300px">
-      <option selected >Fecha</option>
-      </select>
+    <select id="inputFiltro" class="form-control" style="width: 300px">
+      <option selected>Fecha</option>
+    </select>
   </div>
 </div>
 
 <hr class="m-1">
 
 <!-- Fin row -->
-
-<!-- Inicio row -->
-<div class="row" *ngIf="desparasitacionesProximas" class="desp">
-
-    <!-- Card Entrada -->
-    
-        <div class="card  m-1" style="width: 20rem; border-radius: 20px"  *ngFor="let desparasitacion of desparasitacionesProximas; let i = index">
-            &nbsp;
-                <h5 class="card-title text-white" style="text-align: center; font-weight: bold; margin-top: 10; text-decoration: white">Desparasitación nro. {{i+1}}</h5>
-            &nbsp;
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item" style="font-weight: bold">Fecha: {{desparasitacion.fecha}}</li>
-              <li class="list-group-item">Veterinario: {{desparasitacion.veterinario}}</li>
-              <li class="list-group-item">Centro: {{desparasitacion.centro}}</li>
-              <li class="list-group-item">Vencimiento: {{desparasitacion.vencimiento}}</li>
-              <li class="list-group-item">Observaciones: {{desparasitacion.observaciones}}</li>
-
-            </ul>
-            <div class="card-body">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-light  mr-1" data-toggle="modal" data-target="#editarVacuna">
-                    Editar
-                </button>
-
-                <button type="button" class="btn btn-light">
-                    Eliminar
-                </button>
-  
-            </div>
-        </div>
-   
-    <!-- Fin Card -->
-
-</div>
-<!-- Fin row -->
-
-<!-- Inicio row -->
-<div class="row m-3" *ngIf="consultasProximas" class="cons">
+<div class="row m-6 justify-content-center">
+  <!-- Inicio row -->
 
   <!-- Card Entrada -->
-  
-      <div class="card  m-1" style="width: 20rem; border-radius: 20px"  *ngFor="let consulta of consultasProximas; let i = index">
-          &nbsp;
-              <h5 class="card-title text-white" style="text-align: center; font-weight: bold; margin-top: 10; text-decoration: white">Consulta nro. {{i+1}}</h5>
-          &nbsp;
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item" style="font-weight: bold">Fecha: {{consulta.fecha}}</li>
-            <li class="list-group-item">Veterinario: {{consulta.veterinario}}</li>
-            <li class="list-group-item">Centro: {{consulta.centro}}</li>
-            <li class="list-group-item">Recipe: {{consulta.recipe}}</li>
-            <li class="list-group-item">Diagnóstico recibido: {{consulta.diagnostico}}</li>
-            <li class="list-group-item">Descripción: {{consulta.observaciones}}</li>
-          </ul>
-          <div class="card-body">
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-light  mr-1" data-toggle="modal" data-target="#editarVacuna">
-                  Editar
-              </button>
 
-              <button type="button" class="btn btn-light">
-                  Eliminar
-              </button>
+  <div class="card  m-1" style="width: 20rem; border-radius: 20px"
+    *ngFor="let desparasitacion of desparasitacionesProximas; let i = index" id="desp">
+    <h5 class="card-header text-white" style="text-align: center; font-weight: bold; margin-top: 10;">Desparasitación
+      nro.
+      {{i+1}}</h5>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" style="font-weight: bold">Fecha: {{desparasitacion.fecha}}</li>
+        <li class="list-group-item">Veterinario: {{desparasitacion.veterinario}}</li>
+        <li class="list-group-item">Centro: {{desparasitacion.centro}}</li>
+        <li class="list-group-item">Vencimiento: {{desparasitacion.vencimiento}}</li>
+        <li class="list-group-item">Observaciones: {{desparasitacion.observaciones}}</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-light  mr-1" data-toggle="modal" data-target="#editarVacuna">
+        Editar
+      </button>
 
-          </div>
-      </div>
- 
+      <button type="button" class="btn btn-light">
+        Eliminar
+      </button>
+
+    </div>
+  </div>
+
+
   <!-- Fin Card -->
 
-</div>
-<!-- Fin row -->
 
-<!-- Inicio row -->
-<div class="row m-3" *ngIf="consultasProximas" class="celo">
+  <!-- Fin row -->
+
+  <!-- Inicio row -->
+  <!-- Card Entrada -->
+
+  <div class="card  m-1" style="width: 20rem; border-radius: 20px"
+    *ngFor="let consulta of consultasProximas; let i = index" id="cons">
+    <h5 class="card-header text-white" style="text-align: center; font-weight: bold; margin-top: 10;">Consulta nro.
+      {{i+1}}
+    </h5>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" style="font-weight: bold">Fecha: {{consulta.fecha}}</li>
+        <li class="list-group-item">Veterinario: {{consulta.veterinario}}</li>
+        <li class="list-group-item">Centro: {{consulta.centro}}</li>
+        <li class="list-group-item">Recipe: {{consulta.recipe}}</li>
+        <li class="list-group-item">Diagnóstico recibido: {{consulta.diagnostico}}</li>
+        <li class="list-group-item">Descripción: {{consulta.observaciones}}</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-light  mr-1" data-toggle="modal" data-target="#editarVacuna">
+        Editar
+      </button>
+
+      <button type="button" class="btn btn-light">
+        Eliminar
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- Fin Card -->
+
 
   <!-- Card Entrada -->
-  
-      <div class="card  m-1" style="width: 20rem; border-radius: 20px"  *ngFor="let celo of celosProximas; let i = index">
-          &nbsp;
-              <h5 class="card-title text-white" style="text-align: center; font-weight: bold; margin-top: 10; text-decoration: white">Celo nro. {{i+1}}</h5>
-          &nbsp;
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item" style="font-weight: bold">Fecha de inicio: {{celo.fecha_i}}</li>
-            <li class="list-group-item">Fecha de fin: {{celo.fecha_f}}</li>
-            <li class="list-group-item">Descripción: {{celo.observaciones}}</li>
-          </ul>
-          <div class="card-body">
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-light  mr-1" data-toggle="modal" data-target="#editarVacuna">
-                  Editar
-              </button>
 
-              <button type="button" class="btn btn-light">
-                  Eliminar
-              </button>
+  <div class="card  m-1" style="width: 20rem; border-radius: 20px;" *ngFor="let celo of celosProximas; let i = index"
+    id="celo">
+    <h5 class="card-header text-white" style="text-align: center; font-weight: bold; margin-top: 10;">Celo nro. {{i+1}}
+    </h5>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" style="font-weight: bold">Fecha inicio: {{celo.fecha_i}}</li>
+        <li class="list-group-item">Fecha fin: {{celo.fecha_f}}</li>
+        <li class="list-group-item">Descripción: {{celo.observaciones}}</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-light  mr-1" data-toggle="modal" data-target="#editarVacuna">
+        Editar
+      </button>
 
-          </div>
-      </div>
- 
+      <button type="button" class="btn btn-light">
+        Eliminar
+      </button>
+
+    </div>
+  </div>
+
+
   <!-- Fin Card -->
+
+   <!-- Card Entrada -->
+
+   <div class="card  m-1" style="width: 20rem; border-radius: 20px;" *ngFor="let vacuna of vacunasProximas; let i = index"
+   id="vacuna">
+   <h5 class="card-header text-white" style="text-align: center; font-weight: bold; margin-top: 10;">Vacuna nro. {{i+1}}
+   </h5>
+   <div class="card-body">
+     <ul class="list-group list-group-flush">
+        <li class="list-group-item" style="font-weight: bold">Fecha: {{vacuna.fecha_i}}</li>
+        <li class="list-group-item">Dosis: {{vacuna.dosis}}</li>
+        <li class="list-group-item">Descripción: {{vacuna.descripcion}}</li>
+     </ul>
+   </div>
+   <div class="card-footer">
+     <!-- Button trigger modal -->
+     <button type="button" class="btn btn-light  mr-1" data-toggle="modal" data-target="#editarVacuna">
+       Editar
+     </button>
+
+     <button type="button" class="btn btn-light">
+       Eliminar
+     </button>
+
+   </div>
+ </div>
+
+
+ <!-- Fin Card -->
+
 
 </div>
 <!-- Fin row -->
+
 <app-footer></app-footer>
 
