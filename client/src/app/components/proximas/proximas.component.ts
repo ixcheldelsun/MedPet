@@ -10,6 +10,7 @@ import { Mascota } from 'src/app/models/mascota';
 
 
 
+
 @Component({
   selector: 'app-proximas',
   templateUrl: './proximas.component.html',
@@ -22,10 +23,12 @@ export class ProximasComponent implements OnInit {
   desparasitacionesProximas = [];
   celosProximas = [];
   consultasProximas = [];
+  vacunasProximas = [];
 
   contProximas: number;
 
   hoy = new Date(Date.now())
+
 
 
   constructor(private mascotaService: MascotasService, private router: Router) {
@@ -87,7 +90,24 @@ export class ProximasComponent implements OnInit {
         console.log(err);
       }
     )
+
+    this.mascotaService.getVacunas(this.mascotaActual.id_mascota).subscribe(
+      vacunas => {
+        const size = Object.keys(vacunas);
+        for (let i = 0; i < size.length ; i++) {
+          var fecha = new Date(vacunas[i].fecha_i)
+          if(fecha.getTime() > this.hoy.getTime()){
+            this.vacunasProximas.push(vacunas[i])
+            this.contProximas++
+          }
+        }
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
+
 
 
 }

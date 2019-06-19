@@ -9,6 +9,10 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CommonModule } from '@angular/common';
 import { FullCalendarModule } from '@fullcalendar/angular';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component'
@@ -40,6 +44,8 @@ import { environment } from '../environments/environment';
 import { OlvidePassComponent } from './components/olvide-pass/olvide-pass.component';
 import { ReiniciaPassComponent } from './components/reinicia-pass/reinicia-pass.component';
 import { ProximasComponent } from './components/proximas/proximas.component';
+import { FileSizePipe } from './pipes/file-size.pipe';
+import { DropZoneDirective } from './directives/drop-zone.directive';
 
 
 
@@ -65,7 +71,9 @@ import { ProximasComponent } from './components/proximas/proximas.component';
     ObservacionComponent,
     OlvidePassComponent,
     ReiniciaPassComponent,
-    ProximasComponent
+    ProximasComponent,
+    FileSizePipe,
+    DropZoneDirective
   ],
   imports: [
     BrowserModule,
@@ -80,7 +88,9 @@ import { ProximasComponent } from './components/proximas/proximas.component';
     FormsModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     FullCalendarModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
 
   ],
   providers: [
