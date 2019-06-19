@@ -10,6 +10,12 @@
     background-color: #f19066; 
 }
 
+#vacuna .card-header {
+    background-color: #778beb; 
+}
+
+
+
 .card-header {
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;

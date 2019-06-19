@@ -7,6 +7,7 @@ import { MascotasService } from '../../services/mascotas.service';
 
 import { Vacuna } from '../../models/vacuna';
 import { Mascota } from 'src/app/models/mascota';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-vacuna',
@@ -67,9 +68,26 @@ export class VacunaComponent implements OnInit {
       fecha_i: this.formAgregar.value.fechaV,
       id_mascota: this.mascotaActual.id_mascota
     };
+    let hoy =  new Date(Date.now());
+    let fechaVacuna = new Date(this.formAgregar.value.fechaV);
 
     this.vacunasService.saveVacuna(nuevaVacuna).subscribe(
       res => { 
+        if ( fechaVacuna.getTime() > hoy.getTime()){
+          Swal.fire({
+            type: 'info',
+            title: `Agregaste una vacuna para dentro de ${Math.ceil((fechaVacuna.valueOf() - hoy.valueOf())/86400000)} días`,
+            text: 'Se añadirá también en la sección "Próximas" para que puedas revisar rápidamente solo las fechas por venir',
+            backdrop:'rgba(57, 207, 60, 0.48)'
+          })
+        }
+        else{
+          Swal.fire({
+            type: 'success',
+            title: `Vacuna agregada`,
+            backdrop:'rgba(57, 207, 60, 0.48)'
+          })
+        }
         this.ngOnInit();
       },
       err => console.error(err)
