@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1560916637901,
+  "timestamp": 1560292546825,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,7 +11,7 @@
         "/es2015-polyfills.1e04665e16f944715fd2.js",
         "/favicon.ico",
         "/index.html",
-        "/main.8efa5e58b4f079e6b5e1.js",
+        "/main.f90eb54274d6b15fbd82.js",
         "/polyfills.8bbb231b43165d65d357.js",
         "/runtime.26209474bfa8dc87a77c.js",
         "/styles.5084b23ed08fa22cb9bd.css"
@@ -44,7 +44,19 @@
       "patterns": []
     }
   ],
-  "dataGroups": [],
+  "dataGroups": [
+    {
+      "name": "pwa-/medpet",
+      "patterns": [
+        "http:\\/\\/localhost:3000\\/.*"
+      ],
+      "strategy": "freshness",
+      "maxSize": 50,
+      "maxAge": 604800000,
+      "timeoutMs": 10000,
+      "version": 1
+    }
+  ],
   "hashTable": {
     "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
@@ -65,8 +77,8 @@
     "/assets/imagenes/p5.jpg": "20233ab398130bfcbb32d93e41bbfa91147916f0",
     "/es2015-polyfills.1e04665e16f944715fd2.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/index.html": "916625697787e5a5bfa5f6a03abf45c8049352ed",
-    "/main.8efa5e58b4f079e6b5e1.js": "4c3d334e8d75b39a1f116c09fb3b461d43b0670e",
+    "/index.html": "040b8e49f557a92400d81ad7a51df5f58d58bccc",
+    "/main.f90eb54274d6b15fbd82.js": "a10f5b219a32eb06bf743ffb07a6940380bec5fc",
     "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
     "/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "/styles.5084b23ed08fa22cb9bd.css": "70ad2435727ba4775b49a00fb6b905362139be88"
