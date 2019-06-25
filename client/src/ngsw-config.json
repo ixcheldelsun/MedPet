@@ -9,7 +9,9 @@
         "/index.html",
         "/**/*.css",
         "/**/*.js",
-        "/**/*.json"
+        "/**/*.json",
+        "/server/*",
+        ""
       ]
     }
   }, {
@@ -21,6 +23,19 @@
         "/assets/**",
         "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
       ]
+    }
+  }],
+  "dataGroups": [{
+    "name": "Medpet",
+    "urls": [
+      "https://use.fontawesome.com/releases/v5.8.2/css/all.css",
+      "https://medpet-d3926.firebaseio.com"
+    ],
+    "cacheConfig": {
+      "strategy": "freshness",
+      "timeout": "10s",
+      "maxAge": "1d",
+      "maxSize": 100
     }
   }]
 }

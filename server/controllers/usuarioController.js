@@ -4,6 +4,7 @@ const Mascota = require('../models/Mascota');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
+//const webpush = require('web-push');
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const crypto = require('crypto');
@@ -271,4 +272,14 @@ exports.buscaCorreo = (req, res) => {
 
 };
 
-   
+//Subscripcion a notificaciones
+/*exports.subscribe = (req, res) => {
+  let sub = req.body; 
+  res.set('Content-Type', 'application/json'); 
+  webpush.setVapidDetails(
+    Usuario.correo,
+
+  )
+  
+}
+*/

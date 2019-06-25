@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1560925865578,
+  "timestamp": 1561439485825,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,7 +11,7 @@
         "/es2015-polyfills.1e04665e16f944715fd2.js",
         "/favicon.ico",
         "/index.html",
-        "/main.677692ebf25780e08f55.js",
+        "/main.1a60d2b63d0dafe9bfe5.js",
         "/manifest.json",
         "/polyfills.8bbb231b43165d65d357.js",
         "/runtime.26209474bfa8dc87a77c.js",
@@ -45,7 +45,20 @@
       "patterns": []
     }
   ],
-  "dataGroups": [],
+  "dataGroups": [
+    {
+      "name": "Medpet",
+      "patterns": [
+        "https:\\/\\/use\\.fontawesome\\.com\\/releases\\/v5\\.8\\.2\\/css\\/all\\.css",
+        "https:\\/\\/medpet-d3926\\.firebaseio\\.com"
+      ],
+      "strategy": "freshness",
+      "maxSize": 100,
+      "maxAge": 86400000,
+      "timeoutMs": 10000,
+      "version": 1
+    }
+  ],
   "hashTable": {
     "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
@@ -66,8 +79,8 @@
     "/assets/imagenes/p5.jpg": "20233ab398130bfcbb32d93e41bbfa91147916f0",
     "/es2015-polyfills.1e04665e16f944715fd2.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/index.html": "f659f0addab66b33e222db5fc50032a7a249e43a",
-    "/main.677692ebf25780e08f55.js": "01e08087cb5be61f362d555fd7563938b5bc55e4",
+    "/index.html": "d8a5170648af5fbb7ea8908fa9371ce588da99f8",
+    "/main.1a60d2b63d0dafe9bfe5.js": "f39c94abb0ec7b5e23971afcaadc8eb675ecb8e9",
     "/manifest.json": "05124789a72a7599ecb0e5747c97190604c757ae",
     "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
     "/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",

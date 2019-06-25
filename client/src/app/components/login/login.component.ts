@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { UsuariosService } from '../../services/usuarios.service';
 import { AuthService } from '../../services/auth.service';
@@ -8,6 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { Usuario, TokenPayload } from '../../models/usuario';
 import Swal from 'sweetalert2'
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
   correoR = new FormControl('', [Validators.required, Validators.email]);
   passR = new FormControl('', [Validators.required, Validators.minLength(5)]);
 
-  constructor(private auth: AuthService, private usuariosService: UsuariosService, fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) { 
+  constructor(private auth: AuthService, private usuariosService: UsuariosService, fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute, private swUpdate: SwUpdate) {
     this.formLogin = fb.group({
       correoI: this.correoI,
       passI: this.passI
@@ -45,20 +46,30 @@ export class LoginComponent implements OnInit {
       passR: this.passR
     });
 
+
+
   }
 
   ngOnInit() {
     this.usuariosService.currentMessage.subscribe(message => this.usuarioActual = message);
-
+    this.reloadCache();
   }
 
- 
- 
- login(): void {
-  this.credenciales = {
-    correo: this.formLogin.value.correoI,
-    contraseña: this.formLogin.value.passI
-  };
+  reloadCache() {
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.available.subscribe(() => {
+        if (confirm('New version! Would you like to update?')) {
+          window.location.reload();
+        }
+      })
+    }
+  }
+
+  login(): void {
+    this.credenciales = {
+      correo: this.formLogin.value.correoI,
+      contraseña: this.formLogin.value.passI
+    };
 
 
     this.auth.login(this.credenciales).subscribe(
@@ -67,7 +78,7 @@ export class LoginComponent implements OnInit {
           type: 'success',
           title: 'Iniciaste sesión exitosamente',
           text: 'Para continuar, selecciona tu mascota',
-          backdrop:'rgba(57, 207, 60, 0.48)'
+          backdrop: 'rgba(57, 207, 60, 0.48)'
         })
         this.router.navigateByUrl('/escoger-mascota')
       },
@@ -76,7 +87,7 @@ export class LoginComponent implements OnInit {
           type: 'error',
           title: 'Error al iniciar sesión',
           text: 'Ingresaste incorrectamente tu correo y/o contraseña',
-          backdrop:'rgba(207, 57, 57, 0.48)'
+          backdrop: 'rgba(207, 57, 57, 0.48)'
         })
       }
     )
@@ -101,36 +112,36 @@ export class LoginComponent implements OnInit {
     )
   }
 
-  
 
-  getUsuarioActual(){
+
+  getUsuarioActual() {
     return this.usuarioActual;
   }
 
- /*  autenticar(): void {
-
-   const revisaUsuario: Usuario = {
-      correo: this.formLogin.value.correoI.toString(),
-      contraseña: this.formLogin.value.passI.toString(),
-    };
-
-    // this.correoI = this.formLogin.value.correoI
-    // this.passI = this.formLogin.value.passI
-
-    console.log(this.correoI);
-    console.log(this.passI);
-
-    this.usuariosService.auth(revisaUsuario)
-    .subscribe(
-      res => {
-        this.usuarioActual = res[0].id_usuario;
-        this.usuariosService.pasaMensaje(this.usuarioActual);
-        console.log(this.usuarioActual);
-        this.router.navigate(['/inicio']);
-      },
-      err => console.error(err)
-    );   
-  } */
+  /*  autenticar(): void {
+ 
+    const revisaUsuario: Usuario = {
+       correo: this.formLogin.value.correoI.toString(),
+       contraseña: this.formLogin.value.passI.toString(),
+     };
+ 
+     // this.correoI = this.formLogin.value.correoI
+     // this.passI = this.formLogin.value.passI
+ 
+     console.log(this.correoI);
+     console.log(this.passI);
+ 
+     this.usuariosService.auth(revisaUsuario)
+     .subscribe(
+       res => {
+         this.usuarioActual = res[0].id_usuario;
+         this.usuariosService.pasaMensaje(this.usuarioActual);
+         console.log(this.usuarioActual);
+         this.router.navigate(['/inicio']);
+       },
+       err => console.error(err)
+     );   
+   } */
 
   /* registrar():void {
 
@@ -153,6 +164,6 @@ export class LoginComponent implements OnInit {
 
   }
  */
-  
+
 }
 

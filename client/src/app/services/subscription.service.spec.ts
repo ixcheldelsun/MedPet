@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UsuariosService } from './usuarios.service';
+import { SubscriptionService } from './subscription.service';
 
-describe('UsuariosService', () => {
+describe('SubscriptionService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: UsuariosService = TestBed.get(UsuariosService);
+    const service: SubscriptionService = TestBed.get(SubscriptionService);
     expect(service).toBeTruthy();
   });
 });

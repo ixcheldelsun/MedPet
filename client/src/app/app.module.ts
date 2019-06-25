@@ -8,7 +8,6 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CommonModule } from '@angular/common';
 import { FullCalendarModule } from '@fullcalendar/angular';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
@@ -46,7 +45,7 @@ import { ReiniciaPassComponent } from './components/reinicia-pass/reinicia-pass.
 import { ProximasComponent } from './components/proximas/proximas.component';
 import { FileSizePipe } from './pipes/file-size.pipe';
 import { DropZoneDirective } from './directives/drop-zone.directive';
-
+import { SubscriptionService } from './services/subscription.service';
 
 
 @NgModule({
@@ -97,7 +96,8 @@ import { DropZoneDirective } from './directives/drop-zone.directive';
     UsuariosService,
     MascotasService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    SubscriptionService
   ],
   bootstrap: [AppComponent]
 })

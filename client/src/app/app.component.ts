@@ -13,9 +13,11 @@ export class AppComponent {
   title = 'MedPet';
 
   mascotaActual: Mascota;
-  
 
-  constructor(public auth: AuthService, private mascotaService: MascotasService) { 
+  constructor(public auth: AuthService, private mascotaService: MascotasService) {
     this.mascotaActual = this.mascotaService.mascotaActual;
   }
+
 }
+
+
