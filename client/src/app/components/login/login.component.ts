@@ -52,18 +52,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.usuariosService.currentMessage.subscribe(message => this.usuarioActual = message);
-    this.reloadCache();
   }
 
-  reloadCache() {
-    if (this.swUpdate.isEnabled) {
-      this.swUpdate.available.subscribe(() => {
-        if (confirm('New version! Would you like to update?')) {
-          window.location.reload();
-        }
-      })
-    }
-  }
 
   login(): void {
     this.credenciales = {
