@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import * as _ from 'lodash';
 
-import { UsuariosService } from '../../services/usuarios.service';
+import { UsuariosService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-tabla-categorias',

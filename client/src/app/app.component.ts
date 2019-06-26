@@ -5,8 +5,6 @@ import { MascotasService } from './services/mascotas.service';
 import { Mascota } from './models/mascota';
 import { SwUpdate, SwPush } from '@angular/service-worker';
 
-const VAPID_PUBLIC = "BNhZ_xBn761AcFJaGpVEirwMKLfSWQsr0jitiQbdBVMpV2zV7aNp0cQszu98R6JLIIdfnzbLWGvC8qQZHLNaj_w";
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -28,14 +26,6 @@ export class AppComponent {
       })
     }
 
-    if (this.swPush.isEnabled) {
-      this.swPush.requestSubscription({
-        serverPublicKey: VAPID_PUBLIC,
-      })
-        .then(subscription => {
-          console.log('Hola');
-        }).catch(console.error)
-    }
 
   }
 }

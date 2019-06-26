@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { SwPush } from '@angular/service-worker';
-import { UsuariosService } from '../../services/usuarios.service';
+import { UsuariosService } from '../../services/usuario.service';
 import { MascotasService } from '../../services/mascotas.service';
 import { AuthService } from '../../services/auth.service';
-import { SubscriptionService } from '../../services/subscription.service';
 import { Usuario, TokenPayload, UserDetails } from '../../models/usuario';
 import { Mascota } from 'src/app/models/mascota';
-
 
 @Component({
   selector: 'app-inicio',
@@ -21,7 +18,7 @@ export class InicioComponent implements OnInit {
   mascotaActual: Mascota;
 
 
-  constructor(private swPush: SwPush, private subscriptionService: SubscriptionService, private usuarioService: UsuariosService, private mascotaService: MascotasService, private auth: AuthService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private usuarioService: UsuariosService, private mascotaService: MascotasService, private auth: AuthService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -43,9 +40,5 @@ export class InicioComponent implements OnInit {
 
   }
 
-  enablePushMessages() {
-    console.log('Pidiendo permiso para subscribe');
-    this.subscriptionService.requestSubscription();
-  }
 
 }
