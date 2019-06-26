@@ -14,6 +14,8 @@ export class AppComponent {
   title = 'MedPet';
 
   mascotaActual: Mascota;
+  readonly VAPID_KEY = 'BL08R64x9116xLBFIJDICSHCROAuWA1GFMRId__9pXojPDJvc4Va4r6ZGsY7_2MWvvo7b7GNFVFU2oIukroM1D0';
+
 
   constructor(public auth: AuthService, private mascotaService: MascotasService, private swUpdate: SwUpdate, private swPush: SwPush) {
     this.mascotaActual = this.mascotaService.mascotaActual;

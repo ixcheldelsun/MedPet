@@ -27,7 +27,8 @@
     "sequelize": "^5.8.6",
     "sequelize-typescript": "^1.0.0-alpha.9",
     "tsc": "^1.20150623.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.4.5",
+    "web-push": "^3.3.5"
   },
   "devDependencies": {
     "@types/cors": "^2.8.5",

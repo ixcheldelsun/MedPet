@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { PushNotificationService } from '../../services/push-notification.service';
 import { UsuariosService } from '../../services/usuario.service';
 import { MascotasService } from '../../services/mascotas.service';
 import { AuthService } from 'src/app/services/auth.service';
-
 import { Mascota } from '../../models/mascota';
 
 import { UserDetails } from '../../models/usuario';
 import { SwUpdate, SwPush } from '@angular/service-worker';
 
-const VAPID_PUBLIC = "BNhZ_xBn761AcFJaGpVEirwMKLfSWQsr0jitiQbdBVMpV2zV7aNp0cQszu98R6JLIIdfnzbLWGvC8qQZHLNaj_w";
 
 @Component({
   selector: 'app-escoger-mascota',
@@ -22,8 +20,10 @@ export class EscogerMascotaComponent implements OnInit {
   usuarioActual: number;
   details: UserDetails;
   mascotasUsuario: any;
+  readonly VAPID_KEY = 'BL08R64x9116xLBFIJDICSHCROAuWA1GFMRId__9pXojPDJvc4Va4r6ZGsY7_2MWvvo7b7GNFVFU2oIukroM1D0';
 
-  constructor(private swPush: SwPush, private auth: AuthService, private usuarioService: UsuariosService, private mascotaService: MascotasService) { }
+
+  constructor(private swUpdate: SwUpdate, private swPush: SwPush, private pushService: PushNotificationService, private auth: AuthService, private usuarioService: UsuariosService, private mascotaService: MascotasService) { }
 
   ngOnInit() {
     this.auth.profile().subscribe(
@@ -46,11 +46,12 @@ export class EscogerMascotaComponent implements OnInit {
 
     if (this.swPush.isEnabled) {
       this.swPush.requestSubscription({
-        serverPublicKey: VAPID_PUBLIC,
+        serverPublicKey: this.VAPID_KEY
       })
         .then(subscription => {
-          console.log('Hola');
-        }).catch(console.error)
+          this.pushService.postSubscription(subscription).subscribe();
+        })
+        .catch(console.error)
     }
   }
 
