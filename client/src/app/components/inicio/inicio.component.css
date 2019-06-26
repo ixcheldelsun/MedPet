@@ -28,6 +28,9 @@
 
 button{
     font-family: 'Montserrat', sans-serif;
+    background:#f8a5c2; 
+    height:auto ; 
+    color: white;
 }
 
 button:hover { 
