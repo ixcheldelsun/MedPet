@@ -8,30 +8,61 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { Usuario, TokenPayload } from '../../models/usuario';
 import Swal from 'sweetalert2'
-
+/**
+ * Componente
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+/**
+ * Clase
+ */
 export class LoginComponent implements OnInit {
-
+/**
+ * Declaracion de la variable usuarioActual
+ */
   usuarioActual: any;
-
+/**
+ * Declaracion de la variable formLogin
+ */
   formLogin: FormGroup;
-
+/**
+ * Declaracion de la variable formRegistro
+ */
   formRegistro: FormGroup;
-
+/**
+ * Declaracion de la variable credenciales
+ */
   credenciales: TokenPayload;
-
+/**
+ * Declaracion de la variable correoI
+ */
   correoI = new FormControl('', [Validators.required, Validators.email]);
+  /**
+ * Declaracion de la variable passI
+ */
   passI = new FormControl('', Validators.required);
-
+/**
+ * Declaracion de la variable nombreR
+ */
   nombreR = new FormControl('', Validators.required);
+  /**
+ * Declaracion de la variable apellidoR
+ */
   apellidoR = new FormControl('', Validators.required);
+  /**
+ * Declaracion de la variable correoR
+ */
   correoR = new FormControl('', [Validators.required, Validators.email]);
+  /**
+ * Declaracion de la variable passR
+ */ 
   passR = new FormControl('', [Validators.required, Validators.minLength(5)]);
-
+/**
+ * Constructor
+ */
   constructor(private auth: AuthService, private usuariosService: UsuariosService, fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) { 
     this.formLogin = fb.group({
       correoI: this.correoI,
@@ -46,14 +77,18 @@ export class LoginComponent implements OnInit {
     });
 
   }
-
+/**
+ * ngOnInit
+ */
   ngOnInit() {
     this.usuariosService.currentMessage.subscribe(message => this.usuarioActual = message);
 
   }
 
  
- 
+ /**
+ * Funcion para el login
+ */
  login(): void {
   this.credenciales = {
     correo: this.formLogin.value.correoI,
@@ -81,7 +116,9 @@ export class LoginComponent implements OnInit {
       }
     )
   }
-
+/**
+ * Funcion para el registro
+ */
   register(): void {
 
     this.credenciales = {
@@ -102,7 +139,9 @@ export class LoginComponent implements OnInit {
   }
 
   
-
+/**
+ * Funcion para obtener el usuario
+ */
   getUsuarioActual(){
     return this.usuarioActual;
   }

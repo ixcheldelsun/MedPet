@@ -7,24 +7,50 @@ import { MascotasService } from '../../services/mascotas.service';
 
 import { Observacion } from '../../models/observacion';
 import { Mascota } from 'src/app/models/mascota';
-
+/**
+ * Componente
+ */
 @Component({
   selector: 'app-observacion',
   templateUrl: './observacion.component.html',
   styleUrls: ['./observacion.component.css']
 })
+
+/**
+ * Clase
+ */
 export class ObservacionComponent implements OnInit {
-
+/**
+ * Declaracion de la variable mascotaActual
+ */
   mascotaActual: Mascota;
+/**
+ * Declaracion de la variable observacionMascota
+ */
   observacionMascota: any;
-
+/**
+ * Declaracion de la variable formAgregar
+ */
   formAgregar: FormGroup;
-
+/**
+ * Declaracion de la variable fechaO
+ */
   fechaO = new FormControl('', Validators.required);
+  /**
+ * Declaracion de la variable tituloO
+ */
   tituloO = new FormControl('', Validators.required);
+  /**
+ * Declaracion de la variable fotoO
+ */
   fotoO = new FormControl('');
+  /**
+ * Declaracion de la variable textoO
+ */
   textoO = new FormControl('', Validators.required);
-
+ /**
+ * Constructor
+ */
   constructor(private observacionService: ObservacionService, private mascotaService: MascotasService, private fb: FormBuilder, private router: Router) {
     this.formAgregar = fb.group({
       fechaO: this.fechaO,
@@ -33,7 +59,9 @@ export class ObservacionComponent implements OnInit {
       textoO: this.textoO,
     });
   }
-
+/**
+ * ngOnInit
+ */
   ngOnInit() {
     this.mascotaActual = this.mascotaService.mascotaActual;
 
@@ -50,7 +78,9 @@ export class ObservacionComponent implements OnInit {
       }
     )
   }
-
+/**
+ * Funcion crear observacion
+ */
   crear() {
     const nuevaObservacion: Observacion = {
       fecha: this.formAgregar.value.fechaO,

@@ -10,20 +10,34 @@ import { Mascota } from '../../models/mascota';
 import { UserDetails } from '../../models/usuario';
 
 
-
+/**
+ * Componente
+ */
 @Component({
   selector: 'app-escoger-mascota',
   templateUrl: './escoger-mascota.component.html',
   styleUrls: ['./escoger-mascota.component.css']
 })
 export class EscogerMascotaComponent implements OnInit {
-
+/**
+ * Declaracion de usuarioActual
+ */
   usuarioActual: number;
+/**
+ * Declaracion de details
+ */
   details: UserDetails;
+/**
+ * Declaracion de mascotasUsuario
+ */
   mascotasUsuario: any;
-
+/**
+ * Constructor
+ */
   constructor(private auth: AuthService, private usuarioService: UsuariosService, private mascotaService: MascotasService) { }
-
+/**
+ * ngOnInit
+ */
   ngOnInit() {
     this.auth.profile().subscribe(
       user => {
@@ -43,7 +57,9 @@ export class EscogerMascotaComponent implements OnInit {
       }
     )
   }
-
+/**
+ * Funcion mascotaActual
+ */
   mascotaActual(mascota: Mascota) {
     this.mascotaService.setMascotaActual(mascota);
   }

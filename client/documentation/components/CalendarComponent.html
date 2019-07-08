@@ -1,0 +1,1162 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>med-pet documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">med-pet documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>CalendarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/calendar/calendar.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-calendar</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./calendar.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./calendar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#calendarComponent">calendarComponent</a>
+                            </li>
+                            <li>
+                                <a href="#calendarEvents">calendarEvents</a>
+                            </li>
+                            <li>
+                                <a href="#calendarPlugins">calendarPlugins</a>
+                            </li>
+                            <li>
+                                <a href="#colors">colors</a>
+                            </li>
+                            <li>
+                                <a href="#fechasCelos">fechasCelos</a>
+                            </li>
+                            <li>
+                                <a href="#fechasConsultas">fechasConsultas</a>
+                            </li>
+                            <li>
+                                <a href="#fechasDesparasitaciones">fechasDesparasitaciones</a>
+                            </li>
+                            <li>
+                                <a href="#fechasObservaciones">fechasObservaciones</a>
+                            </li>
+                            <li>
+                                <a href="#fechasVacunas">fechasVacunas</a>
+                            </li>
+                            <li>
+                                <a href="#mascotaActual">mascotaActual</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#agregarFechas">agregarFechas</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(mascotaService: <a href="../injectables/MascotasService.html">MascotasService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, activatedRoute: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/components/calendar/calendar.component.ts:75</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>mascotaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MascotasService.html" target="_self" >MascotasService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>activatedRoute</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="agregarFechas"></a>
+                    <span class="name">
+                        <b>
+                            agregarFechas
+                        </b>
+                        <a href="#agregarFechas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>agregarFechas(fechas: EventInput[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="211"
+                            class="link-to-prism">src/app/components/calendar/calendar.component.ts:211</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funcion agregar fechas</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fechas</td>
+                                    <td>
+                                            <code>EventInput[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/components/calendar/calendar.component.ts:83</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>ngOnInit</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="calendarComponent"></a>
+                        <span class="name">
+                            <b>
+                            calendarComponent</b>
+                            <a href="#calendarComponent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/CalendarComponent.html" target="_self" >FullCalendarComponent</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;calendar&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/calendar/calendar.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>ViewChild</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="calendarEvents"></a>
+                        <span class="name">
+                            <b>
+                            calendarEvents</b>
+                            <a href="#calendarEvents"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>EventInput[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/components/calendar/calendar.component.ts:75</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Declaracion de calendarEvents</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="calendarPlugins"></a>
+                        <span class="name">
+                            <b>
+                            calendarPlugins</b>
+                            <a href="#calendarPlugins"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[dayGridPlugin, timeGrigPlugin, interactionPlugin, listPlugin, bootstrap]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/components/calendar/calendar.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Declaracion de calendarPlugins</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="colors"></a>
+                        <span class="name">
+                            <b>
+                            colors</b>
+                            <a href="#colors"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    vacunas: &#x27;#778beb&#x27;,
+    celos: &#x27;#f19066&#x27;,
+    consultas: &#x27;#f5cd79&#x27;,
+    desparasitaciones: &#x27;#786fa6&#x27;,
+    observaciones: &#x27;#f8a5c2&#x27;,
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/calendar/calendar.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Declaracion de colores</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fechasCelos"></a>
+                        <span class="name">
+                            <b>
+                            fechasCelos</b>
+                            <a href="#fechasCelos"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>EventInput[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/components/calendar/calendar.component.ts:55</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Declaracion de fechasCelos</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fechasConsultas"></a>
+                        <span class="name">
+                            <b>
+                            fechasConsultas</b>
+                            <a href="#fechasConsultas"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>EventInput[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/components/calendar/calendar.component.ts:63</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Declaracion de fechasConsultas</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fechasDesparasitaciones"></a>
+                        <span class="name">
+                            <b>
+                            fechasDesparasitaciones</b>
+                            <a href="#fechasDesparasitaciones"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>EventInput[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/components/calendar/calendar.component.ts:67</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Declaracion de fechasDesparasitaciones</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fechasObservaciones"></a>
+                        <span class="name">
+                            <b>
+                            fechasObservaciones</b>
+                            <a href="#fechasObservaciones"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>EventInput[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/components/calendar/calendar.component.ts:71</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Declaracion de fechasObservaciones</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fechasVacunas"></a>
+                        <span class="name">
+                            <b>
+                            fechasVacunas</b>
+                            <a href="#fechasVacunas"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>EventInput[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/components/calendar/calendar.component.ts:59</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Declaracion de fechasVacunas</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mascotaActual"></a>
+                        <span class="name">
+                            <b>
+                            mascotaActual</b>
+                            <a href="#mascotaActual"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Mascota.html" target="_self" >Mascota</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/calendar/calendar.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Declaracion de mascotaActual</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { Router, ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { FullCalendarComponent } from &#x27;@fullcalendar/angular&#x27;;
+import dayGridPlugin from &#x27;@fullcalendar/daygrid&#x27;;
+import { EventInput } from &#x27;@fullcalendar/core&#x27;;
+import timeGrigPlugin from &#x27;@fullcalendar/timegrid&#x27;;
+import interactionPlugin from &#x27;@fullcalendar/interaction&#x27;; // for dateClick
+import listPlugin from &#x27;@fullcalendar/list&#x27;;
+import bootstrap from &#x27;@fullcalendar/bootstrap&#x27;
+import { es } from &#x27;@fullcalendar/core/locales/es&#x27;;
+
+import { MascotasService } from &#x27;../../services/mascotas.service&#x27;;
+import { Mascota } from &#x27;src/app/models/mascota&#x27;;
+
+
+
+/**
+ * Componente
+ */
+@Component({
+  selector: &#x27;app-calendar&#x27;,
+  templateUrl: &#x27;./calendar.component.html&#x27;,
+  styleUrls: [&#x27;./calendar.component.css&#x27;]
+})
+/**
+ * Clase
+ */
+export class CalendarComponent implements OnInit {
+/**
+ * ViewChild
+ */
+  @ViewChild(&#x27;calendar&#x27;) calendarComponent: FullCalendarComponent; 
+/**
+ * Declaracion de colores
+ */
+  colors: any &#x3D; {
+    vacunas: &#x27;#778beb&#x27;,
+    celos: &#x27;#f19066&#x27;,
+    consultas: &#x27;#f5cd79&#x27;,
+    desparasitaciones: &#x27;#786fa6&#x27;,
+    observaciones: &#x27;#f8a5c2&#x27;,
+  };
+  /**
+ * Declaracion de calendarPlugins
+ */
+  calendarPlugins &#x3D; [dayGridPlugin, timeGrigPlugin, interactionPlugin, listPlugin, bootstrap];
+ 
+/**
+ * Declaracion de mascotaActual
+ */
+  mascotaActual: Mascota;
+/**
+ * Declaracion de fechasCelos
+ */
+  fechasCelos: EventInput[] &#x3D; [];
+/**
+ * Declaracion de fechasVacunas
+ */
+  fechasVacunas: EventInput[] &#x3D; [];
+/**
+ * Declaracion de fechasConsultas
+ */
+  fechasConsultas: EventInput[] &#x3D; [];
+/**
+ * Declaracion de fechasDesparasitaciones
+ */
+  fechasDesparasitaciones: EventInput[] &#x3D; [];
+/**
+ * Declaracion de fechasObservaciones
+ */
+  fechasObservaciones: EventInput[] &#x3D; [];
+/**
+ * Declaracion de calendarEvents
+ */
+  calendarEvents: EventInput[] &#x3D; [];
+/**
+ * Constructor
+ */
+  constructor( private mascotaService: MascotasService, private router: Router, private activatedRoute: ActivatedRoute ) { }
+/**
+ * ngOnInit
+ */
+  ngOnInit() {
+
+    this.mascotaActual &#x3D; this.mascotaService.mascotaActual;
+/**
+ * Condicionales
+ */
+    if(!this.mascotaActual) {
+      this.router.navigate([&#x27;/escoger-mascota&#x27;])
+    }
+  /**
+ * Condicionales
+ */
+    else{
+      //Agregar las fechas de celo al calendario
+      this.mascotaService.getCelos(this.mascotaActual.id_mascota).subscribe( 
+        celos &#x3D;&gt; {
+          const size &#x3D; Object.keys(celos);//para obtener el tamaño del objeto celos
+          let agregar: EventInput;
+
+          for (let i &#x3D; 0; i &lt; size.length ; i++) {
+            agregar &#x3D; {
+              title: &quot;Celo nro: &quot;+ (i+1),
+              start: celos[i].fecha_i,
+              color: this.colors.celos
+            };
+            this.fechasCelos.push(agregar);
+          }
+          this.agregarFechas(this.fechasCelos);
+        },
+        err &#x3D;&gt;{
+          console.log(err);
+        }
+      )
+
+      //Agregar las fechas de vacunas al calendario
+      this.mascotaService.getVacunas(this.mascotaActual.id_mascota).subscribe( 
+        vacunas &#x3D;&gt; {
+          const size &#x3D; Object.keys(vacunas);//para obtener el tamaño del objeto celos
+          let agregar: EventInput;
+
+          for (let i &#x3D; 0; i &lt; size.length ; i++) {
+            agregar &#x3D; {
+              title: vacunas[i].nombre +&quot; &quot;+ vacunas[i].dosis,
+              start: vacunas[i].fecha_i,
+              end: vacunas[i].fecha_f,
+              color: this.colors.vacunas
+            };
+            this.fechasVacunas.push(agregar);
+          }
+          this.agregarFechas(this.fechasVacunas);
+      
+        },
+        err &#x3D;&gt;{
+          console.log(err);
+        }
+      )
+      //Agregar las fechas de consultas
+      this.mascotaService.getConsultas(this.mascotaActual.id_mascota).subscribe( 
+        consultas &#x3D;&gt; {
+          const size &#x3D; Object.keys(consultas);
+          let agregar: EventInput;
+
+          for (let i &#x3D; 0; i &lt; size.length ; i++) {
+            agregar &#x3D; {
+              title: &quot;Consulta nro: &quot;+ (i+1),
+              start: consultas[i].fecha,
+              color: this.colors.consultas
+            };
+            this.fechasConsultas.push(agregar);
+          }
+          this.agregarFechas(this.fechasConsultas);
+      
+        },
+        err &#x3D;&gt;{
+          console.log(err);
+        }
+      )
+
+      //Agregar las fechas de observaciones
+      this.mascotaService.getObservaciones(this.mascotaActual.id_mascota).subscribe( 
+        observaciones &#x3D;&gt; {
+          const size &#x3D; Object.keys(observaciones);
+          let agregar: EventInput;
+
+          for (let i &#x3D; 0; i &lt; size.length ; i++) {
+            agregar &#x3D; {
+              title: &quot;Observación nro: &quot;+ (i+1),
+              start: observaciones[i].fecha,
+              color: this.colors.observaciones
+            };
+            this.fechasObservaciones.push(agregar);
+          }
+          this.agregarFechas(this.fechasObservaciones);
+      
+        },
+        err &#x3D;&gt;{
+          console.log(err);
+        }
+      )
+
+      //Agregar las fechas de desparasitaciones
+      this.mascotaService.getDesparasitaciones(this.mascotaActual.id_mascota).subscribe( 
+        desparasitaciones &#x3D;&gt; {
+          const size &#x3D; Object.keys(desparasitaciones);
+          let agregar: EventInput;
+
+          for (let i &#x3D; 0; i &lt; size.length ; i++) {
+            agregar &#x3D; {
+              title: &quot;Desparasitación nro: &quot;+ (i+1),
+              start: desparasitaciones[i].fecha,
+              end: desparasitaciones[i].vencimiento,
+              color: this.colors.desparasitaciones
+            };
+            this.fechasDesparasitaciones.push(agregar);
+          }
+          this.agregarFechas(this.fechasDesparasitaciones);
+      
+        },
+        err &#x3D;&gt;{
+          console.log(err);
+        }
+      )
+    }
+    
+  }
+/**
+ * Funcion agregar fechas
+ */
+  agregarFechas(fechas: EventInput[]) {
+    this.calendarEvents &#x3D; this.calendarEvents.concat(fechas);
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-navbar&gt; &lt;/app-navbar&gt;
+
+&lt;hr class&#x3D;&quot;m-1 mt-3&quot;&gt;
+&amp;nbsp;
+&lt;div class&#x3D;&quot;row mb-3 &quot;&gt;
+  &lt;div class&#x3D;&quot;col-2&quot;&gt;&lt;/div&gt;
+  &lt;div class&#x3D;&quot;col-3&quot;&gt;
+    &lt;button class&#x3D;&quot;btn&quot; style&#x3D;&quot;height: 50px; width:90px; font-family: &#x27;Montserrat&#x27;, sans-serif; font-size: 25px&quot;
+      routerLink&#x3D;&quot;/inicio&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;&lt;i class&#x3D;&quot;fas fa-angle-double-left&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;col-6&quot;&gt;
+    &lt;h2 style&#x3D;&quot;font-family: &#x27;Montserrat&#x27;, sans-serif; font-size: 54px&quot;&gt;Calendario&lt;/h2&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;hr class&#x3D;&quot;m-1&quot;&gt;
+
+&lt;div class&#x3D;&#x27;app-calendar&#x27;&gt;
+  &lt;full-calendar
+    #calendar
+    [buttonText]&#x3D;&quot;{
+      today:&#x27;hoy&#x27;,
+      month:&#x27;mes&#x27;,
+      week:&#x27;semana&#x27;,
+      day: &#x27;día&#x27;,
+      list:&#x27;lista&#x27;
+    }&quot;
+    locale&#x3D;&quot;es&quot;
+    defaultView&#x3D;&quot;dayGridMonth&quot;
+    [header]&#x3D;&quot;{
+      left: &#x27;prev,next today prevYear,nextYear&#x27;,
+      center: &#x27;title&#x27;,
+      right: &#x27;dayGridMonth,timeGridWeek,timeGridDay,listMonth&#x27;
+    }&quot;
+    themeSystem&#x3D; &quot;bootstrap&quot;
+    [plugins]&#x3D;&quot;calendarPlugins&quot;
+    [weekends]&#x3D;&quot;true&quot;
+    [events]&#x3D; &quot;calendarEvents&quot;
+  &gt;&lt;/full-calendar&gt;
+&lt;/div&gt;
+
+&lt;app-footer&gt;&lt;/app-footer&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./calendar.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">
+  .app-calendar {
+    margin: 0 auto;
+    max-width: 900px;
+  }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-navbar> </app-navbar><hr class="m-1 mt-3">&nbsp;<div class="row mb-3 ">  <div class="col-2"></div>  <div class="col-3">    <button class="btn" style="height: 50px; width:90px; font-family: \'Montserrat\', sans-serif; font-size: 25px"      routerLink="/inicio" routerLinkActive="active"><i class="fas fa-angle-double-left"></i></button>  </div>  <div class="col-6">    <h2 style="font-family: \'Montserrat\', sans-serif; font-size: 54px">Calendario</h2>  </div></div><hr class="m-1"><div class=\'app-calendar\'>  <full-calendar    #calendar    [buttonText]="{      today:\'hoy\',      month:\'mes\',      week:\'semana\',      day: \'día\',      list:\'lista\'    }"    locale="es"    defaultView="dayGridMonth"    [header]="{      left: \'prev,next today prevYear,nextYear\',      center: \'title\',      right: \'dayGridMonth,timeGridWeek,timeGridDay,listMonth\'    }"    themeSystem= "bootstrap"    [plugins]="calendarPlugins"    [weekends]="true"    [events]= "calendarEvents"  ></full-calendar></div><app-footer></app-footer></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BannerComponent', 'selector': 'app-banner'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CalendarioComponent', 'selector': 'app-calendario'},{'name': 'CeloComponent', 'selector': 'app-celo'},{'name': 'ConsultaComponent', 'selector': 'app-consulta'},{'name': 'DesparasitacionComponent', 'selector': 'app-desparasitacion'},{'name': 'DetallesMascotaComponent', 'selector': 'app-detalles-mascota'},{'name': 'EscogerMascotaComponent', 'selector': 'app-escoger-mascota'},{'name': 'FichaRegistroComponent', 'selector': 'app-ficha-registro'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InicioComponent', 'selector': 'app-inicio'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ObservacionComponent', 'selector': 'app-observacion'},{'name': 'OlvidePassComponent', 'selector': 'app-olvide-pass'},{'name': 'ProximasComponent', 'selector': 'app-proximas'},{'name': 'ReiniciaPassComponent', 'selector': 'app-reinicia-pass'},{'name': 'TablaCategoriasComponent', 'selector': 'app-tabla-categorias'},{'name': 'VacunaComponent', 'selector': 'app-vacuna'}];
+    var DIRECTIVES = [{'name': 'DropZoneDirective', 'selector': '[dropZone]'}];
+    var ACTUAL_COMPONENT = {'name': 'CalendarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CalendarComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

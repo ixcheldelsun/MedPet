@@ -8,7 +8,9 @@ import { MascotasService } from 'src/app/services/mascotas.service';
 import { Mascota } from 'src/app/models/mascota';
 
 
-
+/**
+ * Constante colors
+ */
 const colors: any = {
   vacunas: {
     primary: '#778beb',
@@ -27,30 +29,62 @@ const colors: any = {
   }
   
 };
+/**
+ * Componente
+ */
 @Component({
+  /**
+ * selector
+ */
   selector: 'app-calendario',
+  /**
+ * templateUrl
+ */
   templateUrl: './calendario.component.html',
+  /**
+ * styleUrls
+ */
   styleUrls: ['./calendario.component.css']
 })
+/**
+ * Clase
+ */
 export class CalendarioComponent {
-
+/**
+ * Declara variable mascotaActual
+ */
   mascotaActual: Mascota;
+  /**
+ * Declara variable celoMascota
+ */
   celoMascota: any;
 
-
+ /**
+ * ViewChild
+ */
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
-
+/**
+ * Declara variable view
+ */
   view: CalendarView = CalendarView.Month;
-
+/**
+ * Declara variable CalendarView
+ */
   CalendarView = CalendarView;
-
+/**
+ * Declara variable viewDate
+ */
   viewDate: Date = new Date();
-
+/**
+ * Declara variable modalData
+ */
   modalData: {
     action: string;
     event: CalendarEvent;
   };
-
+/**
+ * Declara variable actions
+ */
   actions: CalendarEventAction[] = [
     {
       label: '<i class="fa fa-fw fa-pencil"></i>',
@@ -66,9 +100,13 @@ export class CalendarioComponent {
       }
     }
   ];
-
+/**
+ * Declara variable refresh
+ */
   refresh: Subject<any> = new Subject();
-
+/**
+ * Declara variable events
+ */
   events: CalendarEvent[] = [
     {
       start: subDays(startOfDay(new Date()), 1),
@@ -109,11 +147,17 @@ export class CalendarioComponent {
       draggable: true
     }
   ];
-
+/**
+ * Declara variable activeDayIsOpen
+ */
   activeDayIsOpen: boolean = true;
-
+/**
+ * Constructor
+ */
   constructor(private modal: NgbModal) {}
-
+/**
+ * Funcion click day
+ */
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
       this.viewDate = date;
@@ -127,7 +171,9 @@ export class CalendarioComponent {
       }
     }
   }
-
+/**
+ * Funcion
+ */
   eventTimesChanged({
     event,
     newStart,
@@ -145,12 +191,16 @@ export class CalendarioComponent {
     });
     this.handleEvent('Dropped or resized', event);
   }
-
+/**
+ * Funcion
+ */
   handleEvent(action: string, event: CalendarEvent): void {
     this.modalData = { event, action };
     this.modal.open(this.modalContent, { size: 'lg' });
   }
-
+/**
+ * Funcion agrega evento
+ */
   addEvent(): void {
     this.events = [
       ...this.events,
@@ -167,15 +217,21 @@ export class CalendarioComponent {
       }
     ];
   }
-
+/**
+ * Funcion borra evento
+ */
   deleteEvent(eventToDelete: CalendarEvent) {
     this.events = this.events.filter(event => event !== eventToDelete);
   }
-
+/**
+ * Funcion
+ */
   setView(view: CalendarView) {
     this.view = view;
   }
-
+/**
+ * Funcion
+ */
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false;
   }

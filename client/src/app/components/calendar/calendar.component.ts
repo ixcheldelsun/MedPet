@@ -14,16 +14,25 @@ import { Mascota } from 'src/app/models/mascota';
 
 
 
-
+/**
+ * Componente
+ */
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })
+/**
+ * Clase
+ */
 export class CalendarComponent implements OnInit {
-
+/**
+ * ViewChild
+ */
   @ViewChild('calendar') calendarComponent: FullCalendarComponent; 
-
+/**
+ * Declaracion de colores
+ */
   colors: any = {
     vacunas: '#778beb',
     celos: '#f19066',
@@ -31,28 +40,58 @@ export class CalendarComponent implements OnInit {
     desparasitaciones: '#786fa6',
     observaciones: '#f8a5c2',
   };
+  /**
+ * Declaracion de calendarPlugins
+ */
   calendarPlugins = [dayGridPlugin, timeGrigPlugin, interactionPlugin, listPlugin, bootstrap];
  
-
+/**
+ * Declaracion de mascotaActual
+ */
   mascotaActual: Mascota;
-
+/**
+ * Declaracion de fechasCelos
+ */
   fechasCelos: EventInput[] = [];
+/**
+ * Declaracion de fechasVacunas
+ */
   fechasVacunas: EventInput[] = [];
+/**
+ * Declaracion de fechasConsultas
+ */
   fechasConsultas: EventInput[] = [];
+/**
+ * Declaracion de fechasDesparasitaciones
+ */
   fechasDesparasitaciones: EventInput[] = [];
+/**
+ * Declaracion de fechasObservaciones
+ */
   fechasObservaciones: EventInput[] = [];
-
+/**
+ * Declaracion de calendarEvents
+ */
   calendarEvents: EventInput[] = [];
-
+/**
+ * Constructor
+ */
   constructor( private mascotaService: MascotasService, private router: Router, private activatedRoute: ActivatedRoute ) { }
-
+/**
+ * ngOnInit
+ */
   ngOnInit() {
 
     this.mascotaActual = this.mascotaService.mascotaActual;
-
+/**
+ * Condicionales
+ */
     if(!this.mascotaActual) {
       this.router.navigate(['/escoger-mascota'])
     }
+  /**
+ * Condicionales
+ */
     else{
       //Agregar las fechas de celo al calendario
       this.mascotaService.getCelos(this.mascotaActual.id_mascota).subscribe( 
@@ -166,7 +205,9 @@ export class CalendarComponent implements OnInit {
     }
     
   }
-
+/**
+ * Funcion agregar fechas
+ */
   agregarFechas(fechas: EventInput[]) {
     this.calendarEvents = this.calendarEvents.concat(fechas);
   }

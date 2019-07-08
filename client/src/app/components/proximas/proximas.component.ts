@@ -10,30 +10,53 @@ import { Mascota } from 'src/app/models/mascota';
 
 
 
-
+/**
+ * Componente
+ */
 @Component({
   selector: 'app-proximas',
   templateUrl: './proximas.component.html',
   styleUrls: ['./proximas.component.css']
 })
 export class ProximasComponent implements OnInit {
-
+/**
+ * Declaracion de la variable mascotaActual
+ */
   mascotaActual: Mascota;
-
+/**
+ * Declaracion de la variable desparasitacionesProximas
+ */
   desparasitacionesProximas = [];
+  /**
+ * Declaracion de la variable celosProximas
+ */
   celosProximas = [];
+  /**
+ * Declaracion de la variable consultasProximas
+ */
   consultasProximas = [];
+  /**
+ * Declaracion de la variable vacunasProximas
+ */
   vacunasProximas = [];
-
+/**
+ * Declaracion de la variable contProximas
+ */
   contProximas: number;
-
+/**
+ * Declaracion de la variable hoy
+ */
   hoy = new Date(Date.now())
 
 
-
+/**
+ * Constructor
+ */
   constructor(private mascotaService: MascotasService, private router: Router) {
    }
-
+/**
+ * ngOnInit
+ */
   ngOnInit() {
     this.contProximas = 0;
     

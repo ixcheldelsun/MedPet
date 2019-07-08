@@ -10,26 +10,58 @@ import { Mascota } from 'src/app/models/mascota';
 
 import Swal from 'sweetalert2'
 
+/**
+ * Componente
+ */
 @Component({
   selector: 'app-consulta',
   templateUrl: './consulta.component.html',
   styleUrls: ['./consulta.component.css']
 })
+/**
+ * Clase
+ */
 export class ConsultaComponent implements OnInit {
-
+/**
+ * Declaracion de la variable mascotaActual
+ */
   mascotaActual: Mascota;
+/**
+ * Declaracion de la variable consultaMascota
+ */
   consultaMascota: any;
-  
-
+/**
+ * Declaracion de la variable formAgregar
+ */
   formAgregar: FormGroup;
-
+/**
+ * Declaracion de la variable fechaC
+ */
   fechaC = new FormControl('', Validators.required);
+/**
+ * Declaracion de la variable veterinarioC
+ */
   veterinarioC = new FormControl('', Validators.required);
+  /**
+ * Declaracion de la variable centroC
+ */
   centroC = new FormControl('', Validators.required);
+  /**
+ * Declaracion de la variable recipeC
+ */
   recipeC = new FormControl('', Validators.required);
+  /**
+ * Declaracion de la variable diagnosticoC
+ */
   diagnosticoC = new FormControl('', Validators.required);
+  /**
+ * Declaracion de la variable observacionesC
+ */
   observacionesC = new FormControl('', Validators.required);
 
+  /**
+ * Constructor
+ */
   constructor(private consultaService: ConsultaService, private mascotaService: MascotasService, private fb: FormBuilder, private router: Router) {
     this.formAgregar = fb.group({
       fechaC: this.fechaC,
@@ -41,6 +73,9 @@ export class ConsultaComponent implements OnInit {
     });
   }
 
+  /**
+ * ngOnInit
+ */
   ngOnInit() {
     this.mascotaActual = this.mascotaService.mascotaActual;
 
@@ -58,6 +93,9 @@ export class ConsultaComponent implements OnInit {
     )
   }
 
+  /**
+ * Funcion crear una nueva consulta
+ */
   crear() {
     const nuevaConsulta: Consulta = {
       fecha: this.formAgregar.value.fechaC,

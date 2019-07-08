@@ -1,13 +1,23 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
+/**
+ * Declaracion de constante
+ */
 const FILE_SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+/**
+ * Declaracion de constante
+ */
 const FILE_SIZE_UNITS_LONG = ['Bytes', 'Kilobytes', 'Megabytes', 'Gigabytes', 'Pettabytes', 'Exabytes', 'Zettabytes', 'Yottabytes'];
-
+/**
+ * Pipe 
+ */
 @Pipe({
   name: 'fileSize'
 })
 export class FileSizePipe implements PipeTransform {
 
+  /**
+ * Funcion transform
+ */
   transform(sizeInBytes: number, longForm: boolean): string {
     const units = longForm
       ? FILE_SIZE_UNITS_LONG

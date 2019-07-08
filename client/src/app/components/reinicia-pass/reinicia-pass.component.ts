@@ -9,24 +9,49 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MustMatch } from '../../helpers/must-match.validator';
 
 import Swal from 'sweetalert2'
-
+/**
+ * Componente
+ */
 @Component({
   selector: 'app-reinicia-pass',
   templateUrl: './reinicia-pass.component.html',
   styleUrls: ['./reinicia-pass.component.css']
 })
+/**
+ * Clase
+ */
 export class ReiniciaPassComponent implements OnInit {
-
+/**
+ * Declaracion de la variable token
+ */
   token: string;
+/**
+ * Declaracion de la variable idUsuario
+ */
   idUsuario:number;
-
+/**
+ * Declaracion de la variable formReinicio
+ */
   formReinicio: FormGroup;
+/**
+ * Declaracion de la variable submitted
+ */
   submitted = false;
+/**
+ * Declaracion de la variable tokenValido
+ */
   tokenValido: boolean;
-
+/**
+ * Declaracion de la variable passR
+ */
   passR = new FormControl('', [Validators.required, Validators.minLength(5)]);
+  /**
+ * Declaracion de la variable confR
+ */
   confR = new FormControl('', Validators.required);
-
+/**
+ * Constructor
+ */
   constructor(private usuariosService: UsuariosService, fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) { 
     this.formReinicio = fb.group({
       passR: this.passR,
@@ -39,7 +64,9 @@ export class ReiniciaPassComponent implements OnInit {
     this.tokenValido = false;
 
   }
-
+/**
+ * ngOnInit
+ */
   ngOnInit() {
     this.tokenValido = false;
       this.activatedRoute.queryParams.subscribe(params => {
@@ -66,10 +93,14 @@ export class ReiniciaPassComponent implements OnInit {
    
     });
   }
-
+/**
+ * Funcion para obtener f
+ */
   get f() { return this.formReinicio.controls; } //recibe los controles del form
 
-
+/**
+ * Funcion onSubmit
+ */
   onSubmit() {
     this.submitted = true;
 
