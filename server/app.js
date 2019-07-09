@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const webpush = require('web-push');
-const whitelist = ['http://localhost:4200', 'http://127.0.0.1:8080']
+const whitelist = ['http://localhost:4200', 'http://localhost:3000', 'http://127.0.0.1:8080']
 
 const PUBLIC_VAPID = "BL08R64x9116xLBFIJDICSHCROAuWA1GFMRId__9pXojPDJvc4Va4r6ZGsY7_2MWvvo7b7GNFVFU2oIukroM1D0";
 
@@ -9,6 +9,13 @@ const PRIVATE_VAPID = "CL79W5OZR0gL3ITEDswrJkuyo0q_XTxby0Eny7zHSY0";
 
 
 const cors = require('cors');
+
+const corsOptions = {
+  origin: 'http://localhost:4200',
+  optionsSuccessStatus: 200
+}
+
+/*
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
@@ -19,6 +26,7 @@ const corsOptions = {
   },
   optionsSuccessStatus: 200
 }
+*/
 
 
 

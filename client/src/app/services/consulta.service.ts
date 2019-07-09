@@ -21,10 +21,10 @@ export class ConsultaService {
   }
 
   editConsulta(update: Consulta) {
-    return this.http.put(`${this.API_URL}/editar`, update);
+    return this.http.put(`${this.API_URL}/editar`, update, {responseType: "text"});
   }
 
   deleteConsulta(id: number) {
-    return this.http.delete(`${this.API_URL}/eliminar/${id}`);
+    return this.http.delete(`${this.API_URL}/eliminar/${id}`, {responseType: "text"});
   }
 }

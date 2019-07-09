@@ -20,19 +20,40 @@ export class CeloComponent implements OnInit {
   celoMascota: any;
 
   formAgregar: FormGroup;
+  formEditar: FormGroup;
+
+  seleccion: Celo;
 
   fechaIC = new FormControl('', Validators.required);
   fechaFC = new FormControl('', Validators.required);
   observC = new FormControl('', Validators.required);
 
+  fechaIE = new FormControl('', Validators.required);
+  fechaFE = new FormControl('', Validators.required);
+  observE = new FormControl('', Validators.required);
+
 
   constructor(private celoService: CelosService, private mascotaService: MascotasService, private fb: FormBuilder, private router: Router) {
 
+    this.mascotaActual = this.mascotaService.mascotaActual;
+    
     this.formAgregar = fb.group({
       fechaIC: this.fechaIC,
       fechaFC: this.fechaFC,
       observC: this.observC,
     });
+
+    this.formEditar = fb.group({
+      fechaIE: this.fechaIE,
+      fechaFE: this.fechaFE,
+      observE: this.observE,
+    });
+
+    this.seleccion = {
+      fecha_i: new Date(Date.now()),
+      fecha_f: new Date(Date.now()),
+      observaciones: "ini"
+    }
 
   }
 
@@ -74,11 +95,91 @@ export class CeloComponent implements OnInit {
             backdrop:'rgba(57, 207, 60, 0.48)'
           })
         }
+        else{
+          Swal.fire({
+            type: 'success',
+            title: `Período de celo agregado`,
+            backdrop:'rgba(57, 207, 60, 0.48)'
+          })
+        }
         this.ngOnInit();
       },
       err => console.error(err)
     );
 
+  }
+  selecciona(celo: Celo){
+    this.seleccion = celo;
+    this.formEditar.patchValue({
+      fechaIE: celo.fecha_i, 
+      fechaFE: celo.fecha_f,
+      observE: celo.observaciones
+    });
+
+  }
+
+  editar(){
+      const editado: Celo = {
+        id_celo: this.seleccion.id_celo,
+        fecha_i: this.formEditar.value.fechaIE,
+        fecha_f: this.formEditar.value.fechaFE,
+        observaciones: this.formEditar.value.observE.toString(),
+        id_mascota: this.mascotaActual.id_mascota
+      };
+
+      this.celoService.editCelo(editado).subscribe(
+        res => {
+          Swal.fire({
+            type: 'success',
+            title: `Editaste la ficha de celo exitosamente`,
+            text: 'Podrás ver la ficha con los datos actualizados al cerrar este mensaje',
+            backdrop:'rgba(57, 207, 60, 0.48)'
+          })
+          this.ngOnInit()
+        }
+      );
+  }
+
+  eliminar(celo: Celo){
+
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-secondary'
+      },
+      buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons.fire({
+      type: 'question',
+      title: `¿Deseas eliminar esta ficha de celo?`,
+      text: 'Al aceptar no podrás recuperarla',
+      showCancelButton: true,
+      focusCancel: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.value) {
+        this.celoService.deleteCelo(celo.id_celo).subscribe(
+          res => {
+            swalWithBootstrapButtons.fire({
+              title: 'Eliminada',
+              text: 'Ficha de celo eliminada',
+              type: 'success',
+              backdrop:'rgba(57, 207, 60, 0.48)'
+            } )
+            this.ngOnInit();
+          });
+      } else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          'No eliminaste la ficha',
+          'error'
+        )
+      }
+    })
   }
 
 }

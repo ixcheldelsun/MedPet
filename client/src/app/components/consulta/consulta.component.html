@@ -67,11 +67,11 @@
 
     <div class="card-body">
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarConsulta">
+      <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarConsulta" (click)="selecciona(consulta)">
         Editar
       </button>
 
-      <button type="button" class="btn btn-danger">
+      <button type="button" class="btn btn-danger" (click)="eliminar(consulta)">
         Eliminar
       </button>
 
@@ -86,7 +86,7 @@
 
 <!-- Modal Editar-->
 <div class="modal fade" id="editarConsulta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+  aria-hidden="true" [formGroup]="formEditar">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -99,44 +99,44 @@
         <div class="form-row">
           <div class="form-group col">
             <label for="inputFechaC">Fecha de Consulta</label>
-            <input type="date" class="form-control" id="inputFechaC">
+            <input type="date" class="form-control" id="inputFechaC" formControlName="fechaE">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col">
             <label for="inputVeterinarioC">Nombre del Veterinario</label>
-            <input type="text" class="form-control" id="inputVeterinarioC">
+            <input type="text" class="form-control" id="inputVeterinarioC" formControlName="veterinarioE">
           </div>
         </div>
         <div class="form-row mt-2">
           <div class="form-group col">
             <label for="inputCentroC">Centro Visitado</label>
-            <input type="text" class="form-control" id="inputCentroC" placeholder="Nombre del Centro">
+            <input type="text" class="form-control" id="inputCentroC" formControlName="centroE">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col">
             <label for="inputRecipeC">Recipe</label>
-            <input type="text" class="form-control" id="inputRecipeC">
+            <input type="text" class="form-control" id="inputRecipeC" formControlName="recipeE">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col">
             <label for="inputDiagnosticoC">Diagnostico recibido</label>
-            <input type="text" class="form-control" id="inputDiagnosticoC">
+            <input type="text" class="form-control" id="inputDiagnosticoC" formControlName="diagnosticoE">
           </div>
         </div>
         <div class="form-row mt-2">
           <div class="form-group col">
             <label for="inputObservacionesC">Observaciones</label>
-            <input type="text" class="form-control" id="inputObservacionesC" placeholder="Nombre del Centro">
+            <input type="text" class="form-control" id="inputObservacionesC" formControlName="observacionesE">
           </div>
         </div>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-        <button type="button" class="btn btn-primary">Añadir</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editar()">Aceptar</button>
       </div>
     </div>
   </div>

@@ -58,11 +58,11 @@
             </ul>
             <div class="card-body">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarVacuna">
+                <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarVacuna" (click)="selecciona(vacuna)">
                     Editar
                 </button>
 
-                <button type="button" class="btn btn-danger">
+                <button type="button" class="btn btn-danger" (click)="eliminar(vacuna)">
                     Eliminar
                 </button>
   
@@ -76,7 +76,7 @@
 <app-footer></app-footer>
 
 <!-- Modal Editar-->
-<div class="modal fade" id="editarVacuna" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editarVacuna" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" [formGroup]="formEditar">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -86,28 +86,40 @@
           </button>
         </div>
         <div class="modal-body">
-            <div class="form-row mt-2">
-                <div class="form-group col">
-                    <label for="inputNombreVacuna">Nombre</label>
-                    <input type="text" class="form-control" id="inputNombreVacuna" placeholder="Nombre">
-                </div>
-            </div>
-            <div class="form-row mt-2">
-                <div class="form-group col">
-                    <label for="inputDesVacuna">Descripción</label>
-                    <input type="text" class="form-control" id="inputDesVacuna" placeholder="Descripción">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col">
-                    <label for="inputFechaAdm">Fecha de administración</label>
-                    <input type="date" class="form-control" id="inputFechaAdm">
-                </div>
+          <div class="form-row mt-2">
+            <div class="form-group col">
+                <label for="inputNombreVacuna">Nombre</label>
+                <input type="text" class="form-control" id="inputNombreVacuna" formControlName="nombreE">
             </div>
         </div>
+        <div class="form-row mt-2">
+          <div class="form-group col">
+              <label for="inputClaseVacuna">Clase</label>
+              <input type="text" class="form-control" id="inputClaseVacuna" formControlName="claseE">
+          </div>
+      </div>
+        <div class="form-row mt-2">
+          <div class="form-group col">
+              <label for="inputDosisVacuna">Dosis</label>
+              <input type="number" class="form-control" id="inputDosisVacuna" formControlName="dosisE">
+          </div>
+      </div>
+        <div class="form-row mt-2">
+            <div class="form-group col">
+                <label for="inputDesVacuna">Descripción</label>
+                <input type="text" class="form-control" id="inputDesVacuna" formControlName="descE">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="inputFechaAdm">Fecha de administración</label>
+                <input type="date" class="form-control" formControlName="fechaE" id="inputFechaAdm">
+            </div>
+        </div>
+        </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-          <button type="button" class="btn btn-primary">Añadir</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editar()">Aceptar</button>
         </div>
       </div>
     </div>

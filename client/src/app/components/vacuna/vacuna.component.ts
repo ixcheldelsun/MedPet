@@ -20,12 +20,23 @@ export class VacunaComponent implements OnInit {
   mascotaActual: Mascota;
 
   formAgregar: FormGroup;
+  formEditar:FormGroup;
+
+  seleccion: Vacuna;
 
   nombreV = new FormControl('', Validators.required);
   claseV = new FormControl('', Validators.required);
   dosisV = new FormControl('', Validators.required);
   descV = new FormControl('', Validators.required);
   fechaV = new FormControl('', Validators.required);
+
+  nombreE = new FormControl('', Validators.required);
+  claseE = new FormControl('', Validators.required);
+  dosisE = new FormControl('', Validators.required);
+  descE = new FormControl('', Validators.required);
+  fechaE = new FormControl('', Validators.required);
+
+
 
   constructor(private vacunasService: VacunasService, private mascotaService: MascotasService, private fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {
 
@@ -35,6 +46,14 @@ export class VacunaComponent implements OnInit {
       dosisV: this.dosisV,
       descV: this.descV,
       fechaV: this.fechaV
+    });
+
+    this.formEditar = fb.group({
+      nombreE: this.nombreE,
+      claseE: this.claseE,
+      dosisE: this.dosisE,
+      descE: this.descE,
+      fechaE: this.fechaE
     });
 
     this.mascotaActual = this.mascotaService.mascotaActual;
@@ -93,5 +112,84 @@ export class VacunaComponent implements OnInit {
       err => console.error(err)
     ); 
   }
+
+  selecciona(vacuna: Vacuna){
+    this.seleccion = vacuna;
+    this.formEditar.patchValue({
+      nombreE: vacuna.nombre,
+      claseE: vacuna.clase,
+      dosisE: vacuna.dosis,
+      descE: vacuna.descripcion,
+      fechaE: vacuna.fecha_i
+    });
+  }
+
+  editar(){
+
+    const editado: Vacuna = {
+      id_vacuna: this.seleccion.id_vacuna,
+      nombre: this.formEditar.value.nombreE.toString(),
+      dosis: this.formEditar.value.dosisE,
+      clase: this.formEditar.value.claseE.toString(),
+      descripcion: this.formEditar.value.descE.toString(),
+      fecha_i: this.formEditar.value.fechaE,
+      id_mascota: this.mascotaActual.id_mascota
+    };
+
+    this.vacunasService.editVacuna(editado).subscribe(
+      res => {
+        Swal.fire({
+          type: 'success',
+          title: `Editaste la observación exitosamente`,
+          text: 'Podrás ver la ficha con los datos actualizados al cerrar este mensaje',
+          backdrop:'rgba(57, 207, 60, 0.48)'
+        })
+        this.ngOnInit()
+      }
+    );
+  }
+
+  eliminar(vacuna: Vacuna){
+
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-secondary'
+      },
+      buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons.fire({
+      type: 'question',
+      title: `¿Deseas eliminar esta vacuna?`,
+      text: 'Al aceptar no podrás recuperarla',
+      showCancelButton: true,
+      focusCancel: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.value) {
+        this.vacunasService.deleteVacuna(vacuna.id_vacuna).subscribe(
+          res => {
+            swalWithBootstrapButtons.fire({
+              title: 'Eliminada',
+              text: 'Ficha de vacuna eliminada',
+              type: 'success',
+              backdrop:'rgba(57, 207, 60, 0.48)'
+            } )
+            this.ngOnInit();
+          });
+      } else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          'No eliminaste la ficha',
+          'error'
+        )
+      }
+    })
+  }
+
 
 }

@@ -64,11 +64,11 @@
     </ul>
     <div class="card-body">
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarObservacion">
+      <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarObservacion" (click)="selecciona(observacion)">
         Editar
       </button>
 
-      <button type="button" class="btn btn-danger">
+      <button type="button" class="btn btn-danger" (click)="elminar(observacion)">
         Eliminar
       </button>
 
@@ -83,7 +83,7 @@
 
 <!-- Modal Editar-->
 <div class="modal fade" id="editarObservacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+  aria-hidden="true" [formGroup]="formEditar">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -96,32 +96,32 @@
         <div class="form-row">
           <div class="form-group col">
             <label for="inputFechaO">Fecha de Observación</label>
-            <input type="date" class="form-control" id="inputFechaO">
+            <input type="date" class="form-control" id="inputFechaO" formControlName="fechaE">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col">
             <label for="inputTituloO">Titulo de Observación</label>
-            <input type="text" class="form-control" id="inputTituloO">
+            <input type="text" class="form-control" id="inputTituloO" formControlName="tituloE">
           </div>
         </div>
         <div class="form-row mt-2">
           <div class="form-group col">
             <label for="inputFotoO">Foto</label>
-            <input type="text" class="form-control" id="inputFotoO" placeholder="link">
+            <input type="text" class="form-control" id="inputFotoO" formControlName="fotoE">
           </div>
         </div>
         <div class="form-row mt-2">
           <div class="form-group col">
             <label for="inputTextoO">Texto</label>
-            <input type="text" class="form-control" id="inputTextoO" placeholder="descripcion">
+            <input type="text" class="form-control" id="inputTextoO" formControlName="textoE">
           </div>
         </div>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-        <button type="button" class="btn btn-primary">Añadir</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editar()">Aceptar</button>
       </div>
     </div>
   </div>
@@ -142,13 +142,13 @@
       <div class="modal-body">
         <div class="form-row">
           <div class="form-group col">
-            <label for="inputFechaO">Fecha de Observacion</label>
+            <label for="inputFechaO">Fecha de Observación</label>
             <input type="date" class="form-control" id="inputFechaO" formControlName="fechaO">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col">
-            <label for="inputTituloO">Titulo de Observacion</label>
+            <label for="inputTituloO">Titulo de Observación</label>
             <input type="text" class="form-control" id="inputTituloO" formControlName="tituloO">
           </div>
         </div>

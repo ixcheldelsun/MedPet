@@ -21,13 +21,13 @@ export class VacunasService {
     return this.http.post(`${this.API_URL}/crear`, nueva);
   }
 
-  /* editVacuna(update: Vacuna) {
-    return this.http.put(`${this.API_URL}/editar`, update);
+editVacuna(update: Vacuna) {
+    return this.http.put(`${this.API_URL}/editar`, update, {responseType: "text"});
   }
 
   deleteVacuna(id: number) {
-    return this.http.delete(`${this.API_URL}/eliminar/${id}`);
-  } */
+    return this.http.delete(`${this.API_URL}/eliminar/${id}`, {responseType: "text"});
+  }
 
 
 }

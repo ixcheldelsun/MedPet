@@ -22,11 +22,11 @@ export class CelosService {
   }
 
   editCelo(update: Celo) {
-    return this.http.put(`${this.API_URL}/editar`, update);
+    return this.http.put(`${this.API_URL}/editar`, update, {responseType: "text"});
   }
 
   deleteCelo(id: number) {
-    return this.http.delete(`${this.API_URL}/eliminar/${id}`);
+    return this.http.delete(`${this.API_URL}/eliminar/${id}`, {responseType: "text"});
   }
 
 

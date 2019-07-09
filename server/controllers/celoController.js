@@ -26,9 +26,14 @@ exports.update = (req, res) => {
       id_celo: id
     }
   }).then(() => {
+    console.log("si")
     res.status(200).json({
       msg: "se actualizó el periodo de celo = " + celo.id_celo
     });
+  })
+  .catch(err => {
+    console.log("no")
+    res.send('error:' + err)
   });
 };
 
@@ -44,5 +49,7 @@ exports.delete = (req, res) => {
     res.status(200).json({
       msg: 'Se eliminó el periodo de celo con el id = ' + celo.id_celo
     });
+  }).catch(err => {
+    res.send('error:' + err)
   });
 };
