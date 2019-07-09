@@ -1,5 +1,4 @@
-  
-<!--
+  <!--
   <hr class="m-1 mt-3">
 
 <div class="row mt-5"></div>
@@ -22,48 +21,185 @@
 Fin row -->
 
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="row m-3">
-        <img src="{{mascotaActual.foto}}" alt="foto" width="450rem" height="450rem" style="border-radius: 5px">
-      </div>
-    </div>
-    <div class="col">
-      <div class="row m-3">
-
-        <!-- Card Entrada -->
-
-        <div class="card  m-1" style="width: 30rem;  border-radius: 20px; height: 28rem">
-          &nbsp;
-          <h5 class="card-title" style="text-align: center; font-weight: bold; font-size: 30px">{{mascotaActual.nombre}}
-          </h5>
-          &nbsp;
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Apodo: {{mascotaActual.apodo}}</li>
-            <li class="list-group-item" *ngIf="mascotaActual.especie === 'Gato'">Especie: <i class="fas fa-cat fa-2x"></i></li>
-            <li class="list-group-item" *ngIf="mascotaActual.especie === 'Perro'">Especie: <i class="fas fa-dog fa-2x"></i></li>
-            <li class="list-group-item">Raza: {{mascotaActual.raza}}</li>
-            <li class="list-group-item">Sexo: {{mascotaActual.sexo}}</li>
-            <li class="list-group-item">Fecha de nacimiento: {{mascotaActual.fecha_nacimiento}}</li>
-
-          </ul>
-          <div class="card-body">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarCelo">
-              Editar
-            </button>
-
-            <button type="button" class="btn btn-danger">
-              Eliminar
-            </button>
-
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="row m-3">
+          <img src="{{mascotaActual.foto}}" alt="foto" width="450rem" height="450rem" style="border-radius: 5px">
         </div>
+      </div>
+      <div class="col">
+        <div class="row m-3">
 
-        <!-- Fin Card -->
+          <!-- Card Entrada -->
 
+          <div class="card  m-1" style="width: 30rem;  border-radius: 20px; height: 28rem">
+            &nbsp;
+            <h5 class="card-title" style="text-align: center; font-weight: bold; font-size: 30px">
+              {{mascotaActual.nombre}}
+            </h5>
+            &nbsp;
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Apodo: {{mascotaActual.apodo}}</li>
+              <li class="list-group-item" *ngIf="mascotaActual.especie === 'Gato'">Especie: <i
+                  class="fas fa-cat fa-2x"></i></li>
+              <li class="list-group-item" *ngIf="mascotaActual.especie === 'Perro'">Especie: <i
+                  class="fas fa-dog fa-2x"></i></li>
+              <li class="list-group-item">Raza: {{mascotaActual.raza}}</li>
+              <li class="list-group-item">Sexo: {{mascotaActual.sexo}}</li>
+              <li class="list-group-item">Fecha de nacimiento: {{mascotaActual.fecha_nacimiento}}</li>
+
+            </ul>
+            <div class="card-body">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarMascota">
+                Editar
+              </button>
+
+            </div>
+          </div>
+
+          <!-- Fin Card -->
+
+          <!-- Modal editar -->
+          <div class="modal fade bd-example-modal-lg" id="editarMascota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true" [formGroup]="formMascota">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Editar el perfil de {{mascotaActual.nombre}}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-row">
+                    <div class="form-group col align-content-center">
+                        <img src="{{foto}}" alt="foto" width="100%" style="border-radius: 5px"
+                        style="margin: 0 auto"> 
+                      <button type="button" class="btn btn-light" data-toggle="modal" data-target="#subirImagen" style="margin-top: 3%;">
+                          <i class="fas fa-camera"></i> Cambiar foto
+                      </button>
+                    </div>
+                    <div class="form-group col">
+                      <div class="form-row mt-2">
+                        <div class="form-group col">
+                          <label for="inputNombreMascota">Nombre</label>
+                          <input type="text" class="form-control" formControlName="nombreM">
+                        </div>
+                        <div class="form-group col">
+                          <label for="inputApodo">Apodo</label>
+                          <input type="text" class="form-control" formControlName="apodoM">
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col">
+                          <label for="inputFechaNacMascota">Fecha de nacimiento</label>
+                          <input type="date" class="form-control" formControlName="fechaM">
+                        </div>
+                        <div class="form-group col">
+                          <label for="inputEspecie">Especie</label>
+                          <input type="text" class="form-control" formControlName="especieM">
+                        </div>
+                        <div class="form-group col">
+                          <label for="inputRaza">Raza</label>
+                          <input type="text" class="form-control" formControlName="razaM">
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col">
+                          <label for="inputGenero">Sexo</label>
+                          <select formControlName="sexoM" class="form-control">
+                            <option selected>Macho</option>
+                            <option>Hembra</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editar()">Aceptar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Fin Modal Editar -->
+
+          <!-- Modal Subir imagen-->
+          <div class="modal fade" id="subirImagen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Subir imagen de mi mascota</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div *ngIf="!downloadURL" class="dropzone" dropZone (hovered)="toggleHover($event)"
+                    (dropped)="startUpload($event)" [class.hovering]="isHovering">
+
+
+                    <h3>Arrastra y suelta una imagen</h3>
+
+                    <div class="file">
+                      <label for="subir" class="file-label">
+
+
+                        <input class="file-input" type="file" id="subir" (change)="startUpload($event.target.files)">
+
+
+                        <span class="file-cta">
+                          <span class="file-icon">
+                            <i class="fa fa-upload"></i>
+                          </span>
+                          <span class="file-label">
+                            o elige una…
+                          </span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div *ngIf="percentage | async as pct">
+
+                    <progress class="progress is-info" [value]="pct" max="100" style="width: 100%">
+                    </progress>
+
+                    {{ pct | number }}%
+
+                  </div>
+
+                  <div *ngIf="snapshot | async as snap">
+                    {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }}
+
+                    <div *ngIf="downloadURL | async as url">
+                      <h4>¡Foto subida! {{getImagenUrl(url)}}</h4>
+                    </div>
+
+                    <button (click)="task.pause()" class="btn btn-warning" [disabled]="!isActive(snap)">Pausar</button>
+                    <button (click)="task.cancel()" class="btn btn-danger"
+                      [disabled]="!isActive(snap)">Cancelar</button>
+                    <button (click)="task.resume()" class="btn btn-info"
+                      [disabled]="!(snap?.state === 'paused')">Reanudar</button>
+
+                  </div>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary ml-3" data-dismiss="modal" [disabled]="!downloadURL">
+                    Continuar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Fin Modal Subir imagen-->
+
+        </div>
       </div>
     </div>
   </div>
-</div>

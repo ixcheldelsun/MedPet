@@ -143,7 +143,7 @@ export class FichaRegistroComponent implements OnInit {
     this.snapshot.pipe(finalize(() => {
       const URL = this.storage.ref(this.path).getDownloadURL().pipe.toString()
     }))
-      .subscribe();
+    .subscribe();
 
     const nuevaMascota: Mascota = {
       nombre: this.formMascota.value.nombreM.toString(),

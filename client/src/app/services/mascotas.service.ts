@@ -27,6 +27,11 @@ export class MascotasService {
     return this.http.post(`${this.API_URL}/crear`, nueva);
   }
 
+  editMascota(update: Mascota) {
+    console.log("llego al editMascota")
+    return this.http.put(`${this.API_URL}/editar`, update,  {responseType: "text"});
+  }
+
   //Función para hacer set/actualizar mascota actual
   setMascotaActual(mascota: Mascota) {
     this.mascotaActual = mascota;
