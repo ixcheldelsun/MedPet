@@ -1,4 +1,6 @@
 <app-navbar> </app-navbar>
+<div class="bonito">
+<div class="container-fluid">
 
 <hr class="m-1 mt-3">
 <!-- Inicio row -->
@@ -6,18 +8,17 @@
 <!-- Fin row -->
 
 <!-- Inicio row -->
-<div class="row mb-3 ">
-  <div class="col-2"></div>
-  <div class="col-3">
+<div class="row">
+  <div class="col-2 offset-sm-2 text-center">
         <button class="btn"  style="height: 50px; width:90px; font-family: 'Montserrat', sans-serif; font-size: 25px"  routerLink="/inicio" routerLinkActive="active"><i class="fas fa-angle-double-left"></i></button> 
   </div>
 
-  <div class="col-3">
-      <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px">Vacunas</h2>
+  <div class="col-8 col-sm-6 col-md-4 text-center">
+      <h2 style="font-family: 'Montserrat', sans-serif">Vacunas</h2>
   </div>
 
-  <div class="col-3">
-      <button data-toggle="modal" data-target="#agregarVacuna" class="btn" style="height: 50px; width:300px; font-family: 'Montserrat', sans-serif; font-size: 25px">Añadir <i class="fas fa-plus"></i></button>
+  <div class="col-8 offset-2 offset-sm-0 text-center col-sm-2">
+      <button data-toggle="modal" data-target="#agregarVacuna" class="btn" style="height: 50px; font-family: 'Montserrat', sans-serif; font-size: 25px">Añadir <i class="fas fa-plus"></i></button>
   </div>
 </div>
 
@@ -27,12 +28,9 @@
 
 <!-- Inicio row -->
 
-<div class="row mt-2 mb-2">
-  <div class="col-2"></div>
-  <div class="col-3"></div>
-  <div class="col-3"></div>
-  <div class="col-3">
-      <select  id="inputFiltro" class="form-control" style="width: 300px">
+<div class="row mt-2">
+  <div class="col-4 offset-6 offset-sm-8">
+      <select  id="inputFiltro" class="form-control" style="width: 100%">
       <option selected >Fecha</option>
       </select>
   </div>
@@ -73,6 +71,8 @@
 
 </div>
 <!-- Fin row -->
+</div>
+</div>
 <app-footer></app-footer>
 
 <!-- Modal Editar-->
