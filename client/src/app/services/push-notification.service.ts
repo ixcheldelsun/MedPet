@@ -15,6 +15,6 @@ export class PushNotificationService {
   constructor(private http: HttpClient) { }
 
   public postSubscription(subscription: PushSubscription) {
-    return this.http.post(`${this.API_URL}/subscribe`, subscription)
+    return this.http.post(`subscribe`, subscription)
   }
 }

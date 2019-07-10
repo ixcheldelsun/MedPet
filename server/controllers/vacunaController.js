@@ -44,5 +44,7 @@ exports.delete = (req, res) => {
     res.status(200).json({
       msg: 'Se eliminó la vacuna con el id = ' + vacuna.id_vacuna
     });
+  }).catch(err => {
+    res.send('error:' + err)
   });
 };

@@ -48,5 +48,7 @@ exports.delete = (req, res) => {
       msg: 'Se eliminó el periodo de consulta con el id = ' + consulta.consulta_id
 
     });
+  }).catch(err => {
+    res.send('error:' + err)
   });
 };

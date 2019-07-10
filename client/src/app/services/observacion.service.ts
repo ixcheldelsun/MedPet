@@ -17,14 +17,14 @@ export class ObservacionService {
   constructor(private http: HttpClient) { }
 
   saveObservacion(nueva: Observacion) {
-    return this.http.post(`${this.API_URL}/crear`, nueva);
+    return this.http.post(`observaciones/crear`, nueva);
   }
 
   editObservacion(update: Observacion) {
-    return this.http.put(`${this.API_URL}/editar`, update,  {responseType: "text"});
+    return this.http.put(`observaciones/editar`, update,  {responseType: "text"});
   }
 
   deleteObservacion(id: number) {
-    return this.http.delete(`${this.API_URL}/eliminar/${id}`, {responseType: "text"});
+    return this.http.delete(`observaciones/eliminar/${id}`, {responseType: "text"});
   }
 }

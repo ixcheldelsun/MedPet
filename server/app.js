@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const webpush = require('web-push');
-const whitelist = ['http://localhost:4200', 'http://127.0.0.1:8080']
+const path = require('path')
+const whitelist = ['http://localhost:4200', 'http://localhost:3000', 'http://127.0.0.1:8080']
 
 const PUBLIC_VAPID = "BL08R64x9116xLBFIJDICSHCROAuWA1GFMRId__9pXojPDJvc4Va4r6ZGsY7_2MWvvo7b7GNFVFU2oIukroM1D0";
 
@@ -13,7 +14,7 @@ const cors = require('cors');
 /*const corsOptions = {
   origin: 'http://localhost:4200',
   optionsSuccessStatus: 200
-}*/
+}
 
 
 const corsOptions = {
@@ -25,7 +26,7 @@ const corsOptions = {
     }
   },
   optionsSuccessStatus: 200
-}
+}*/
 
 
 
@@ -47,7 +48,10 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.use(cors(corsOptions))
+app.use(cors());
+
+app.use(express.static("dist/MedPet"))
+
 
 app.get('/', function (req, res) {
   res.send('Hello World!');

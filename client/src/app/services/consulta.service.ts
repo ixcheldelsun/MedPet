@@ -12,19 +12,18 @@ const httpOptions = {
 })
 export class ConsultaService {
 
-  API_URL = 'http://localhost:3000/consultas';
 
   constructor(private http: HttpClient) { }
 
   saveConsulta(nueva: Consulta) {
-    return this.http.post(`${this.API_URL}/crear`, nueva);
+    return this.http.post(`consultas/crear`, nueva);
   }
 
   editConsulta(update: Consulta) {
-    return this.http.put(`${this.API_URL}/editar`, update, {responseType: "text"});
+    return this.http.put(`consultas/editar`, update, {responseType: "text"});
   }
 
   deleteConsulta(id: number) {
-    return this.http.delete(`${this.API_URL}/eliminar/${id}`, {responseType: "text"});
+    return this.http.delete(`consultas/eliminar/${id}`, {responseType: "text"});
   }
 }

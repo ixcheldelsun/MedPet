@@ -44,5 +44,7 @@ exports.delete = (req, res) => {
       msg: 'Se eliminó el periodo de observacion con el id = ' + observacion.observacion_id
 
     });
+  }).catch(err => {
+    res.send('error:' + err)
   });
 };

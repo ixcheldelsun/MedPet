@@ -142,7 +142,7 @@ exports.reinicia_pass = (req, res) => {
 };
 
 exports.enviaMensaje = (req,res) => {
-    let link = `http://localhost:4200/reinicia?token=${req.body.token}&id=${req.body.id}` 
+    let link = `https://medpet.herokuapp.com/reinicia?token=${req.body.token}&id=${req.body.id}` 
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {

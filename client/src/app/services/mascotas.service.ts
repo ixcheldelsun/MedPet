@@ -19,17 +19,15 @@ export class MascotasService {
 
   mascotaActual: Mascota;
 
-  API_URL = 'http://localhost:3000/mascotas';
-
   constructor(private http: HttpClient) {}
 
   saveMascota(nueva: Mascota) {
-    return this.http.post(`${this.API_URL}/crear`, nueva);
+    return this.http.post(`mascotas/crear`, nueva);
   }
 
   editMascota(update: Mascota) {
     console.log("llego al editMascota")
-    return this.http.put(`${this.API_URL}/editar`, update,  {responseType: "text"});
+    return this.http.put(`mascotas/editar`, update,  {responseType: "text"});
   }
 
   //Función para hacer set/actualizar mascota actual
@@ -38,23 +36,23 @@ export class MascotasService {
   }
 
   getVacunas(id: number) {
-    return this.http.get(`${this.API_URL}/${id}/vacunas`);
+    return this.http.get(`mascotas/${id}/vacunas`);
   }
 
   getCelos(id: number) {
-    return this.http.get(`${this.API_URL}/${id}/celos`);
+    return this.http.get(`mascotas/${id}/celos`);
   }
 
   getDesparasitaciones(id: number) {
-    return this.http.get(`${this.API_URL}/${id}/desparasitaciones`);
+    return this.http.get(`mascotas/${id}/desparasitaciones`);
   }
 
   getConsultas(id: number) {
-    return this.http.get(`${this.API_URL}/${id}/consultas`);
+    return this.http.get(`mascotas/${id}/consultas`);
   }
 
   getObservaciones(id: number) {
-    return this.http.get(`${this.API_URL}/${id}/observaciones`);
+    return this.http.get(`mascotas/${id}/observaciones`);
   }
 
 }

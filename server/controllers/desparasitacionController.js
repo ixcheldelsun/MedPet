@@ -48,5 +48,7 @@ exports.delete = (req, res) => {
       msg: 'Se eliminó el periodo de desparasitacion con el id = ' + desparasitacion.desparasitacion_id
 
     });
+  }).catch(err => {
+    res.send('error:' + err)
   });
 };

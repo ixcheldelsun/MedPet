@@ -13,20 +13,18 @@ const httpOptions = {
 })
 export class VacunasService {
 
-  API_URL = 'http://localhost:3000/vacunas';
-
   constructor(private http: HttpClient) { }
 
   saveVacuna(nueva: Vacuna) {
-    return this.http.post(`${this.API_URL}/crear`, nueva);
+    return this.http.post(`vacunas/crear`, nueva);
   }
 
 editVacuna(update: Vacuna) {
-    return this.http.put(`${this.API_URL}/editar`, update, {responseType: "text"});
+    return this.http.put(`vacunas/editar`, update, {responseType: "text"});
   }
 
   deleteVacuna(id: number) {
-    return this.http.delete(`${this.API_URL}/eliminar/${id}`, {responseType: "text"});
+    return this.http.delete(`vacunas/eliminar/${id}`, {responseType: "text"});
   }
 
 
