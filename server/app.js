@@ -50,12 +50,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(cors());
 
-app.use(express.static("dist/MedPet"))
 
-
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
 
 //Rutas 
 app.use('/usuarios', usuarioRoutes);
@@ -67,6 +62,12 @@ app.use('/consultas', consultaRoutes);
 app.use('/observaciones', observacionRoutes);
 //app.use('/subscription', subscriptionRoutes);
 //app.use('/sendNotification', notificationRoutes);
+
+app.use(express.static('dist/MedPet'));
+
+app.get('/*',(req,res) => {
+  res.sendFile(__dirname + '/dist/MedPet/index.html')
+})
 
 //Configuración del puerto
 const port = process.env.PORT || 3000;

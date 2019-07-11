@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1562733494904,
+  "timestamp": 1562840793647,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,7 +11,7 @@
         "/es2015-polyfills.c5dd28b362270c767b34.js",
         "/favicon.ico",
         "/index.html",
-        "/main.9d60319c6a8b32ad0c98.js",
+        "/main.1b09834a50c19f7af0fa.js",
         "/manifest.json",
         "/polyfills.8bbb231b43165d65d357.js",
         "/runtime.26209474bfa8dc87a77c.js",
@@ -24,6 +24,7 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "urls": [
+        "/assets/icons/apple-touch-icon.png",
         "/assets/icons/icon-128x128.png",
         "/assets/icons/icon-144x144.png",
         "/assets/icons/icon-152x152.png",
@@ -32,6 +33,7 @@
         "/assets/icons/icon-512x512.png",
         "/assets/icons/icon-72x72.png",
         "/assets/icons/icon-96x96.png",
+        "/assets/icons/safari-pinned-tab.svg",
         "/assets/imagenes/Logo.png",
         "/assets/imagenes/Perro.jpg",
         "/assets/imagenes/c1.jpg",
@@ -50,7 +52,10 @@
       "name": "Medpet",
       "patterns": [
         "https:\\/\\/use\\.fontawesome\\.com\\/releases\\/v5\\.8\\.2\\/css\\/all\\.css",
-        "https:\\/\\/medpet-d3926\\.firebaseio\\.com"
+        "https:\\/\\/medpet-d3926\\.firebaseio\\.com",
+        "https:\\/\\/medpet\\.herokuapp\\.com\\/usuarios\\/.*",
+        "https:\\/\\/medpet\\.herokuapp\\.com\\/mascotas\\/.*",
+        "https:\\/\\/medpet\\.herokuapp\\.com\\/.*"
       ],
       "strategy": "freshness",
       "maxSize": 100,
@@ -60,14 +65,16 @@
     }
   ],
   "hashTable": {
-    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
-    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
-    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
-    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
-    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
-    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
-    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
-    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/icons/apple-touch-icon.png": "d01950ff601e3ffcd5ddc0bd49a4bedb44d7f18c",
+    "/assets/icons/icon-128x128.png": "6f260a2c456db042f9116987df5761f1cc728dbe",
+    "/assets/icons/icon-144x144.png": "d8bfc8cf869e2d289bb763634bc1b1e9a2db7ba8",
+    "/assets/icons/icon-152x152.png": "77d0f2fa223fbd63764e8f1fad97de4358aca30d",
+    "/assets/icons/icon-192x192.png": "5d634b746c9155fbaeee51ac413fb075b2b6c169",
+    "/assets/icons/icon-384x384.png": "2288c97170ca0ffe1a7a7034f610bd687ec57002",
+    "/assets/icons/icon-512x512.png": "55ce942516ec13342fcbfa906f1e2c9a3e78ab24",
+    "/assets/icons/icon-72x72.png": "9ca27e8c44698d760559435e2e18bcd78e1245a9",
+    "/assets/icons/icon-96x96.png": "fb2e8ab876e4139611aab2aba2552b3fa64b9242",
+    "/assets/icons/safari-pinned-tab.svg": "37cecba709550cbc141130927df91052242c5dc8",
     "/assets/imagenes/Logo.png": "1d5ce6ef9e980ff5ee9fce2f23246864422eb288",
     "/assets/imagenes/Perro.jpg": "77ece1a0e287d0c29a40e1d949b3097236ef894d",
     "/assets/imagenes/c1.jpg": "2c70d6ada7110f6544ff105ecf18131a540b4acb",
@@ -79,8 +86,8 @@
     "/assets/imagenes/p5.jpg": "20233ab398130bfcbb32d93e41bbfa91147916f0",
     "/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "/favicon.ico": "da97d8e1cfc24fc5462008d3930586cb3101c436",
-    "/index.html": "b063f91a34a7739c87a67471a6e264569cf01430",
-    "/main.9d60319c6a8b32ad0c98.js": "8f4a63f4adf8e964725effb46a203cb864dd12a0",
+    "/index.html": "46721aa451395d4448daa3e9d28e3a06e4edc3a6",
+    "/main.1b09834a50c19f7af0fa.js": "308edd332e91619e3a1b8fc15670b2d32f8a6f71",
     "/manifest.json": "05124789a72a7599ecb0e5747c97190604c757ae",
     "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
     "/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",

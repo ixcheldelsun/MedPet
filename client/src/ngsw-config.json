@@ -29,7 +29,10 @@
     "name": "Medpet",
     "urls": [
       "https://use.fontawesome.com/releases/v5.8.2/css/all.css",
-      "https://medpet-d3926.firebaseio.com"
+      "https://medpet-d3926.firebaseio.com",
+      "https://medpet.herokuapp.com/usuarios/**",
+      "https://medpet.herokuapp.com/mascotas/**",
+      "https://medpet.herokuapp.com/**"
     ],
     "cacheConfig": {
       "strategy": "freshness",
