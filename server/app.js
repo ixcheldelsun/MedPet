@@ -11,26 +11,6 @@ const PRIVATE_VAPID = "CL79W5OZR0gL3ITEDswrJkuyo0q_XTxby0Eny7zHSY0";
 
 const cors = require('cors');
 
-/*const corsOptions = {
-  origin: 'http://localhost:4200',
-  optionsSuccessStatus: 200
-}
-
-
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  },
-  optionsSuccessStatus: 200
-}*/
-
-
-
-
 const usuarioRoutes = require('./routes/usuarioRoutes')
 const mascotaRoutes = require('./routes/mascotaRoutes')
 const vacunaRoutes = require('./routes/vacunaRoutes')
@@ -51,7 +31,6 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 
 
-
 //Rutas 
 app.use('/usuarios', usuarioRoutes);
 app.use('/mascotas', mascotaRoutes);
@@ -63,6 +42,7 @@ app.use('/observaciones', observacionRoutes);
 //app.use('/subscription', subscriptionRoutes);
 //app.use('/sendNotification', notificationRoutes);
 
+//Rutas y vistas Client
 app.use(express.static('dist/MedPet'));
 
 app.get('/*',(req,res) => {

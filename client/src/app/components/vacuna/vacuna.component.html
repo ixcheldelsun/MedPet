@@ -1,177 +1,189 @@
 <app-navbar> </app-navbar>
 <div class="bonito">
-<div class="container-fluid">
+  <div class="container-fluid">
 
-<hr class="m-1 mt-3">
-<!-- Inicio row  f-->
-<div class="row mt-5"></div>
-<!-- Fin row -->
+    <hr class="m-1 mt-3">
+    <!-- Inicio row  f-->
+    <div class="row mt-5"></div>
+    <!-- Fin row -->
 
-<!-- Inicio row -->
-<div class="row">
-  <div class="col-2 offset-sm-2 text-center">
-        <button class="btn"  style="height: 50px; width:90px; font-family: 'Montserrat', sans-serif; font-size: 25px"  routerLink="/inicio" routerLinkActive="active"><i class="fas fa-angle-double-left"></i></button> 
-  </div>
-
-  <div class="col-8 col-sm-6 col-md-4 text-center">
-      <h2 style="font-family: 'Montserrat', sans-serif">Vacunas</h2>
-  </div>
-
-  <div class="col-8 offset-2 offset-sm-0 text-center col-sm-2">
-      <button data-toggle="modal" data-target="#agregarVacuna" class="btn" style="height: 50px; font-family: 'Montserrat', sans-serif; font-size: 25px">Añadir <i class="fas fa-plus"></i></button>
-  </div>
-</div>
-
-<hr class="m-1">
-
-<!-- Fin row -->
-
-<!-- Inicio row -->
-
-<div class="row mt-2">
-  <div class="col-4 offset-6 offset-sm-8">
-      <select  id="inputFiltro" class="form-control" style="width: 100%">
-      <option selected >Fecha</option>
-      </select>
-  </div>
-</div>
-
-<hr class="m-1">
-
-<!-- Fin row -->
-
-<!-- Inicio row -->
-<div class="row m-3" *ngIf="vacunasMascota">
-
-    <!-- Card Entrada -->
-    
-        <div class="card  m-1" style="width: 20rem; border-radius: 20px"  *ngFor="let vacuna of vacunasMascota">
-            &nbsp;
-                <h5 class="card-title" style="text-align: center; font-weight: bold; margin-top: 10;">{{vacuna.nombre}}</h5>
-            &nbsp;
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Dosis: {{vacuna.dosis}}</li>
-                <li class="list-group-item">Fecha: {{vacuna.fecha_i}}</li>
-                <li class="list-group-item">Descripción: {{vacuna.descripcion}}</li>
-            </ul>
-            <div class="card-body">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarVacuna" (click)="selecciona(vacuna)">
-                    Editar
-                </button>
-
-                <button type="button" class="btn btn-danger" (click)="eliminar(vacuna)">
-                    Eliminar
-                </button>
-  
-            </div>
-        </div>
-   
-    <!-- Fin Card -->
-
-    <!-- Modal Editar-->
-<div class="modal fade" id="editarVacuna" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" [formGroup]="formEditar">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Editar Vacuna</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="form-row mt-2">
-            <div class="form-group col">
-                <label for="inputNombreVacuna">Nombre</label>
-                <input type="text" class="form-control" id="inputNombreVacuna" formControlName="nombreE">
-            </div>
-        </div>
-        <div class="form-row mt-2">
-          <div class="form-group col">
-              <label for="inputClaseVacuna">Clase</label>
-              <input type="text" class="form-control" id="inputClaseVacuna" formControlName="claseE">
-          </div>
+    <!-- Inicio row -->
+    <div class="row">
+      <div class="col-2 offset-sm-2 text-center">
+        <button class="btn" style="height: 50px; width:90px; font-family: 'Montserrat', sans-serif; font-size: 25px"
+          routerLink="/inicio" routerLinkActive="active"><i class="fas fa-angle-double-left"></i></button>
       </div>
-        <div class="form-row mt-2">
-          <div class="form-group col">
-              <label for="inputDosisVacuna">Dosis</label>
-              <input type="number" class="form-control" id="inputDosisVacuna" formControlName="dosisE">
-          </div>
+
+      <div class="col-8 col-sm-6 col-md-4 text-center">
+        <h2 style="font-family: 'Montserrat', sans-serif">Vacunas</h2>
       </div>
-        <div class="form-row mt-2">
-            <div class="form-group col">
-                <label for="inputDesVacuna">Descripción</label>
-                <input type="text" class="form-control" id="inputDesVacuna" formControlName="descE">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col">
-                <label for="inputFechaAdm">Fecha de administración</label>
-                <input type="date" class="form-control" formControlName="fechaE" id="inputFechaAdm">
-            </div>
-        </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editar()">Aceptar</button>
-        </div>
+
+      <div class="col-8 offset-2 offset-sm-0 text-center col-sm-2">
+        <button data-toggle="modal" data-target="#agregarVacuna" class="btn"
+          style="height: 50px; font-family: 'Montserrat', sans-serif; font-size: 25px">Añadir <i
+            class="fas fa-plus"></i></button>
       </div>
     </div>
-  </div>
-  <!-- Fin Modal Editar-->
 
-  <!-- Modal Añadir-->
-  <div class="modal fade" id="agregarVacuna" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" [formGroup]="formAgregar">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Añadir Vacuna</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
+    <hr class="m-1">
+
+    <!-- Fin row -->
+
+    <!-- Inicio row -->
+
+    <div class="row mt-2">
+      <div class="col-4 offset-6 offset-sm-8">
+        <select id="inputFiltro" class="form-control" style="width: 100%">
+          <option selected>Fecha</option>
+        </select>
+      </div>
+    </div>
+
+    <hr class="m-1">
+
+    <!-- Fin row -->
+
+    <!-- Inicio row -->
+    <div class="row m-3" *ngIf="vacunasMascota">
+
+      <!-- Card Entrada -->
+
+      <div class="card  m-1" style="width: 20rem; border-radius: 20px" *ngFor="let vacuna of vacunasMascota">
+        &nbsp;
+        <h5 class="card-title" style="text-align: center; font-weight: bold; margin-top: 10;">{{vacuna.nombre}}</h5>
+        &nbsp;
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Dosis: {{vacuna.dosis}}</li>
+          <li class="list-group-item">Fecha: {{vacuna.fecha_i}}</li>
+          <li class="list-group-item">Descripción: {{vacuna.descripcion}}</li>
+        </ul>
+        <div class="card-body">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarVacuna"
+            (click)="selecciona(vacuna)">
+            Editar
+          </button>
+
+          <button type="button" class="btn btn-danger" (click)="eliminar(vacuna)">
+            Eliminar
+          </button>
+
+        </div>
+      </div>
+
+      <!-- Fin Card -->
+
+      <!-- Modal Editar-->
+      <div class="modal fade" id="editarVacuna" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" [formGroup]="formEditar">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Editar Vacuna</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
               <div class="form-row mt-2">
-                  <div class="form-group col">
-                      <label for="inputNombreVacuna">Nombre</label>
-                      <input type="text" class="form-control" id="inputNombreVacuna" formControlName="nombreV" placeholder="Nombre">
-                  </div>
+                <div class="form-group col">
+                  <label for="inputNombreVacuna">Nombre</label>
+                  <input type="text" class="form-control" id="inputNombreVacuna" formControlName="nombreE">
+                </div>
               </div>
               <div class="form-row mt-2">
                 <div class="form-group col">
-                    <label for="inputClaseVacuna">Clase</label>
-                    <input type="text" class="form-control" id="inputClaseVacuna" formControlName="claseV" placeholder="Clase">
+                  <label for="inputClaseVacuna">Clase</label>
+                  <input type="text" class="form-control" id="inputClaseVacuna" formControlName="claseE">
                 </div>
-            </div>
+              </div>
               <div class="form-row mt-2">
                 <div class="form-group col">
-                    <label for="inputDosisVacuna">Dosis</label>
-                    <input type="number" class="form-control" id="inputDosisVacuna" formControlName="dosisV" placeholder="Dosis">
+                  <label for="inputDosisVacuna">Dosis</label>
+                  <input type="number" class="form-control" id="inputDosisVacuna" formControlName="dosisE">
                 </div>
-            </div>
+              </div>
               <div class="form-row mt-2">
-                  <div class="form-group col">
-                      <label for="inputDesVacuna">Descripción</label>
-                      <input type="text" class="form-control" id="inputDesVacuna" formControlName="descV" placeholder="Descripción">
-                  </div>
+                <div class="form-group col">
+                  <label for="inputDesVacuna">Descripción</label>
+                  <input type="text" class="form-control" id="inputDesVacuna" formControlName="descE">
+                </div>
               </div>
               <div class="form-row">
-                  <div class="form-group col">
-                      <label for="inputFechaAdm">Fecha de administración</label>
-                      <input type="date" class="form-control" formControlName="fechaV" id="inputFechaAdm">
-                  </div>
+                <div class="form-group col">
+                  <label for="inputFechaAdm">Fecha de administración</label>
+                  <input type="date" class="form-control" formControlName="fechaE" id="inputFechaAdm">
+                </div>
               </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="crear()" [disabled]="!formAgregar.valid">Añadir</button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editar()">Aceptar</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Fin Modal Añadir-->
+      <!-- Fin Modal Editar-->
 
+      <!-- Modal Añadir-->
+      <div class="modal fade" id="agregarVacuna" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" [formGroup]="formAgregar">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Añadir Vacuna</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-row mt-2">
+                <div class="form-group col">
+                  <label for="inputNombreVacuna">Nombre</label>
+                  <input type="text" class="form-control" id="inputNombreVacuna" formControlName="nombreV"
+                    placeholder="Nombre">
+                </div>
+              </div>
+              <div class="form-row mt-2">
+                <div class="form-group col">
+                  <label for="inputClaseVacuna">Clase</label>
+                  <input type="text" class="form-control" id="inputClaseVacuna" formControlName="claseV"
+                    placeholder="Clase">
+                </div>
+              </div>
+              <div class="form-row mt-2">
+                <div class="form-group col">
+                  <label for="inputDosisVacuna">Dosis</label>
+                  <input type="number" class="form-control" id="inputDosisVacuna" formControlName="dosisV"
+                    placeholder="Dosis">
+                </div>
+              </div>
+              <div class="form-row mt-2">
+                <div class="form-group col">
+                  <label for="inputDesVacuna">Descripción</label>
+                  <input type="text" class="form-control" id="inputDesVacuna" formControlName="descV"
+                    placeholder="Descripción">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col">
+                  <label for="inputFechaAdm">Fecha de administración</label>
+                  <input type="date" class="form-control" formControlName="fechaV" id="inputFechaAdm">
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="crear()"
+                [disabled]="!formAgregar.valid">Añadir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fin Modal Añadir-->
+
+    </div>
+  </div>
 </div>
 <!-- Fin row -->
 <app-footer></app-footer>
-

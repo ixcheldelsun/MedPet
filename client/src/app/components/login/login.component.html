@@ -6,15 +6,15 @@
 
     <div class="row">
 
-      <div class="col-3"></div>
+      <div class="col-2"></div>
 
-      <div class="col-6">
+      <div class="col-8">
         <!-- Inicio Cuadro -->
         <div class="recuadroInicio">
 
           <!-- Inicio Fila -->
           <div class="row mt-3 mb-3 justify-content-center">
-            <img src="https://firebasestorage.googleapis.com/v0/b/medpet-d3926.appspot.com/o/%C3%ADconos%2FLogo.png?alt=media&token=12af4baa-7568-4db9-9a49-c82dd899e8a0" width="45%">
+            <img src="https://firebasestorage.googleapis.com/v0/b/medpet-d3926.appspot.com/o/%C3%ADconos%2FLogo.png?alt=media&token=12af4baa-7568-4db9-9a49-c82dd899e8a0" width="45%" height="auto">
           </div>
           <!-- Fin Fila -->
 
@@ -60,11 +60,13 @@
                         </div>
                       </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group text-center">
                       <a routerLink="/olvide">Recuperar contraseña</a>
                     </div>
+                    <div class="form-group text-center">
                     <button type="button" class="btn btn-secondary" routerLinkActive="active" (click)="login()"
                       [disabled]="!formLogin.valid">Iniciar Sesión</button>
+                    </div>
                   </form>
 
                   <!-- Fin Form Iniciar Sesion -->
@@ -152,7 +154,7 @@
         </div>
         <!-- Fin Cuadro -->
       </div>
-      <div class="col-3"></div>
+      <div class="col-2"></div>
     </div>
 
   </div>
