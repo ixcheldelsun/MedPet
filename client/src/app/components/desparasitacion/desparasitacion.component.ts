@@ -8,26 +8,53 @@ import { MascotasService } from '../../services/mascotas.service';
 import { Desparasitacion } from '../../models/desparasitacion';
 import { Mascota } from 'src/app/models/mascota';
 import Swal from 'sweetalert2';
-
+/**
+ * Componente
+ */
 @Component({
   selector: 'app-desparasitacion',
   templateUrl: './desparasitacion.component.html',
   styleUrls: ['./desparasitacion.component.css']
 })
+/**
+ * Clase
+ */
 export class DesparasitacionComponent implements OnInit {
-
+/**
+ * Declaracion de la variable mascotaActual
+ */
   mascotaActual: Mascota;
+  /**
+ * Declaracion de la variable desparasitacionMascota
+ */
   desparasitacionMascota: any;
-
+/**
+ * Declaracion de la variable formAgregar
+ */
   formAgregar: FormGroup;
   formEditar: FormGroup;
 
   seleccion: Desparasitacion;
 
+/**
+ * Declaracion de la variable fechaD
+ */
   fechaD = new FormControl('', Validators.required);
+  /**
+ * Declaracion de la variable veterinarioD
+ */
   veterinarioD = new FormControl('', Validators.required);
+  /**
+ * Declaracion de la variable centroD
+ */
   centroD = new FormControl('', Validators.required);
+  /**
+ * Declaracion de la variable vencimientoD
+ */
   vencimientoD = new FormControl('', Validators.required);
+  /**
+ * Declaracion de la variable observacionesD
+ */
   observacionesD = new FormControl('', Validators.required);
 
   fechaE = new FormControl('', Validators.required);
@@ -36,6 +63,9 @@ export class DesparasitacionComponent implements OnInit {
   vencimientoE = new FormControl('', Validators.required);
   observacionesE = new FormControl('', Validators.required);
 
+  /**
+ * Constructor
+ */
   constructor(private desparasitacionService: DesparasitacionService, private mascotaService: MascotasService, private fb: FormBuilder, private router: Router) {
 
     this.formAgregar = fb.group({
@@ -54,7 +84,9 @@ export class DesparasitacionComponent implements OnInit {
       observacionesE: this.observacionesD
     });
   }
-
+/**
+ * ngOnInit
+ */
   ngOnInit() {
     this.mascotaActual = this.mascotaService.mascotaActual;
 
@@ -71,7 +103,9 @@ export class DesparasitacionComponent implements OnInit {
       }
     )
   }
-
+/**
+ * Funcion que permite crear una nueva nota de desparasitacion
+ */
   crear() {
     const nuevaDesparasitacion: Desparasitacion = {
       fecha: this.formAgregar.value.fechaD,

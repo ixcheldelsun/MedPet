@@ -16,13 +16,18 @@ import { Mascota } from 'src/app/models/mascota';
 import { UserDetails } from 'src/app/models/usuario';
 
 
+/**
+ * Componente
+ */
 @Component({
   selector: 'app-detalles-mascota',
   templateUrl: './detalles-mascota.component.html',
   styleUrls: ['./detalles-mascota.component.css']
 })
 export class DetallesMascotaComponent implements OnInit {
-
+/**
+ * Declaracion de mascotaActual
+ */
   mascotaActual: Mascota;
   usuarioActual: number;
   mascotasUsuario: any;
@@ -56,6 +61,9 @@ export class DetallesMascotaComponent implements OnInit {
   sexoM = new FormControl('', Validators.required);
   fechaM = new FormControl('', Validators.required);
 
+  /**
+ * constructor
+ */
   constructor(private mascotaService: MascotasService, private storage: AngularFireStorage, private auth: AuthService, private usuarioService: UsuariosService, private router: Router, fb: FormBuilder) {
 
     this.formMascota = fb.group({
@@ -68,6 +76,9 @@ export class DetallesMascotaComponent implements OnInit {
     });
    }
 
+/**
+ * ngOnInit
+ */
   ngOnInit() {
     this.mascotaActual = this.mascotaService.mascotaActual;
 

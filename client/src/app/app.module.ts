@@ -10,8 +10,6 @@ import { CommonModule } from '@angular/common';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component'
@@ -24,7 +22,6 @@ import { TablaCategoriasComponent } from './components/tabla-categorias/tabla-ca
 import { VacunaComponent } from './components/vacuna/vacuna.component';
 import { EscogerMascotaComponent } from './components/escoger-mascota/escoger-mascota.component';
 import { CeloComponent } from './components/celo/celo.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BannerComponent } from './components/banner/banner.component';
 

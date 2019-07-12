@@ -7,7 +7,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build": "ng build --prod && cd dist/Medpet && http-server -c-1 -p 8080"
+    "build": "ng build --prod && cd dist/Medpet && http-server -c-1 -p 8080",
+    "compodoc": "npx compodoc -p src/tsconfig.app.json"
   },
   "private": true,
   "dependencies": {

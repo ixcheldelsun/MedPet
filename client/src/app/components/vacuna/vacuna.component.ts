@@ -8,26 +8,53 @@ import { MascotasService } from '../../services/mascotas.service';
 import { Vacuna } from '../../models/vacuna';
 import { Mascota } from 'src/app/models/mascota';
 import Swal from 'sweetalert2';
-
+/**
+ * Componente
+ */
 @Component({
   selector: 'app-vacuna',
   templateUrl: './vacuna.component.html',
   styleUrls: ['./vacuna.component.css']
 })
+ /**
+ * Clase
+ */
 export class VacunaComponent implements OnInit {
-
+ /**
+ * Declaracion de la variable vacunasMascota
+ */
   vacunasMascota: any;
+ /**
+ * Declaracion de la variable mascotaActual
+ */
   mascotaActual: Mascota;
-
+ /**
+ * Declaracion de la variable formAgregar
+ */
   formAgregar: FormGroup;
   formEditar:FormGroup;
 
   seleccion: Vacuna;
 
+ /**
+ * Declaracion de la variable nombreV
+ */
   nombreV = new FormControl('', Validators.required);
+   /**
+ * Declaracion de la variable claseV
+ */
   claseV = new FormControl('', Validators.required);
+  /**
+ * Declaracion de la variable dosisV
+ */
   dosisV = new FormControl('', Validators.required);
+   /**
+ * Declaracion de la variable descV
+ */
   descV = new FormControl('', Validators.required);
+   /**
+ * Declaracion de la variable fechaV
+ */
   fechaV = new FormControl('', Validators.required);
 
   nombreE = new FormControl('', Validators.required);
@@ -38,6 +65,9 @@ export class VacunaComponent implements OnInit {
 
 
 
+ /**
+ * Constructor
+ */
   constructor(private vacunasService: VacunasService, private mascotaService: MascotasService, private fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {
 
     this.formAgregar = fb.group({
@@ -59,7 +89,9 @@ export class VacunaComponent implements OnInit {
     this.mascotaActual = this.mascotaService.mascotaActual;
 
    }
-
+ /**
+ * ngOnInit
+ */
   ngOnInit() {
     this.mascotaActual = this.mascotaService.mascotaActual;
 
@@ -77,7 +109,9 @@ export class VacunaComponent implements OnInit {
     )
     
   }
-
+ /**
+ * Funcion que permite registrar una nueva vacuna
+ */
   crear() {
     const nuevaVacuna: Vacuna = {
       nombre: this.formAgregar.value.nombreV.toString(),

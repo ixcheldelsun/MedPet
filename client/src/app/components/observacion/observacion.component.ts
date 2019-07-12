@@ -10,24 +10,50 @@ import { Mascota } from 'src/app/models/mascota';
 
 import Swal from 'sweetalert2';
 
+/**
+ * Componente
+ */
 @Component({
   selector: 'app-observacion',
   templateUrl: './observacion.component.html',
   styleUrls: ['./observacion.component.css']
 })
+
+/**
+ * Clase
+ */
 export class ObservacionComponent implements OnInit {
-
+/**
+ * Declaracion de la variable mascotaActual
+ */
   mascotaActual: Mascota;
+/**
+ * Declaracion de la variable observacionMascota
+ */
   observacionMascota: any;
-
+/**
+ * Declaracion de la variable formAgregar
+ */
   formAgregar: FormGroup;
   formEditar: FormGroup;
 
   seleccion: Observacion
 
+/**
+ * Declaracion de la variable fechaO
+ */
   fechaO = new FormControl('', Validators.required);
+  /**
+ * Declaracion de la variable tituloO
+ */
   tituloO = new FormControl('', Validators.required);
+  /**
+ * Declaracion de la variable fotoO
+ */
   fotoO = new FormControl('');
+  /**
+ * Declaracion de la variable textoO
+ */
   textoO = new FormControl('', Validators.required);
 
   fechaE = new FormControl('', Validators.required);
@@ -36,6 +62,9 @@ export class ObservacionComponent implements OnInit {
   textoE = new FormControl('', Validators.required);
 
 
+ /**
+ * Constructor
+ */
   constructor(private observacionService: ObservacionService, private mascotaService: MascotasService, private fb: FormBuilder, private router: Router) {
     this.formAgregar = fb.group({
       fechaO: this.fechaO,
@@ -51,7 +80,9 @@ export class ObservacionComponent implements OnInit {
       textoE: this.textoE,
     });
   }
-
+/**
+ * ngOnInit
+ */
   ngOnInit() {
     this.mascotaActual = this.mascotaService.mascotaActual;
 
@@ -68,7 +99,9 @@ export class ObservacionComponent implements OnInit {
       }
     )
   }
-
+/**
+ * Funcion crear observacion
+ */
   crear() {
     const nuevaObservacion: Observacion = {
       fecha: this.formAgregar.value.fechaO,

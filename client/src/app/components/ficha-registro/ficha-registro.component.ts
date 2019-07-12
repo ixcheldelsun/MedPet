@@ -1,3 +1,6 @@
+/**
+ * import
+ */
 import { Component, OnInit } from '@angular/core';
 
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
@@ -15,46 +18,118 @@ import { UserDetails } from 'src/app/models/usuario';
 import { finalize } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 
+/**
+ * Componente
+ */
 @Component({
   selector: 'app-ficha-registro',
   templateUrl: './ficha-registro.component.html',
   styleUrls: ['./ficha-registro.component.css']
 })
+
+/**
+ * Clase
+ */
 export class FichaRegistroComponent implements OnInit {
-
+/**
+ * Declarcion de la variable usuarioActual
+ */
   usuarioActual: number;
+/**
+ * Declarcion de la variable mascotasUsuario
+ */
   mascotasUsuario: any;
+  /**
+ * Declarcion de la variable cantMascotas
+ */
   cantMascotas: number;
+  /**
+ * Declarcion de la variable details
+ */
   details: UserDetails;
+  /**
+ * Declarcion de la variable formMascota
+ */
   formMascota: FormGroup;
+  /**
+ * Declarcion de la variable subida
+ */
   subida: boolean;
-
-  // Atributos  subir imagen a Firebase Storage//
-  //Task principal
+ /**
+ * Atributos  subir imagen a Firebase Storage
+ */
+ /**
+ * Task principal
+ */
   task: AngularFireUploadTask;
+/**
+ * Path
+ */
   path: string;
 
-  //Monitoreo del proceso
+/**
+ * Monitoreo del proceso
+ */
+/**
+ * percentage
+ */
   percentage: Observable<number>;
+/**
+ * snapshot
+ */
   snapshot: Observable<any>;
-
-  //URL imagen
+/**
+ * URL imagen
+ */
+/**
+ * downloadURL
+ */
   downloadURL: Observable<string>;
-  url: string;
+/**
+ * url
+ */
+  url:string;
 
-  //Estado del dropzone para la imagen
+/**
+ * Estado del dropzone para la imagen
+ */
+/**
+ * isHovering
+ */
   isHovering: boolean;
-  //-------------------------------------------//
+/**
+ * ========================================
+ */
 
+/**
+ * Declarcion de la variable nombreM
+ */  
   nombreM = new FormControl('', Validators.required);
+/**
+ * Declarcion de la variable apodoM
+ */
   apodoM = new FormControl('', Validators.required);
+  /**
+ * Declarcion de la variable especieM
+ */
   especieM = new FormControl('', Validators.required);
+  /**
+ * Declarcion de la variable razaM
+ */
   razaM = new FormControl('', Validators.required);
+  /**
+ * Declarcion de la variable sexoM
+ */
   sexoM = new FormControl('', Validators.required);
+  /**
+ * Declarcion de la variable fechaM
+ */
   fechaM = new FormControl('', Validators.required);
 
 
-
+/**
+ * Constructor
+ */
   constructor(private storage: AngularFireStorage, private auth: AuthService, private usuarioService: UsuariosService, private mascotasService: MascotasService, fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {
 
     this.formMascota = fb.group({
@@ -69,6 +144,9 @@ export class FichaRegistroComponent implements OnInit {
 
   }
 
+  /**
+ * ngOnInit
+ */
   ngOnInit() {
     this.downloadURL = undefined;
     this.url = undefined;
@@ -98,46 +176,65 @@ export class FichaRegistroComponent implements OnInit {
 
   }
 
+  /**
+ * Funcion toggleHover
+ */
   toggleHover(event: boolean) {
     this.isHovering = event;
   }
 
-
+/**
+ * Funcion startUpload
+ */
   startUpload(event: FileList) {
-    // El objeto de la imagen a subir
+    /**
+ * El objeto de la imagen a subir
+ */
     const file = event.item(0)
-
-    // Validación de la imagen
-    if (file.type.split('/')[0] !== 'image') {
+/**
+ * Validación de la imagen
+ */
+    if (file.type.split('/')[0] !== 'image') { 
       console.error('Tipo de archivo no es compatible :( ')
       return;
     }
-
-    // Task principal
+/**
+ * Task principal
+ */
+    
     this.task = this.storage.upload(this.path, file)
-
-    // Monitoreo del proceso
+/**
+ * Monitoreo del proceso
+ */
     this.percentage = this.task.percentageChanges();
-    this.snapshot = this.task.snapshotChanges()
-
-    // El URL de la imagen
+    this.snapshot   = this.task.snapshotChanges()
+/**
+ * El URL de la imagen
+ */
     this.snapshot.pipe(finalize(() => {
       this.downloadURL = this.storage.ref(this.path).getDownloadURL()
     }))
       .subscribe();
   }
 
-  // Determina si está activa la función de upload
+  /**
+ * Funcion isActive que determina si está activa la función de upload
+ */
   isActive(snapshot: any) {
     return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes
   }
 
-  getImagenUrl(url: string) {
+  /**
+ * Funcion getImagenUrl
+ */
+  getImagenUrl(url: string){
     this.url = url;
 
   }
 
-
+/**
+ * Funcion registrar
+ */
   registrar(): void {
 
     this.snapshot.pipe(finalize(() => {

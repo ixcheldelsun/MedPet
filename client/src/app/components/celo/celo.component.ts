@@ -1,3 +1,5 @@
+//Imports
+
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
@@ -9,23 +11,45 @@ import { Celo } from '../../models/celo';
 import { Mascota } from 'src/app/models/mascota';
 import Swal from 'sweetalert2';
 
+/**
+ * Componente
+ */
 @Component({
   selector: 'app-celo',
   templateUrl: './celo.component.html',
   styleUrls: ['./celo.component.css']
 })
+/**
+ * Clase celo
+ */
 export class CeloComponent implements OnInit {
-
+/**
+ * Declaracion de la variable mascotaActual
+ */
   mascotaActual: Mascota;
+/**
+ * Declaracion de la variable celoMascota
+ */
   celoMascota: any;
-
+/**
+ * Declaracion de la variable formAgregar
+ */
   formAgregar: FormGroup;
   formEditar: FormGroup;
 
   seleccion: Celo;
 
+/**
+ * Declaracion de la variable fechaIC
+ */
   fechaIC = new FormControl('', Validators.required);
+/**
+ * Declaracion de la variable fechaFC
+ */
   fechaFC = new FormControl('', Validators.required);
+/**
+ * Declaracion de la variable observC
+ */
   observC = new FormControl('', Validators.required);
 
   fechaIE = new FormControl('', Validators.required);
@@ -33,6 +57,9 @@ export class CeloComponent implements OnInit {
   observE = new FormControl('', Validators.required);
 
 
+/**
+ * Constructor
+ */
   constructor(private celoService: CelosService, private mascotaService: MascotasService, private fb: FormBuilder, private router: Router) {
 
     this.mascotaActual = this.mascotaService.mascotaActual;
@@ -57,6 +84,9 @@ export class CeloComponent implements OnInit {
 
   }
 
+/**
+ * ngOnInit
+ */
   ngOnInit() {
     this.mascotaActual = this.mascotaService.mascotaActual;
 
@@ -73,7 +103,9 @@ export class CeloComponent implements OnInit {
       }
     )
   }
-
+/**
+ * Funcion crear nuevo celo
+ */
   crear() {
     const nuevoCelo: Celo = {
       fecha_i: this.formAgregar.value.fechaIC,

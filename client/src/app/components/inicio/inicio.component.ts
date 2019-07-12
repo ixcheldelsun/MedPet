@@ -6,20 +6,38 @@ import { AuthService } from '../../services/auth.service';
 import { Usuario, TokenPayload, UserDetails } from '../../models/usuario';
 import { Mascota } from 'src/app/models/mascota';
 
+
+/**
+ * Componente
+ */
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-
+/**
+ * Declaracion de usuarioActual
+ */
   usuarioActual: Number;
+/**
+ * Declaracion de details
+ */
   details: UserDetails;
+/**
+ * Declaracion de mascotaActual
+ */
   mascotaActual: Mascota;
 
 
-  constructor(private usuarioService: UsuariosService, private mascotaService: MascotasService, private auth: AuthService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
+/**
+ * Constructor
+ */
+  constructor(private usuarioService: UsuariosService, private mascotaService: MascotasService, private auth: AuthService, private router: Router, private activatedRoute: ActivatedRoute) { }
+/**
+ * ngOnInit
+ */
   ngOnInit() {
 
     this.auth.profile().subscribe(
