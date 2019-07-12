@@ -31,20 +31,20 @@ export class ObservacionService {
  * Guardar observacion
  */
   saveObservacion(nueva: Observacion) {
-    return this.http.post(`${this.API_URL}/crear`, nueva);
+    return this.http.post(`observaciones/crear`, nueva);
   }
 
 /**
  * Editar observacion
  */
   editObservacion(update: Observacion) {
-    return this.http.put(`${this.API_URL}/editar`, update);
+    return this.http.put(`observaciones/editar`, update,  {responseType: "text"});
   }
 
 /**
  * Borrar observacion
  */
   deleteObservacion(id: number) {
-    return this.http.delete(`${this.API_URL}/eliminar/${id}`);
+    return this.http.delete(`observaciones/eliminar/${id}`, {responseType: "text"});
   }
 }

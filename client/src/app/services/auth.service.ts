@@ -103,10 +103,10 @@ export class AuthService {
  * Funcion register
  */
   public register (user: TokenPayload): Observable<any> {
-    /**
+      /**
  * Constante
- */
-    const base = this.http.post(`${this.API_URL}/crear`, user);
+ */  
+    const base = this.http.post(`usuarios/crear`, user);
 
     const request = base.pipe(
       map((data: TokenResponse) => {
@@ -123,7 +123,7 @@ export class AuthService {
  * Funcion login
  */
   public login (user: TokenPayload): Observable<any> {
-    const base = this.http.post(`${this.API_URL}/auth`, user);
+    const base = this.http.post(`usuarios/auth`, user);
 
     const request = base.pipe(
       map((data: TokenResponse) => {
@@ -140,7 +140,7 @@ export class AuthService {
  * Funcion profile
  */
   public profile(): Observable<any> {
-    return this.http.get(`${this.API_URL}/profile`, {
+    return this.http.get(`usuarios/profile`, {
       headers: { Authorization: `${this.getToken()}` }
     })
   }

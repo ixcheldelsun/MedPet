@@ -25,7 +25,7 @@ exports.create = (req, res) => {
 //Editar una mascota
 exports.update = (req, res) => {
   let mascota = req.body;
-  let id = req.body.id;
+  let id = req.body.id_mascota;
   Mascota.update(mascota, {
     where: {
       id_mascota: id
@@ -34,6 +34,8 @@ exports.update = (req, res) => {
     res.status(200).json({
       msg: "se actualizó la mascota = " + mascota.nombre
     });
+  }).catch(err => {
+    res.send('error:' + err)
   });
 };
 

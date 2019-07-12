@@ -22,10 +22,6 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CelosService {
-/**
- * URL
- */
-  API_URL = 'http://localhost:3000/celos';
 
   /**
  * Constructor
@@ -36,21 +32,21 @@ export class CelosService {
  * Guardar celo
  */
   saveCelo(nueva: Celo) {
-    return this.http.post(`${this.API_URL}/crear`, nueva);
+    return this.http.post(`celos/crear`, nueva);
   }
 
 /**
  * Editar celo
  */
   editCelo(update: Celo) {
-    return this.http.put(`${this.API_URL}/editar`, update);
+    return this.http.put(`celos/editar`, update, {responseType: "text"});
   }
 
 /**
  * Borrar celo
  */
   deleteCelo(id: number) {
-    return this.http.delete(`${this.API_URL}/eliminar/${id}`);
+    return this.http.delete(`celos/eliminar/${id}`, {responseType: "text"});
   }
 
 

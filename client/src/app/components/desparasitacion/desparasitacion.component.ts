@@ -32,6 +32,10 @@ export class DesparasitacionComponent implements OnInit {
  * Declaracion de la variable formAgregar
  */
   formAgregar: FormGroup;
+  formEditar: FormGroup;
+
+  seleccion: Desparasitacion;
+
 /**
  * Declaracion de la variable fechaD
  */
@@ -53,6 +57,12 @@ export class DesparasitacionComponent implements OnInit {
  */
   observacionesD = new FormControl('', Validators.required);
 
+  fechaE = new FormControl('', Validators.required);
+  veterinarioE = new FormControl('', Validators.required);
+  centroE = new FormControl('', Validators.required);
+  vencimientoE = new FormControl('', Validators.required);
+  observacionesE = new FormControl('', Validators.required);
+
   /**
  * Constructor
  */
@@ -66,6 +76,13 @@ export class DesparasitacionComponent implements OnInit {
       observacionesD: this.observacionesD
     });
 
+    this.formEditar = fb.group({
+      fechaE: this.fechaD,
+      veterinarioE: this.veterinarioD,
+      centroE: this.centroD,
+      vencimientoE: this.vencimientoD,
+      observacionesE: this.observacionesD
+    });
   }
 /**
  * ngOnInit
@@ -112,12 +129,99 @@ export class DesparasitacionComponent implements OnInit {
             backdrop:'rgba(57, 207, 60, 0.48)'
           })
         }
+        else{
+          Swal.fire({
+            type: 'success',
+            title: `Desparasitación agregada`,
+            backdrop:'rgba(57, 207, 60, 0.48)'
+          })
+        }
         this.ngOnInit();
       },
       err => console.error(err)
     );
 
   }
+
+
+  selecciona(desp: Desparasitacion){
+    this.seleccion = desp;
+    this.formEditar.patchValue({
+      fechaE: desp.fecha,
+      veterinarioE: desp.veterinario,
+      centroE: desp.centro,
+      vencimientoE: desp.vencimiento,
+      observacionesE: desp.observaciones
+    });
+  }
+
+  editar(){
+
+    const editado: Desparasitacion = {
+      desparasitacion_id: this.seleccion.desparasitacion_id,
+      fecha: this.formEditar.value.fechaE,
+      veterinario: this.formEditar.value.veterinarioE.toString(),
+      centro: this.formEditar.value.centroE.toString(),
+      vencimiento: this.formEditar.value.vencimientoE,
+      observaciones: this.formEditar.value.observacionesE.toString(),
+      id_mascota: this.mascotaActual.id_mascota,
+    };
+
+    this.desparasitacionService.editDesparasitacion(editado).subscribe(
+      res => {
+        Swal.fire({
+          type: 'success',
+          title: `Editaste la desparasitación exitosamente`,
+          text: 'Podrás ver la ficha con los datos actualizados al cerrar este mensaje',
+          backdrop:'rgba(57, 207, 60, 0.48)'
+        })
+        this.ngOnInit()
+      }
+    );
+  }
+
+  eliminar(desparasitacion: Desparasitacion){
+
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-secondary'
+      },
+      buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons.fire({
+      type: 'question',
+      title: `¿Deseas eliminar esta desparasitación?`,
+      text: 'Al aceptar no podrás recuperarla',
+      showCancelButton: true,
+      focusCancel: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.value) {
+        this.desparasitacionService.deleteDesparasitacion(desparasitacion.desparasitacion_id).subscribe(
+          res => {
+            swalWithBootstrapButtons.fire({
+              title: 'Eliminada',
+              text: 'Ficha de desparasitación eliminada',
+              type: 'success',
+              backdrop:'rgba(57, 207, 60, 0.48)'
+            } )
+            this.ngOnInit();
+          });
+      } else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          'No eliminaste la ficha',
+          'error'
+        )
+      }
+    })
+  }
+
 
 }
 

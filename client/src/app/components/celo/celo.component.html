@@ -1,6 +1,6 @@
 <app-navbar> </app-navbar>
-
-
+<div class="bonito">
+<div class="container-fluid">
 
 <hr class="m-1 mt-3">
 <!-- Inicio row -->
@@ -8,20 +8,19 @@
 <!-- Fin row -->
 
 <!-- Inicio row -->
-<div class="row mb-3 ">
-  <div class="col-2"></div>
-  <div class="col-3">
-    <button class="btn" style="height: 50px; width:90px; font-family: 'Montserrat', sans-serif; font-size: 25px"
+<div class="row">
+  <div class="col-2 offset-sm-2 text-center">
+    <button class="btn" style="height: 50px; font-family: 'Montserrat', sans-serif; font-size: 25px"
       routerLink="/inicio" routerLinkActive="active"><i class="fas fa-angle-double-left"></i></button>
   </div>
 
-  <div class="col-3">
+  <div class="col-8 col-sm-6 col-md-4 text-center">
     <h2 style="font-family: 'Montserrat', sans-serif; font-size: 54px">Celo</h2>
   </div>
 
-  <div class="col-3">
+  <div class="col-8 offset-2 offset-sm-0 text-center col-sm-2">
     <button data-toggle="modal" data-target="#agregarCelo" class="btn"
-      style="height: 50px; width:300px; font-family: 'Montserrat', sans-serif; font-size: 25px">Añadir <i
+      style="height: 50px; font-family: 'Montserrat', sans-serif; font-size: 25px">Añadir <i
         class="fas fa-plus"></i></button>
   </div>
 </div>
@@ -32,12 +31,9 @@
 
 <!-- Inicio row -->
 
-<div class="row mt-2 mb-2">
-  <div class="col-2"></div>
-  <div class="col-3"></div>
-  <div class="col-3"></div>
-  <div class="col-3">
-    <select id="inputFiltro" class="form-control" style="width: 300px">
+<div class="row mt-2">
+  <div class="col-4 offset-6 offset-sm-8">
+    <select id="inputFiltro" class="form-control" style="width: 100%">
       <option selected>Fecha</option>
     </select>
   </div>
@@ -64,11 +60,11 @@
     </ul>
     <div class="card-body">
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarCelo">
+      <button type="button" class="btn btn-success mr-1" data-toggle="modal" data-target="#editarCelo" (click)="selecciona(celo)">
         Editar
       </button>
 
-      <button type="button" class="btn btn-danger">
+      <button type="button" class="btn btn-danger" (click)="eliminar(celo)">
         Eliminar
       </button>
 
@@ -79,11 +75,14 @@
 
 </div>
 <!-- Fin row -->
+
+</div>
+</div>
 <app-footer></app-footer>
 
 <!-- Modal Editar-->
 <div class="modal fade" id="editarCelo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+  aria-hidden="true" [formGroup]="formEditar">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -96,26 +95,29 @@
         <div class="form-row">
           <div class="form-group col">
             <label for="inputFechaI">Fecha de inicio</label>
-            <input type="date" class="form-control" id="inputFechaI">
+            <input type="date" class="form-control" id="inputFechaI" 
+            formControlName="fechaIE">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col">
             <label for="inputFechaF">Fecha de fin</label>
-            <input type="date" class="form-control" id="inputFechaF">
+            <input type="date" class="form-control" id="inputFechaF" 
+            formControlName="fechaFE">
           </div>
         </div>
         <div class="form-row mt-2">
           <div class="form-group col">
-            <label for="inputDesVacuna">Descripción</label>
-            <input type="text" class="form-control" id="inputDesVacuna" placeholder="Descripción">
+            <label for="inputDesCelo">Descripción</label>
+            <input type="text" class="form-control" id="inputDesCelo"
+            formControlName="observE">
           </div>
         </div>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-        <button type="button" class="btn btn-primary">Añadir</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editar()">Aceptar</button>
       </div>
     </div>
   </div>

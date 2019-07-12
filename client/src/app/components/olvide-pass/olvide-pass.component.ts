@@ -3,7 +3,7 @@
  */
 import { Component, OnInit } from '@angular/core';
 
-import { UsuariosService } from '../../services/usuarios.service';
+import { UsuariosService } from '../../services/usuario.service';
 import { Usuario } from '../../models/usuario';
 
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
@@ -33,7 +33,7 @@ export class OlvidePassComponent implements OnInit {
  * Constructor
  */
   constructor(private usuariosService: UsuariosService, fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {
-    
+
     this.formOlvido = fb.group({
       correoO: this.correoO,
     });
@@ -56,8 +56,8 @@ export class OlvidePassComponent implements OnInit {
 
     this.usuariosService.olvidePass(olvidado)
       .subscribe(
-        res => { 
-          this.usuariosService.buscaUsuarioCorreo(olvidado).subscribe( 
+        res => {
+          this.usuariosService.buscaUsuarioCorreo(olvidado).subscribe(
             usr => {
               console.log(usr)
               /**
@@ -71,23 +71,23 @@ export class OlvidePassComponent implements OnInit {
                 reinicia: true
               }
 
-              this.usuariosService.enviaMensaje(form).subscribe( 
+              this.usuariosService.enviaMensaje(form).subscribe(
                 () => {
-                Swal.fire('Recupera tu acceso', 'Ya te enviamos un mensaje con instrucciones a tu correo: '+ olvidado.correo, 'success');
-              });
-              console.log("Para correo de recuperar contra:" +form)
+                  Swal.fire('Recupera tu acceso', 'Ya te enviamos un mensaje con instrucciones a tu correo: ' + olvidado.correo, 'success');
+                });
+              console.log("Para correo de recuperar contra:" + form)
             },
             err => console.error(err)
           );
-         
+
           this.router.navigate(['/inicio'])
         },
         err => Swal.fire('Recuperación fallida', 'Ingresaste un correo que no está asociado a ninguna cuenta.', 'error')
-        
-    );
 
-    
+      );
+
+
   }
-  
+
 
 }

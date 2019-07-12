@@ -20,10 +20,6 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ConsultaService {
-/**
- * URL
- */
-  API_URL = 'http://localhost:3000/consultas';
 
   /**
  * Constructor
@@ -34,20 +30,20 @@ export class ConsultaService {
  * Guardar consulta
  */
   saveConsulta(nueva: Consulta) {
-    return this.http.post(`${this.API_URL}/crear`, nueva);
+    return this.http.post(`consultas/crear`, nueva);
   }
 
 /**
  * Editar consulta
  */
   editConsulta(update: Consulta) {
-    return this.http.put(`${this.API_URL}/editar`, update);
+    return this.http.put(`consultas/editar`, update, {responseType: "text"});
   }
 
 /**
  * Borrar consulta
  */
   deleteConsulta(id: number) {
-    return this.http.delete(`${this.API_URL}/eliminar/${id}`);
+    return this.http.delete(`consultas/eliminar/${id}`, {responseType: "text"});
   }
 }

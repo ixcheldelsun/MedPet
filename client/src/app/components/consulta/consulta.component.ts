@@ -30,6 +30,11 @@ export class ConsultaComponent implements OnInit {
  * Declaracion de la variable consultaMascota
  */
   consultaMascota: any;
+
+  seleccion: Consulta;
+  
+  formEditar: FormGroup;
+
 /**
  * Declaracion de la variable formAgregar
  */
@@ -59,6 +64,13 @@ export class ConsultaComponent implements OnInit {
  */
   observacionesC = new FormControl('', Validators.required);
 
+  fechaE = new FormControl('', Validators.required);
+  veterinarioE = new FormControl('', Validators.required);
+  centroE = new FormControl('', Validators.required);
+  recipeE = new FormControl('', Validators.required);
+  diagnosticoE = new FormControl('', Validators.required);
+  observacionesE = new FormControl('', Validators.required);
+
   /**
  * Constructor
  */
@@ -70,6 +82,15 @@ export class ConsultaComponent implements OnInit {
       recipeC: this.recipeC,
       diagnosticoC: this.diagnosticoC,
       observacionesC: this.observacionesC,
+    });
+
+    this.formEditar = fb.group({
+      fechaE: this.fechaC,
+      veterinarioE: this.veterinarioC,
+      centroE: this.centroC,
+      recipeE: this.recipeC,
+      diagnosticoE: this.diagnosticoC,
+      observacionesE: this.observacionesC,
     });
   }
 
@@ -118,11 +139,98 @@ export class ConsultaComponent implements OnInit {
             backdrop:'rgba(57, 207, 60, 0.48)'
           })
         }
+        else{
+          Swal.fire({
+            type: 'success',
+            title: `Consulta agregada`,
+            backdrop:'rgba(57, 207, 60, 0.48)'
+          })
+        }
         this.ngOnInit();
       },
       err => console.error(err)
     );
 
+  }
+
+  selecciona(consulta: Consulta){
+    this.seleccion = consulta;
+    this.formEditar.patchValue({
+      fechaE: consulta.fecha,
+      veterinarioE: consulta.fecha,
+      centroE: consulta.centro,
+      recipeE: consulta.recipe,
+      diagnosticoE: consulta.diagnostico,
+      observacionesE: consulta.observaciones,
+    });
+  }
+
+  editar(){
+
+    const editado: Consulta = {
+      consulta_id: this.seleccion.consulta_id,
+      fecha: this.formEditar.value.fechaE,
+      veterinario: this.formEditar.value.veterinarioE.toString(),
+      centro: this.formEditar.value.centroE.toString(),
+      recipe: this.formEditar.value.recipeE.toString(),
+      diagnostico: this.formEditar.value.diagnosticoE.toString(),
+      observaciones: this.formEditar.value.observacionesE.toString(),
+      id_mascota: this.mascotaActual.id_mascota
+    };
+
+    this.consultaService.editConsulta(editado).subscribe(
+      res => {
+        Swal.fire({
+          type: 'success',
+          title: `Editaste la consulta exitosamente`,
+          text: 'Podrás ver la ficha con los datos actualizados al cerrar este mensaje',
+          backdrop:'rgba(57, 207, 60, 0.48)'
+        })
+        this.ngOnInit()
+      }
+    );
+}
+
+  eliminar(consulta: Consulta){
+
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-secondary'
+      },
+      buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons.fire({
+      type: 'question',
+      title: `¿Deseas eliminar esta consulta?`,
+      text: 'Al aceptar no podrás recuperarla',
+      showCancelButton: true,
+      focusCancel: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.value) {
+        this.consultaService.deleteConsulta(consulta.consulta_id).subscribe(
+          res => {
+            swalWithBootstrapButtons.fire({
+              title: 'Eliminada',
+              text: 'Ficha de consulta eliminada',
+              type: 'success',
+              backdrop:'rgba(57, 207, 60, 0.48)'
+            } )
+            this.ngOnInit();
+          });
+      } else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          'No eliminaste la ficha',
+          'error'
+        )
+      }
+    })
   }
 
 }

@@ -4,43 +4,24 @@
 
 <hr class="m-1">
 
-<!-- <div class="container main-container"> -->
-<!-- <div class="mt-2 calendar-wrapper"> -->
-<!-- </div> -->
-<!-- <div class="mt-2" > -->
-<!-- </div> -->
-<!-- </div> -->
-
 <!-- Inicio Fondo -->
 <div class="fondo">
   <div class="container">
-
-    <!-- Inicio Fila Calendario -->
-    <!-- <div class="row mt-1">
-        <div class="col-1"></div>
-        <div class="col-10 ml-3 mb-5 mt-2">
-          <div class="cuadro" style="width: 880px; height: 400px; border:solid ">
-              <h2>AQUI VA EL CALENDARIO</h2>
-          </div>
-        </div>
-        <div class="col-1"></div>
-      </div> -->
-    <!-- Final Fila Calendario -->
 
     <!-- Inicio Fila 1 Botones -->
     <div class="row mt-3">
       <div class="col-1">
       </div>
-      <div class="col-5 ml-3">
+      <div class="col-5">
         <div class="boton" routerLink="/vacuna" routerLinkActive="active">
-          <button class="btn" style="background: #778beb; height: 200px; width: 400px; color: white;">
+          <button class="btn btn-block" style="background: #778beb; height:auto; color: white;">
             <div class="icono"> <i class="fa fa-syringe" style="color:white;"></i></div>Vacunas
           </button>
         </div>
       </div>
       <div class="col-5">
         <div class="boton" routerLink="/desparasitacion" routerLinkActive="active">
-          <button class="btn" style="background:#786fa6; height: 200px; width: 400px; color: white;">
+          <button class="btn btn-block" style="background:#786fa6; height:auto; color: white;">
             <div class="icono"> <i class="fa fa-capsules" style="color:white;"></i></div>Desparasitación
           </button>
         </div>
@@ -54,16 +35,16 @@
     <div class="row mt-5">
       <div class="col-1">
       </div>
-      <div class="col-5 ml-3">
+      <div class="col-5">
         <div class="boton" routerLink="/consulta" routerLinkActive="active">
-          <button class="btn" style="background: #f5cd79; height: 200px; width: 400px; color: white;">
+          <button class="btn btn-block" style="background: #f5cd79; height:auto; color: white;">
             <div class="icono"> <i class="fas fa-notes-medical" style="color:white;"></i></div>Consultas
           </button>
         </div>
       </div>
       <div class="col-5">
         <div class="boton" routerLink="/observacion" routerLinkActive="active">
-          <button class="btn" style="background:#f8a5c2; height: 200px; width: 400px; color: white;">
+          <button class="btn btn-block" style="background:#f8a5c2; height:auto; color: white;">
             <div class="icono"> <i class="fas fa-paw" style="color:white;"></i></div>Observaciones
           </button>
         </div>
@@ -82,9 +63,9 @@
     <div class="row mt-5 mb-5" *ngIf="mascotaActual.sexo === 'Hembra'">
       <div class="col-1">
       </div>
-      <div class="col-10 ml-3">
+      <div class="col-10">
         <div class="boton" routerLink="/celo" routerLinkActive="active">
-          <button class="btn" style="background: #f19066; height: 200px; width: 880px;color: white;">
+          <button class="btn btn-block" style="background: #f19066; height:auto ;color: white;">
             <div class="icono"> <i class="fas fa-briefcase-medical" style="color:white;"></i></div>Celo
           </button>
         </div>

@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-
-import { UsuariosService } from '../../services/usuarios.service';
+import { PushNotificationService } from '../../services/push-notification.service';
+import { UsuariosService } from '../../services/usuario.service';
 import { MascotasService } from '../../services/mascotas.service';
 import { AuthService } from 'src/app/services/auth.service';
-
 import { Mascota } from '../../models/mascota';
 
 import { UserDetails } from '../../models/usuario';
-
+import { SwUpdate, SwPush } from '@angular/service-worker';
 
 /**
  * Componente
@@ -31,10 +30,15 @@ export class EscogerMascotaComponent implements OnInit {
  * Declaracion de mascotasUsuario
  */
   mascotasUsuario: any;
+  readonly VAPID_KEY = 'BL08R64x9116xLBFIJDICSHCROAuWA1GFMRId__9pXojPDJvc4Va4r6ZGsY7_2MWvvo7b7GNFVFU2oIukroM1D0';
+
+
 /**
  * Constructor
  */
-  constructor(private auth: AuthService, private usuarioService: UsuariosService, private mascotaService: MascotasService) { }
+  constructor(private swUpdate: SwUpdate, private swPush: SwPush, private pushService: PushNotificationService, private auth: AuthService, private usuarioService: UsuariosService, private mascotaService: MascotasService) { }
+
+
 /**
  * ngOnInit
  */
@@ -43,7 +47,7 @@ export class EscogerMascotaComponent implements OnInit {
       user => {
         this.details = user
         this.usuarioActual = this.details.id_usuario;
-        this.usuarioService.getMascotas(this.usuarioActual).subscribe ( 
+        this.usuarioService.getMascotas(this.usuarioActual).subscribe(
           mascotas => {
             this.mascotasUsuario = mascotas;
           },
@@ -56,6 +60,16 @@ export class EscogerMascotaComponent implements OnInit {
         console.log(err)
       }
     )
+
+    if (this.swPush.isEnabled) {
+      this.swPush.requestSubscription({
+        serverPublicKey: this.VAPID_KEY
+      })
+        .then(subscription => {
+          this.pushService.postSubscription(subscription).subscribe();
+        })
+        .catch(console.error)
+    }
   }
 /**
  * Funcion mascotaActual

@@ -28,10 +28,6 @@ export class UsuariosService {
  * Declaracion
  */
   currentMessage = this.messageSource.asObservable();
-/**
- * URL
- */
-  API_URL = 'http://localhost:3000/usuarios';
 
 /**
  * Constructor
@@ -42,49 +38,49 @@ export class UsuariosService {
  * Auth
  */
   auth(revisa: Usuario) {
-    return this.http.post(`${this.API_URL}/auth`, revisa);
+    return this.http.post(`usuarios/auth`, revisa);
   }
 
   /**
  * Guardar usuario
  */
   saveUsuario(nuevo: Usuario) {
-    return this.http.post(`${this.API_URL}/crear`, nuevo);
+    return this.http.post(`usuarios/crear`, nuevo);
   }
 
   /**
  * Busca el correo del usuario
  */
   buscaUsuarioCorreo(correo: Usuario): Observable<Usuario> {
-    return this.http.post(`${this.API_URL}/buscar`, correo);
+    return this.http.post(`usuarios/buscar`, correo);
   }
 
   /**
  * Obtiene las mascotas
  */
   getMascotas(id: number) {
-    return this.http.get(`${this.API_URL}/${id}/mascotas`);
+    return this.http.get(`usuarios/${id}/mascotas`);
   }
 
   /**
  * PASS
  */
   olvidePass(olvido: Usuario){
-    return this.http.post(`${this.API_URL}/olvide_pass`, olvido);
+    return this.http.post(`usuarios/olvide_pass`, olvido);
   }
 
    /**
  * PASS
  */
   reiniciaPass(reinicia: any){
-    return this.http.post(`${this.API_URL}/reinicia_pass`, reinicia);
+    return this.http.post(`usuarios/reinicia_pass`, reinicia);
   }
 
    /**
  * PASS
  */
   enviaMensaje(form: any) {
-    return this.http.post(`${this.API_URL}/envia_correo`, form)
+    return this.http.post(`usuarios/envia_correo`, form)
   }
  /**
  * PASS

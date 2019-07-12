@@ -24,7 +24,8 @@ import { EscogerMascotaComponent } from './components/escoger-mascota/escoger-ma
 import { CeloComponent } from './components/celo/celo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BannerComponent } from './components/banner/banner.component';
-import { UsuariosService } from './services/usuarios.service'
+
+import { UsuariosService } from './services/usuario.service'
 import { MascotasService } from './services/mascotas.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -41,8 +42,7 @@ import { ReiniciaPassComponent } from './components/reinicia-pass/reinicia-pass.
 import { ProximasComponent } from './components/proximas/proximas.component';
 import { FileSizePipe } from './pipes/file-size.pipe';
 import { DropZoneDirective } from './directives/drop-zone.directive';
-
-
+import { PushNotificationService } from './services/push-notification.service';
 
 @NgModule({
   declarations: [
@@ -92,7 +92,8 @@ import { DropZoneDirective } from './directives/drop-zone.directive';
     UsuariosService,
     MascotasService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    PushNotificationService
   ],
   bootstrap: [AppComponent]
 })

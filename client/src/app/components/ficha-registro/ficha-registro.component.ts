@@ -7,7 +7,7 @@ import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage
 import { Observable } from 'rxjs';
 
 import { MascotasService } from '../../services/mascotas.service';
-import { UsuariosService } from '../../services/usuarios.service';
+import { UsuariosService } from '../../services/usuario.service';
 import { AuthService } from '../../services/auth.service'
 
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
@@ -158,11 +158,11 @@ export class FichaRegistroComponent implements OnInit {
       user => {
         this.details = user
         this.usuarioActual = this.details.id_usuario
-        this.usuarioService.getMascotas(this.usuarioActual).subscribe ( 
+        this.usuarioService.getMascotas(this.usuarioActual).subscribe(
           mascotas => {
             this.mascotasUsuario = mascotas;
             this.cantMascotas = Object.keys(this.mascotasUsuario).length;
-            this.path = `usuario_id_${this.usuarioActual}/mascota_${this.cantMascotas+1}`;
+            this.path = `usuario_id_${this.usuarioActual}/mascota_${this.cantMascotas + 1}`;
           },
           err => {
             console.log(err);
@@ -214,7 +214,7 @@ export class FichaRegistroComponent implements OnInit {
     this.snapshot.pipe(finalize(() => {
       this.downloadURL = this.storage.ref(this.path).getDownloadURL()
     }))
-    .subscribe();
+      .subscribe();
   }
 
   /**
@@ -261,7 +261,7 @@ export class FichaRegistroComponent implements OnInit {
             type: 'success',
             title: `Registro exitoso`,
             text: `¡Agregaste a ${nuevaMascota.nombre} a tus mascotas!`,
-            backdrop:'rgba(57, 207, 60, 0.48)'
+            backdrop: 'rgba(57, 207, 60, 0.48)'
           })
           this.router.navigate(['/inicio']);
         },

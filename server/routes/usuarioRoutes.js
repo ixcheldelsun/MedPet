@@ -28,4 +28,7 @@ router.post('/buscar', Usuario.buscaCorreo);
 //Buscar mascotas de un usuario
 router.get('/:id_usuario/mascotas', Usuario.mascotas);
 
+//Subscribirse a notificaciones
+//router.post('/subscribe', Usuario.subscribe);
+
 module.exports = router;

@@ -3,7 +3,6 @@ const router = express.Router();
 
 
 const Observacion = require("../controllers/observacionController");
-
 //Traer todas los períodos de Observacion
 router.get('/', Observacion.findAll);
 

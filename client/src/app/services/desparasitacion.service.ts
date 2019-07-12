@@ -19,12 +19,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DesparasitacionService {
-/**
- * URL
- */
-  API_URL = 'http://localhost:3000/desparasitaciones';
-
-  /**
+  
+    /**
  * Constructor
  */
   constructor(private http: HttpClient) { }
@@ -33,18 +29,18 @@ export class DesparasitacionService {
  * Guardar desparasitacion
  */
   saveDesparasitacion(nueva: Desparasitacion) {
-    return this.http.post(`${this.API_URL}/crear`, nueva);
+    return this.http.post(`desparasitaciones/crear`, nueva);
   }
 /**
  * Editar desparasitacion
  */
   editDesparasitacion(update: Desparasitacion) {
-    return this.http.put(`${this.API_URL}/editar`, update);
+    return this.http.put(`desparasitaciones/editar`, update, {responseType: "text"});
   }
 /**
  * Borrar desparasitacion
  */
   deleteDesparasitacion(id: number) {
-    return this.http.delete(`${this.API_URL}/eliminar/${id}`);
+    return this.http.delete(`desparasitaciones/eliminar/${id}`, {responseType: "text"});
   }
 }

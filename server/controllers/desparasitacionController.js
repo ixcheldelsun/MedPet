@@ -28,6 +28,10 @@ exports.update = (req, res) => {
     res.status(200).json({
       msg: "se actualizó el periodo de desparasitacion = " + desparasitacion.desparasitacion_id
     });
+  })
+  .catch(err => {
+    console.log("no")
+    res.send('error:' + err)
   });
 };
 
@@ -44,5 +48,7 @@ exports.delete = (req, res) => {
       msg: 'Se eliminó el periodo de desparasitacion con el id = ' + desparasitacion.desparasitacion_id
 
     });
+  }).catch(err => {
+    res.send('error:' + err)
   });
 };

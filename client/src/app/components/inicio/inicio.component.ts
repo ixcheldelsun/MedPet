@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-
-import { UsuariosService } from '../../services/usuarios.service';
+import { UsuariosService } from '../../services/usuario.service';
 import { MascotasService } from '../../services/mascotas.service';
 import { AuthService } from '../../services/auth.service';
-
 import { Usuario, TokenPayload, UserDetails } from '../../models/usuario';
 import { Mascota } from 'src/app/models/mascota';
 
@@ -54,10 +52,11 @@ export class InicioComponent implements OnInit {
 
     this.mascotaActual = this.mascotaService.mascotaActual;
 
-    if(!this.mascotaActual) {
+    if (!this.mascotaActual) {
       this.router.navigateByUrl('/escoger-mascota')
     }
 
   }
+
 
 }

@@ -4,6 +4,7 @@ const Mascota = require('../models/Mascota');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
+//const webpush = require('web-push');
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const crypto = require('crypto');
@@ -141,7 +142,7 @@ exports.reinicia_pass = (req, res) => {
 };
 
 exports.enviaMensaje = (req,res) => {
-    let link = `http://localhost:4200/reinicia?token=${req.body.token}&id=${req.body.id}` 
+    let link = `https://medpet.herokuapp.com/reinicia?token=${req.body.token}&id=${req.body.id}` 
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -271,4 +272,14 @@ exports.buscaCorreo = (req, res) => {
 
 };
 
-   
+//Subscripcion a notificaciones
+/*exports.subscribe = (req, res) => {
+  let sub = req.body; 
+  res.set('Content-Type', 'application/json'); 
+  webpush.setVapidDetails(
+    Usuario.correo,
+
+  )
+  
+}
+*/
